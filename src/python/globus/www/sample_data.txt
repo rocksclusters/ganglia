@@ -1,0 +1,4754 @@
+dn: MDS-service=clusterData, Mds-Host-hn=slic00.sdsc.edu, Mds-Vo-name=local, o=grid
+objectclass: clusterData
+cluster-name: slic00.sdsc.edu
+service: ganglia
+service-version: 2.2.3
+localtime: Wed Apr 17 20:51:47 2002 UTC
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-0-7
+address: 10.255.255.163
+reportedtime: Wed Apr 17 20:51:44 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: boottime
+value: 1018465545
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: cpu_idle
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: cpu_speed
+value: 930
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: cpu_user
+value: 100.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: load_fifteen
+value: 1.94
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: load_five
+value: 2.01
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: load_one
+value: 2.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: mem_buffers
+value: 61888
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: mem_cached
+value: 146072
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: mem_free
+value: 3184
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: mem_shared
+value: 88
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: proc_run
+value: 3
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: proc_total
+value: 73
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: swap_free
+value: 480396
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-7
+source: gmond
+metric: sys_clock
+value: 1018465895
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-4-8
+address: 10.255.255.181
+reportedtime: Wed Apr 17 20:51:47 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: boottime
+value: 1017175931
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: cpu_idle
+value: 99.8
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: cpu_speed
+value: 731
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: cpu_user
+value: 0.2
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: load_fifteen
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: load_five
+value: 0.02
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: load_one
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: mem_buffers
+value: 55868
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: mem_cached
+value: 52020
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: mem_free
+value: 230652
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: mem_shared
+value: 64
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: mem_total
+value: 512416
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: proc_run
+value: 1
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: proc_total
+value: 63
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: swap_free
+value: 398792
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-8
+source: gmond
+metric: sys_clock
+value: 1017176349
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-1-7
+address: 10.255.255.159
+reportedtime: Wed Apr 17 20:51:43 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: boottime
+value: 1018466794
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: cpu_idle
+value: 49.8
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: cpu_speed
+value: 797
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: cpu_system
+value: 0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: cpu_user
+value: 50.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: load_fifteen
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: load_five
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: load_one
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: mem_buffers
+value: 8708
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: mem_cached
+value: 38592
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: mem_free
+value: 283644
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: mem_shared
+value: 4
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: proc_total
+value: 68
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: swap_free
+value: 359720
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-7
+source: gmond
+metric: sys_clock
+value: 1018467171
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-1-6
+address: 10.255.255.160
+reportedtime: Wed Apr 17 20:51:42 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: boottime
+value: 1018467656
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: cpu_idle
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: cpu_speed
+value: 797
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: cpu_user
+value: 99.9
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: load_fifteen
+value: 4.98
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: load_five
+value: 5.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: load_one
+value: 5.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: mem_buffers
+value: 60276
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: mem_cached
+value: 69460
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: mem_free
+value: 4204
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: mem_shared
+value: 476
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: proc_run
+value: 6
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: proc_total
+value: 114
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: swap_free
+value: 478772
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-6
+source: gmond
+metric: sys_clock
+value: 1018468055
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-2-9
+address: 10.255.255.203
+reportedtime: Wed Apr 17 20:51:40 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: boottime
+value: 1017174761
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: cpu_idle
+value: 49.7
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: cpu_speed
+value: 996
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: cpu_user
+value: 50.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: load_fifteen
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: load_five
+value: 1.01
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: load_one
+value: 1.07
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: mem_buffers
+value: 77812
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: mem_cached
+value: 138044
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: mem_free
+value: 311560
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: mem_shared
+value: 72
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: mem_total
+value: 641244
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: proc_total
+value: 68
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: swap_free
+value: 611464
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: swap_total
+value: 642040
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-2-9
+source: gmond
+metric: sys_clock
+value: 1017175106
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-4-1
+address: 10.255.255.188
+reportedtime: Wed Apr 17 20:51:46 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: boottime
+value: 1017176113
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: cpu_idle
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: cpu_speed
+value: 731
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: cpu_system
+value: 72.2
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: cpu_user
+value: 29.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: load_fifteen
+value: 4.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: load_five
+value: 4.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: load_one
+value: 4.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: mem_buffers
+value: 58684
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: mem_cached
+value: 57380
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: mem_free
+value: 56836
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: mem_shared
+value: 64
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: mem_total
+value: 512416
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: proc_run
+value: 5
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: proc_total
+value: 75
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: swap_free
+value: 306204
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-1
+source: gmond
+metric: sys_clock
+value: 1018291137
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-0-3
+address: 10.255.255.244
+reportedtime: Wed Apr 17 20:51:46 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: boottime
+value: 1017181213
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: cpu_idle
+value: 99.9
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: cpu_speed
+value: 930
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: cpu_system
+value: 0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: cpu_user
+value: 0.2
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: load_fifteen
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: load_five
+value: 0.01
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: load_one
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: mem_buffers
+value: 53040
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: mem_cached
+value: 24928
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: mem_free
+value: 206364
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: mem_shared
+value: 64
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: proc_run
+value: 1
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: proc_total
+value: 64
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: swap_free
+value: 328104
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-3
+source: gmond
+metric: sys_clock
+value: 1017181573
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-0-21
+address: 10.255.255.228
+reportedtime: Wed Apr 17 20:51:46 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: boottime
+value: 1017173147
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: cpu_idle
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: cpu_speed
+value: 930
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: cpu_system
+value: 41.2
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: cpu_user
+value: 54.8
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: load_fifteen
+value: 7.29
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: load_five
+value: 7.36
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: load_one
+value: 7.93
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: mem_buffers
+value: 52748
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: mem_cached
+value: 18652
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: mem_free
+value: 3172
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: mem_shared
+value: 64
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: proc_run
+value: 7
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: proc_total
+value: 85
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: swap_free
+value: 209380
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-21
+source: gmond
+metric: sys_clock
+value: 1017173509
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-0-1
+address: 10.255.255.246
+reportedtime: Wed Apr 17 20:51:44 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: boottime
+value: 1018040745
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: cpu_idle
+value: 99.9
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: cpu_speed
+value: 930
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: cpu_user
+value: 0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: load_fifteen
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: load_five
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: load_one
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: mem_buffers
+value: 53152
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: mem_cached
+value: 50200
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: mem_free
+value: 189284
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: mem_shared
+value: 64
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: proc_run
+value: 1
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: proc_total
+value: 62
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: swap_free
+value: 347904
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-1
+source: gmond
+metric: sys_clock
+value: 1018041109
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-4-4
+address: 10.255.255.185
+reportedtime: Wed Apr 17 20:51:40 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: boottime
+value: 1017175929
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: cpu_idle
+value: 99.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: cpu_speed
+value: 731
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: cpu_system
+value: 0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: cpu_user
+value: 0.6
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: load_fifteen
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: load_five
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: load_one
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: mem_buffers
+value: 56740
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: mem_cached
+value: 51532
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: mem_free
+value: 218800
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: mem_shared
+value: 64
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: mem_total
+value: 512416
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: proc_run
+value: 1
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: proc_total
+value: 63
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: swap_free
+value: 387916
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-4-4
+source: gmond
+metric: sys_clock
+value: 1017176351
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-5-6
+address: 10.255.255.169
+reportedtime: Wed Apr 17 20:51:45 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: boottime
+value: 1018468920
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: cpu_idle
+value: 49.8
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: cpu_speed
+value: 731
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: cpu_system
+value: 0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: cpu_user
+value: 50.3
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: load_fifteen
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: load_five
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: load_one
+value: 1.03
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: mem_buffers
+value: 13772
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: mem_cached
+value: 45440
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: mem_free
+value: 285224
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: mem_shared
+value: 4
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: mem_total
+value: 512416
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: proc_total
+value: 69
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: swap_free
+value: 375384
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-6
+source: gmond
+metric: sys_clock
+value: 1018469334
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-5-2
+address: 10.255.255.173
+reportedtime: Wed Apr 17 20:51:46 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: boottime
+value: 1018468696
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: cpu_idle
+value: 49.9
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: cpu_speed
+value: 731
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: cpu_system
+value: 2.5
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: cpu_user
+value: 50.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: load_fifteen
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: load_five
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: load_one
+value: 1.05
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: mem_buffers
+value: 7820
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: mem_cached
+value: 34996
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: mem_free
+value: 43272
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: mem_shared
+value: 4
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: mem_total
+value: 254640
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: proc_total
+value: 68
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: swap_free
+value: 101836
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: swap_total
+value: 254968
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-2
+source: gmond
+metric: sys_clock
+value: 1018469112
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-5-3
+address: 10.255.255.172
+reportedtime: Wed Apr 17 20:51:20 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: boottime
+value: 1017176097
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: cpu_idle
+value: 49.8
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: cpu_speed
+value: 731
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: cpu_user
+value: 50.2
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: load_fifteen
+value: 0.95
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: load_five
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: load_one
+value: 1.03
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: mem_buffers
+value: 51892
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: mem_cached
+value: 39908
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: mem_free
+value: 3308
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: mem_shared
+value: 64
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: mem_total
+value: 512416
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: proc_total
+value: 69
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: swap_free
+value: 268920
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-3
+source: gmond
+metric: sys_clock
+value: 1017176510
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-5-8
+address: 10.255.255.167
+reportedtime: Wed Apr 17 20:51:46 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: boottime
+value: 1017176124
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: cpu_idle
+value: 49.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: cpu_speed
+value: 731
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: cpu_user
+value: 50.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: load_fifteen
+value: 0.95
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: load_five
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: load_one
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: mem_buffers
+value: 55348
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: mem_cached
+value: 55372
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: mem_free
+value: 7140
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: mem_shared
+value: 64
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: mem_total
+value: 512416
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: proc_total
+value: 69
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: swap_free
+value: 378720
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-5-8
+source: gmond
+metric: sys_clock
+value: 1017176543
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-0-14
+address: 10.255.255.162
+reportedtime: Wed Apr 17 20:51:38 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: boottime
+value: 1018465827
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: cpu_idle
+value: -0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: cpu_speed
+value: 797
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: cpu_user
+value: 100.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: load_fifteen
+value: 2.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: load_five
+value: 2.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: load_one
+value: 2.02
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: mem_buffers
+value: 65316
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: mem_cached
+value: 143572
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: mem_free
+value: 4520
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: mem_shared
+value: 88
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: proc_run
+value: 3
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: proc_total
+value: 73
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: swap_free
+value: 416644
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-14
+source: gmond
+metric: sys_clock
+value: 1018466221
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-0-22
+address: 10.255.255.227
+reportedtime: Wed Apr 17 20:51:46 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: boottime
+value: 1018467378
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: cpu_idle
+value: 49.7
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: cpu_speed
+value: 797
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: cpu_user
+value: 50.3
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: load_fifteen
+value: 0.94
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: load_five
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: load_one
+value: 1.04
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: mem_buffers
+value: 64308
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: mem_cached
+value: 161740
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: mem_free
+value: 6868
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: mem_shared
+value: 104
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: proc_total
+value: 69
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: swap_free
+value: 510312
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-22
+source: gmond
+metric: sys_clock
+value: 1018467776
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-0-23
+address: 10.255.255.161
+reportedtime: Wed Apr 17 20:51:45 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: boottime
+value: 1018466280
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: cpu_idle
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: cpu_speed
+value: 797
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: cpu_user
+value: 100.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: load_fifteen
+value: 2.97
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: load_five
+value: 3.01
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: load_one
+value: 3.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: mem_buffers
+value: 63656
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: mem_cached
+value: 117572
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: mem_free
+value: 6580
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: mem_shared
+value: 88
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: proc_run
+value: 4
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: proc_total
+value: 75
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: swap_free
+value: 432892
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-23
+source: gmond
+metric: sys_clock
+value: 1018466680
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-0-13
+address: 10.255.255.235
+reportedtime: Wed Apr 17 20:51:39 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: boottime
+value: 1017172965
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: cpu_idle
+value: 99.9
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: cpu_speed
+value: 930
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: cpu_user
+value: 0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: load_fifteen
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: load_five
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: load_one
+value: 0.02
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: mem_buffers
+value: 58508
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: mem_cached
+value: 47984
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: mem_free
+value: 321336
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: mem_shared
+value: 104
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: proc_run
+value: 1
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: proc_total
+value: 63
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: swap_free
+value: 496216
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-0-13
+source: gmond
+metric: sys_clock
+value: 1017173329
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-3-4
+address: 10.255.255.189
+reportedtime: Wed Apr 17 20:51:45 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: boottime
+value: 1017175741
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: cpu_idle
+value: 98.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: cpu_num
+value: 1
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: cpu_speed
+value: 731
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: cpu_system
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: cpu_user
+value: 0.5
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: load_fifteen
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: load_five
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: load_one
+value: 0.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: mem_buffers
+value: 53832
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: mem_cached
+value: 42904
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: mem_free
+value: 339000
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: mem_shared
+value: 72
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: mem_total
+value: 512416
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: proc_run
+value: 1
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: proc_total
+value: 63
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: swap_free
+value: 495464
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-3-4
+source: gmond
+metric: sys_clock
+value: 1017176272
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-1-18
+address: 10.255.255.213
+reportedtime: Wed Apr 17 20:51:30 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: boottime
+value: 1017174495
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: cpu_idle
+value: 49.9
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: cpu_speed
+value: 930
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: cpu_system
+value: 0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: cpu_user
+value: 50.2
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: load_fifteen
+value: 0.94
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: load_five
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: load_one
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: mem_buffers
+value: 61416
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: mem_cached
+value: 149336
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: mem_free
+value: 20032
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: mem_shared
+value: 72
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: proc_total
+value: 70
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: swap_free
+value: 506612
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-18
+source: gmond
+metric: sys_clock
+value: 1017174845
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: frontend-0
+address: 10.1.1.1
+reportedtime: Wed Apr 17 20:51:42 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: boottime
+value: 1015277807
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: cpu_aidle
+value: 63.4
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: cpu_idle
+value: 40.8
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: cpu_speed
+value: 731
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: cpu_system
+value: 45.8
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: cpu_user
+value: 16.2
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: load_fifteen
+value: 1.16
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: load_five
+value: 1.20
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: load_one
+value: 1.58
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: mem_buffers
+value: 111808
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: mem_cached
+value: 723312
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: mem_free
+value: 25740
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: mem_shared
+value: 72
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: mem_total
+value: 1027996
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: os_release
+value: 2.4.9-13smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: proc_run
+value: 1
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: proc_total
+value: 178
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: swap_free
+value: 134132
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: swap_total
+value: 134616
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: frontend-0
+source: gmond
+metric: sys_clock
+value: 1019074767
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-1-13
+address: 10.255.255.218
+reportedtime: Wed Apr 17 20:51:46 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: boottime
+value: 1018467391
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: cpu_idle
+value: 49.7
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: cpu_speed
+value: 797
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: cpu_system
+value: 0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: cpu_user
+value: 50.2
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: load_fifteen
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: load_five
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: load_one
+value: 1.06
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: mem_buffers
+value: 15296
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: mem_cached
+value: 25968
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: mem_free
+value: 296284
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: mem_shared
+value: 4
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: proc_total
+value: 68
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: swap_free
+value: 366764
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-13
+source: gmond
+metric: sys_clock
+value: 1018467791
+metrictype: uint32
+
+dn: MDS-service=hostData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: hostData
+cluster-name: slic00.sdsc.edu
+hostname: compute-1-11
+address: 10.255.255.158
+reportedtime: Wed Apr 17 20:51:45 2002 UTC
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: boottime
+value: 1018467138
+metrictype: uint32
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: cpu_idle
+value: 49.6
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: cpu_nice
+value: 0.0
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: cpu_num
+value: 2
+metrictype: uint16
+units: CPUs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: cpu_speed
+value: 797
+metrictype: uint32
+units: MHz
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: cpu_system
+value: 0.1
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: cpu_user
+value: 47.6
+metrictype: float
+units: %
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: load_fifteen
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: load_five
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: load_one
+value: 1.00
+metrictype: float
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: machine_type
+value: x86
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: mem_buffers
+value: 6940
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: mem_cached
+value: 14632
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: mem_free
+value: 302732
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: mem_shared
+value: 4
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: mem_total
+value: 512424
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: os_name
+value: Linux
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: os_release
+value: 2.4.9-31smp
+metrictype: string
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: proc_run
+value: 2
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: proc_total
+value: 68
+metrictype: uint32
+units: procs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: swap_free
+value: 344936
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: swap_total
+value: 513016
+metrictype: uint32
+units: KBs
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid
+objectclass: metricData
+hostname: compute-1-11
+source: gmond
+metric: sys_clock
+value: 1018467538
+metrictype: uint32
+

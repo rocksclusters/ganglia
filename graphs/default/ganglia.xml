@@ -1,0 +1,91 @@
+<?xml version="1.0" standalone="no"?>
+
+<graph>
+
+    <description>
+    The Ganglia Roll
+    </description>
+
+    <copyright>
+    Copyright (c) 2000 - 2008 The Regents of the University of California.
+    All rights reserved. Rocks(r) v5.0 www.rocksclusters.org
+    </copyright>
+
+    <changelog>
+    $Log: ganglia.xml,v $
+    Revision 1.18  2008/04/23 21:41:47  bruno
+    ordering fix -- thanks to Tim Theisen for the fix.
+
+    Revision 1.17  2008/03/06 23:41:50  mjk
+    copyright storm on
+
+    Revision 1.16  2007/11/09 00:03:07  anoop
+    Moved solaris graph out of default graph, so that it won't
+    interfere with default roll graph.
+
+    Cleaned up node file for solaris. Now uses the var tag instead of the
+    environmental variable
+
+    Revision 1.15  2007/10/28 19:56:13  anoop
+    *** empty log message ***
+
+    Revision 1.14  2007/10/28 00:36:06  anoop
+    Added Solaris support for the Ganglia Roll
+
+    Revision 1.13  2007/06/23 04:03:34  mjk
+    mars hill copyright
+
+    Revision 1.12  2006/09/11 22:48:11  mjk
+    monkey face copyright
+
+    Revision 1.11  2006/08/10 00:10:27  mjk
+    4.2 copyright
+
+    Revision 1.10  2005/10/12 18:09:13  mjk
+    final copyright for 4.1
+
+    Revision 1.9  2005/09/19 18:34:57  bruno
+    added ganglia news back
+
+    Revision 1.8  2005/09/16 01:02:49  mjk
+    updated copyright
+
+    Revision 1.7  2005/09/08 21:04:56  bruno
+    added a link to the frontend's web site to the ganglia status page
+
+    Revision 1.6  2005/09/02 00:06:59  bruno
+    remove the 'news' component
+
+    Revision 1.5  2005/05/24 21:22:18  mjk
+    update copyright, release is not any closer
+
+    Revision 1.4  2005/03/08 23:48:31  fds
+    Hang off base nodes instead of HPC
+
+    Revision 1.3  2005/03/08 00:21:20  fds
+    Linked in news node.
+
+    Revision 1.2  2005/03/08 00:03:29  fds
+    The Ganglia Roll. Moved all relevant source from rocks/src/ganglia here.
+    Uses Ganglia v2.5.x.
+
+
+    </changelog>
+
+	<!-- Update home page for ganglia after wordpress finishes -->
+	<order head="wordpress-data">
+		<tail>ganglia-wordpress-data</tail>
+	</order>
+
+	<edge from="server">
+		<to>ganglia-server</to>
+		<to>ganglia-wordpress-data</to>
+		<to>news</to>
+	</edge>
+
+	<edge from="client" to="ganglia-client"/>
+	<edge from="base" to="ganglia"/>
+
+</graph>
+
+

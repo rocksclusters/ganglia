@@ -1,0 +1,70 @@
+<section>
+<title> Monitoring Multiple Clusters with Ganglia</title>
+
+<para>
+Ganglia has the ability to track and present monitoring data from multiple clusters. A collection of monitored clusters is called a <emphasis>Grid</emphasis> in Ganglia's nomenclature. This section describes the steps required to setup a multi-cluster monitoring grid.
+</para>
+
+<para>
+The essential idea is to instruct the gmetad daemon on one of your frontend nodes to track the second cluster in addition to its own. This procedure can be repeated to monitor a large set clusters from one location.
+</para>
+
+<para>
+For this discussion, your two clusters are named "A" and "B". We will choose
+the frontend on cluster "A" to be the top-level monitor.
+</para>
+
+<orderedlist>
+<listitem>
+<para>
+On "A" frontend, add the line to /etc/gmetad.conf:
+</para>
+
+<para>
+<screen>
+data_source "Cluster B" B.frontend.domain.name
+</screen>
+</para>
+
+<para>
+Then restart the gmetad server on "A" frontend.
+</para>
+</listitem>
+
+<listitem>
+<para>
+On "B" frontend, add the line to /etc/gmond.conf:
+</para>
+
+<para>
+<screen>
+trusted_hosts A.frontend.domain.name
+</screen>
+</para>
+
+<para>
+Then restart the gmetad server on "B" frontend.
+</para>
+</listitem>
+
+<listitem>
+<para>
+Take a look at the Ganglia page on "A". It should include statistics for B, and a summary or "roll-up" view of both clusters.
+</para>
+</listitem>
+</orderedlist>
+
+<para>
+This screenshot is from the iVDGL Physics Grid3 project. It is a very large grid monitored by Ganglia in a similar manner as specified here.
+</para>
+
+<para>
+<mediaobject>
+  <imageobject>
+    <imagedata fileref="images/ivdgl-ganglia.png" scale=50>
+  </imageobject>
+</mediaobject>
+</para>
+
+</section>
+

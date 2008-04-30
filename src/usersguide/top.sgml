@@ -1,0 +1,134 @@
+<section>
+<title> Cluster Top </title>
+
+<para>
+This page is a version of the standard "top" command for your cluster. This page presents process information from each node in the cluster. This page is useful for monitoring the precise activity of your nodes.
+</para>
+
+<para>
+The Cluster Top differs from standard top in several respects. Most importantly, each row has a "HOST" designation and a "TN" attribute that specifies its age. Since taking a process measurement itself requires resources, compute nodes report process data only once every 60 seconds on average. A process row with TN=30 means the host reported information about that process 30 seconds ago. 
+</para>
+
+<para>
+For brevity and minimal performance impact, each node only reports as many processes as it has CPUs. The processes shown had the highest %CPU utilization on the node at the time of reporting. Unfortunately the number of processes per node is not currently adjustable. The restriction lies in the structure of the Ganglia monitoring system, which only delivers information and has no faculty for accepting parameters on the fly. However, showing the most CPU intensive processes should give you a good idea of how the CPUs are being utilized.
+</para>
+
+<para>
+The process data is gathered by raw processing of the /proc filesystem on each node. Memory statistics differ slightly from standard "ps" output, and are calculated from the /proc/[pid]/statm virtual file.
+</para>
+
+<variablelist>
+<title>Process Columns</title>
+
+<varlistentry>
+<term>TN</term>
+<listitem>
+<para>
+The age of the information in this row, in seconds.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>HOST</term>
+<listitem>
+<para> 
+The node in the cluster on which this process is running.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>PID</term>
+<listitem>
+<para> 
+The Process ID. A non-negative integer, unique among all processes
+on this node.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>USER</term>
+<listitem>
+<para> 
+The username of this processes.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>CMD</term>
+<listitem>
+<para> 
+The command name of this process, without arguments.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>%CPU</term>
+<listitem>
+<para> 
+The percentage of available CPU cycles occupied by this process. This is always an approximate figure, which is more accurate for longer running processes.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>%MEM</term>
+<listitem>
+<para> 
+The percentage of available physical memory occupied by this process.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>SIZE</term>
+<listitem>
+<para> 
+The size of the "text" memory segment of this process, in kilobytes. This approximately relates the size of the executable itself (depending on the BSS segment).
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>DATA</term>
+<listitem>
+<para> 
+Approximately the size of all dynamically allocated memory of this process, in kilobytes. Includes the Heap and Stack of the process. Defined as the "resident" - "shared" size, where resident is the total amount of physical memory used, and shared is defined below. Includes the the text segment as well if this process has no children. 
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>SHARED</term>
+<listitem>
+<para> 
+The size of the shared memory belonging to this process, in kilobytes. Defined as any page of this process' physical memory that is referenced by another process. Includes shared libraries such as the standard libc and loader. 
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>VM</term>
+<listitem>
+<para> 
+The total virtual memory size used by this process, in kilobytes. 
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para>
+<mediaobject>
+  <imageobject>
+    <imagedata fileref="images/top.png" scale=50>
+  </imageobject>
+</mediaobject>
+</para>
+
+</section>
+

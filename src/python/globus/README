@@ -1,0 +1,48 @@
+These are the modifications that were made to the MDS:
+
+1) Added monitoring.schema file in the $GLOBUS_LOCATION/etc directory. 
+This has the object classes and the attributes for the ganglia data. There are 
+3 object classes: clusterData, hostData, and metricData. These are all 3
+independent classes not a hierarchy. This makes querying more logical. So 
+if you just want the clusterData then you query for objectclass=clusterData.
+You can also filter for what fields you would like from the attributes.
+
+2) Modified the $GLOBUS_LOCATION/etc/grid-info-sldap.conf
+
+-Added 'sizelimit 1000' at the top of the file. This sets the size limit 
+of the mds to return 1000 objects (each object is something that starts with 
+a dn: line). This can be increased as needed. The default for the MDS is 500
+and it needed to be increased b/c there is more data then that returned 
+from ganglia.
+
+-Added
+include 	<SCHEMA FILE>
+ex. include	/usr/local/apps/globus-2.0-beta/etc/monitoring.schema
+
+-Modified the line 'schemacheck off' to 'schemacheck on' so that it would
+return warnings about the schema.
+
+3) Added information to the grid-info-resource-ldif.conf file
+
+dn: MDS-service=metricData, Mds-Host-hn=slic00.sdsc.edu, Mds-Vo-name=local, o=grid
+objectclass: GlobusTop
+objectclass: GlobusActiveObject
+objectclass: GlobusActiveSearch
+type: exec
+path:  <PATH TO THE SCRIPT>
+base: ganglia
+args: --format=MDS --select=All
+cachetime: 0
+timelimit: 20
+sizelimit: 0
+
+4) Once these files are changed you need to restart the gris. Do this by
+running $GLOBUS_LOCATION/sbin/SXXgris stop and then SXXgris start. 
+Anytime a file is modified the gris must be restarted.
+
+Additional Notes:
+-You can enable debugging by going into the SXXgris file located in the
+$GLOBUS_LOCATION/sbin directory. Look for the line that has
+grid-info-soft-register and change the -d 0 to -d <SOME#>. The higher the
+number the more information will come out at you.
+

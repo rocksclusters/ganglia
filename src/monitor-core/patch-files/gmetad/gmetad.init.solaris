@@ -1,0 +1,42 @@
+#!/bin/sh
+# $Id: gmetad.init.solaris,v 1.1 2007/04/28 00:02:57 anoop Exp $
+#
+# description: gmetad startup script
+#
+. /lib/svc/share/smf_include.sh
+
+PATH=$PATH:/opt/ganglia/sbin
+GMETAD=gmetad
+export PATH
+
+RETVAL=0
+
+case "$1" in
+   start)
+      echo "Starting GANGLIA gmetad"
+      [ -f `which $GMETAD` ] || exit 1
+      $GMETAD
+      RETVAL=$?
+      echo
+      [ $RETVAL -eq 0 ] && touch /var/lock/gmetad
+      ;;
+
+  stop)
+      echo "Shutting down GANGLIA gmetad"
+      pkill -TERM $GMETAD
+      RETVAL=$?
+      echo
+      [ $RETVAL -eq 0 ] && rm -f /var/lock/gmetad
+      ;;
+
+  restart|reload)
+      $0 stop
+      $0 start
+      RETVAL=$?
+      ;;
+  *)
+      echo "Usage: $0 {start|stop|restart}"
+      exit 1
+esac
+
+exit $RETVAL

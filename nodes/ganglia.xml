@@ -1,0 +1,102 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+	<description>
+
+  UCB's Ganglia Cluster Monitoring tool. This roll
+  creates the machine-specific /etc/gmond.conf ganglia
+  configuration file using information from the Rocks cluster
+  database.
+
+	</description>
+
+	<copyright>
+	Copyright (c) 2000 - 2008 The Regents of the University of California.
+	All rights reserved. Rocks(r) v5.0 www.rocksclusters.org
+	</copyright>
+
+	<changelog>
+	$Log: ganglia.xml,v $
+	Revision 1.18  2008/04/29 19:51:50  bruno
+	get phpsysinfo to work
+	
+	Revision 1.17  2008/04/24 12:22:29  bruno
+	phpSysInfo name changed to phpsysinfo
+	
+	Revision 1.16  2008/03/06 23:41:50  mjk
+	copyright storm on
+	
+	Revision 1.15  2007/06/23 04:03:34  mjk
+	mars hill copyright
+	
+	Revision 1.14  2006/09/11 22:48:11  mjk
+	monkey face copyright
+	
+	Revision 1.13  2006/08/23 20:36:46  anoop
+	Upgraded Ganglia from 2.5.7 to 3.0.3
+	Upgraded RRD Tool from 1.0.38 to 1.2.15
+	
+	Changes to the roll to adapt the roll to the upgrades.
+	
+	Revision 1.12  2006/08/10 00:10:27  mjk
+	4.2 copyright
+	
+	Revision 1.11  2006/07/20 20:30:59  bruno
+	make links so the init scripts from the ganglia package can find the
+	daemons
+	
+	Revision 1.10  2006/07/18 18:15:34  bruno
+	no longer build ganglia from SRPM -- build it from the tarball
+	
+	Revision 1.9  2005/10/12 18:09:13  mjk
+	final copyright for 4.1
+	
+	Revision 1.8  2005/09/16 01:02:50  mjk
+	updated copyright
+	
+	Revision 1.7  2005/05/24 21:22:18  mjk
+	update copyright, release is not any closer
+	
+	Revision 1.6  2005/04/16 00:11:23  fds
+	Ganglia 3 is not ready for prime time yet. Rollback.
+	
+	Revision 1.4  2005/04/01 00:42:35  fds
+	Put in missing cluster top and temp metrics.
+	
+	Revision 1.3  2005/03/12 01:10:28  fds
+	Moved the ganglia-python package here.
+	
+	Revision 1.2  2005/03/08 01:08:05  fds
+	Only the frontend gets usersguide
+	
+	Revision 1.1  2005/03/07 23:51:22  fds
+	Beginning of Ganglia Roll.
+	
+	
+	</changelog>
+
+	<package>ganglia-monitor-core</package>
+	<package>ganglia-python</package>
+	<package>ganglia-hpc</package>
+	<package>phpsysinfo</package>
+
+<post>
+/sbin/chkconfig --add gmond
+
+ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
+ln -s /opt/rocks/bin/rrdtool /usr/bin/rrdtool
+
+<file name="/etc/man.config" mode="append">
+MANPATH /opt/ganglia/man
+</file>
+
+</post>
+
+<post>
+cp /var/www/html/phpsysinfo/config.php.new /var/www/html/phpsysinfo/config.php
+</post>
+
+
+</kickstart>
+

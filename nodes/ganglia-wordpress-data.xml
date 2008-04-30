@@ -1,0 +1,36 @@
+<?xml version="1.0" standalone="no" ?>
+
+<kickstart>
+
+<description>
+Link to ganglia status page on the frontend's web site
+</description>
+
+<changelog>
+$Log: ganglia-wordpress-data.xml,v $
+Revision 1.3  2005/10/18 00:28:30  bruno
+tune the web site
+
+Revision 1.2  2005/10/12 01:25:23  bruno
+updates to the web site
+
+Revision 1.1  2005/09/08 21:04:56  bruno
+added a link to the frontend's web site to the ganglia status page
+
+</changelog>
+
+<post>
+
+<file name="/tmp/ganglia-wp.sql">
+insert into wp_links (link_name, link_url, link_category)
+	values ('Cluster Status',
+	'/ganglia/',
+	2);
+</file>
+
+cat /tmp/ganglia-wp.sql | mysql -u wordpress wordpress
+rm -f /tmp/ganglia-wp.sql
+</post>
+
+</kickstart>
+

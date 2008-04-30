@@ -1,0 +1,301 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+  <description>
+
+  UCB's Ganglia Cluster Monitoring tool. This node 
+  sets up the ganglia webpage, and gmetad meta daemon.
+  Should only be included by frontend nodes.
+
+  </description>
+
+  <changelog>
+  $Log: ganglia-server.xml,v $
+  Revision 1.18  2007/06/09 03:38:17  bruno
+  needed to build rrdtool
+
+  Revision 1.17  2006/11/30 01:15:31  bruno
+  moved ganglia-restore-rrds into the base roll
+
+  also configured the service to be enabled on boot
+
+  Revision 1.16  2006/09/19 21:02:01  anoop
+  Now the web frontend for Ganglia builds from source code rather than from the ganglia-web RPM.
+  This gives us better control over source code.
+
+  Revision 1.15  2006/08/23 20:36:46  anoop
+  Upgraded Ganglia from 2.5.7 to 3.0.3
+  Upgraded RRD Tool from 1.0.38 to 1.2.15
+
+  Changes to the roll to adapt the roll to the upgrades.
+
+  Revision 1.14  2006/07/20 20:30:59  bruno
+  make links so the init scripts from the ganglia package can find the
+  daemons
+
+  Revision 1.13  2006/07/18 18:15:34  bruno
+  no longer build ganglia from SRPM -- build it from the tarball
+
+  Revision 1.12  2006/06/20 22:08:37  bruno
+  hpc-ganglia package no longer exists
+
+  Revision 1.11  2005/05/18 05:21:17  fds
+  Fixed bug for empty latlong field (and all others) pointed out by
+  Marco Descher.
+
+  Revision 1.10  2005/04/16 00:11:23  fds
+  Ganglia 3 is not ready for prime time yet. Rollback.
+
+  Revision 1.8  2005/03/31 22:11:03  fds
+  Package for ganglia pie graph
+
+  Revision 1.7  2005/03/28 19:46:24  bruno
+  need to provide size of rrd temp filesystem in KB
+
+  Revision 1.6  2005/03/17 20:20:19  fds
+  /proc/meminfo format changed
+
+  Revision 1.5  2005/03/08 01:08:05  fds
+  Only the frontend gets usersguide
+
+  Revision 1.4  2005/03/08 00:46:23  fds
+  No DTD ref
+
+  Revision 1.3  2005/03/08 00:34:38  fds
+  Moved hpc-ganglia metrics from hpc roll. Insert-ethers plugin for ganglia.
+
+  Revision 1.2  2005/03/08 00:03:29  fds
+  The Ganglia Roll. Moved all relevant source from rocks/src/ganglia here.
+  Uses Ganglia v2.5.x.
+
+  Revision 1.14  2004/04/27 05:06:39  fds
+  Client and server get hpc-ganglia.
+
+  Revision 1.13  2004/02/18 20:22:05  fds
+  Added new hpc-ganglia rpm. No roll attrs are needed in package tags anymore.
+
+  Revision 1.12  2004/02/03 00:57:25  mjk
+  decolorize / derollize
+
+  Revision 1.11  2004/01/30 00:22:54  mjk
+  color hpc green
+
+  Revision 1.10  2003/12/19 18:59:17  fds
+  Suspend parallel job queue link.
+
+  Revision 1.9  2003/10/23 02:02:24  fds
+  Sorted out ganglia graph ordering.
+
+  Revision 1.8  2003/09/10 19:58:54  fds
+  Rocks Logo will correctly appear.
+
+  Revision 1.7  2003/08/04 20:51:07  fds
+  Links for ganglia 2.5.4, and cluster top.
+
+  Revision 1.6  2003/07/24 17:51:17  fds
+  Better explanations.
+
+  Revision 1.5  2003/07/23 21:21:59  fds
+  Added RRD restoration, remove unneeded perl logic.
+
+  Revision 1.4  2003/07/22 20:12:11  bruno
+  put config parameters in right files
+
+  Revision 1.3  2003/07/21 20:03:41  fds
+  Simple file append structure, with vars= attr
+  where needed
+
+  Revision 1.2  2003/07/16 18:52:45  bruno
+  changes all file creation code to use 'file' tag
+
+  Revision 1.1  2003/07/07 20:47:51  bruno
+  initial release
+
+  Revision 1.36  2003/04/25 23:16:09  mjk
+  might as well gun it
+
+  Revision 1.35  2003/03/07 22:50:01  fds
+  Dont need this hack now that we have ganglia-webfrontend 2.5.3
+
+  Revision 1.34  2003/02/26 22:23:12  fds
+  Subduing long PBS and ssh-key metrics for ganglia host view.
+
+  Revision 1.33  2003/02/14 21:07:10  fds
+  New tmpfs filesystem for rrds, and increasing size of user hash
+  table in gmond.
+
+  Revision 1.32  2003/02/10 22:54:53  fds
+  Enabling gschedule on both fronends and computes.
+
+  Revision 1.31  2003/01/29 23:10:53  fds
+  Changed name to queue from pbs for more generality.
+
+  Revision 1.30  2003/01/28 19:02:10  fds
+  Sprinkling the new Info_RocksVersion variable around.
+
+  Revision 1.29  2002/12/05 20:55:24  fds
+  Resoved some ganglia config file issues, tested with both frontend
+  and client nodes.
+
+  Revision 1.28  2002/11/14 22:51:38  mjk
+  typo
+
+  Revision 1.27  2002/11/14 22:43:02  mjk
+  ia32 gmetad RPM was not official
+
+  Revision 1.26  2002/11/14 21:14:37  mjk
+  graph is way fucked up
+
+  Revision 1.25  2002/11/10 20:06:21  fds
+  Setting the Rocks skin for the webfrontend.
+
+  Revision 1.24  2002/11/08 19:50:56  fds
+  Added meta as a trusted host (but commented).
+
+  Revision 1.23  2002/10/15 22:56:06  fds
+  Added the webfrontend addons with PBS monitoring pages.
+
+  Revision 1.22  2002/10/15 17:57:01  fds
+  Enabling the gschedule service
+
+  Revision 1.21  2002/10/15 17:16:06  bruno
+  typos
+
+  Revision 1.20  2002/10/14 23:37:36  fds
+  Moving to gmetad-only package, which does the service control for us.
+
+  Revision 1.19  2002/10/09 23:16:27  bruno
+  fixup of package names to match our new source tree
+
+  Revision 1.18  2002/10/03 22:26:58  fds
+  A bit cleaner
+
+  Revision 1.17  2002/10/03 19:51:36  fds
+  Enabling the ClusterInfo window, and cleaned up the ganglia nodes.
+
+  Revision 1.16  2002/10/03 00:20:42  fds
+  Changed service name to Info on some things, and fancy index.html
+  header works.
+
+  Revision 1.15  2002/10/02 21:32:11  fds
+  Quoting EOF
+
+  Revision 1.14  2002/10/02 21:17:59  fds
+  Ganglia node design is smoother.
+
+  Revision 1.13  2002/10/02 05:16:40  bruno
+  added ganglia-webfrontend package back
+
+  Revision 1.12  2002/10/01 01:33:35  fds
+  Should work with ganglia-webfrontend 2.5.0
+
+  Revision 1.11  2002/09/20 23:04:16  fds
+  Updated for 2.5.0 structure. RRDtool not currently part of the 2.5.0 package.
+
+  Revision 1.10  2002/08/31 00:19:58  bruno
+  upgrade fixes
+
+  Revision 1.9  2002/08/23 16:55:35  fds
+  Updated package names for new Ganglia version (2.5.0)
+
+  Revision 1.8  2002/05/30 19:35:19  bruno
+  librrdtool name is actually librrdtool0
+
+  Revision 1.7  2002/05/29 19:18:24  bruno
+  added librrdtool for ia64
+
+  Revision 1.6  2002/03/08 01:01:16  bruno
+  perl sucks
+
+  Revision 1.5  2002/02/25 22:43:23  mjk
+  - Removed --sdsc flag from rocks-dist
+  - Changed ganglia xml file to new RPMS
+
+  Revision 1.4  2002/02/06 00:46:45  mjk
+  V2 changes
+  added rrdtool
+
+  Revision 1.3  2001/12/03 21:29:48  bruno
+  need to start axon before pbs-server
+
+  Revision 1.2  2001/09/21 20:15:55  mjk
+  Switch from ISC to RedHat's pump.  Pump sucks but it is standard so
+  we moved most of the ISC options into the kickstart file since they
+  don't change often anyway.
+
+  This includes
+  - NIS domain
+  - Usher command line flags
+  - Multicast enable
+  - NTP configuration
+
+  Revision 1.1  2001/09/05 00:27:17  mjk
+  main and packages section is correct for compute nodes
+
+  </changelog>
+
+  <package>libart_lgpl-devel</package>
+  <package>rrdtool</package>
+  <package>rrdtool-devel</package>
+<!--  <package>ganglia-web</package> -->
+  <package>php-gd</package>
+
+  <!-- The PBS monitoring extensions to Ganglia -->
+  <package>ganglia-webfrontend-addons</package>
+  <package>roll-ganglia-usersguide</package>
+
+
+<post>
+
+/sbin/chkconfig --add ganglia-restore-rrds
+
+
+/sbin/chkconfig --add gmetad
+
+ln -s /opt/ganglia/sbin/gmetad /usr/sbin/gmetad
+
+/opt/rocks/bin/dbreport gmond <var name="Kickstart_PrivateHostname"/> &gt; /etc/gmond.conf
+
+<!-- Make homepage links that require Ganglia. -->
+<file name="/var/www/html/homepage/20-ganglia.html">
+&lt;a href="ganglia/"&gt;Cluster Status (Ganglia)&lt;/a&gt;
+</file>
+
+
+<file name="/var/www/html/homepage/22-cluster-top.html">
+&lt;a href="ganglia/addons/rocks/top.php"&gt;
+Cluster Top (Process Viewer)&lt;/a&gt;
+</file>
+
+
+<file name="/etc/gmetad.conf">
+#
+# The Gmetad configuration file for this cluster.
+# Generated automatically by ganglia-server.xml.
+#
+data_source "<var name="Info_ClusterName"/>" localhost:8649
+</file>
+
+
+<!-- Setup a RAM-backed filesystem for RRDs-->
+mkdir -p /var/lib/ganglia/rrds
+
+# We use 25% of available mem for RRD storage.
+RRDSIZE=`gawk '/MemTotal:/ { print int($2/4) }' /proc/meminfo`000
+
+<file name="/etc/fstab" mode="append" vars="expanded">
+
+# The ram-backed filesystem for ganglia RRD graph databases.
+tmpfs /var/lib/ganglia/rrds tmpfs size=$RRDSIZE,gid=nobody,uid=nobody,defaults 1 0	
+</file>
+
+
+<!-- Choose the 'Rocks' style for Ganglia Pages. --> 
+<file name="/var/www/html/ganglia/conf.php" mode="append">
+&lt;?php $template_name="Rocks"; ?&gt;
+</file>
+
+</post>
+
+</kickstart> 

@@ -1,0 +1,97 @@
+<?xml version="1.0" standalone="no"?>
+
+<kickstart>
+
+  <description>
+
+  UCB's Ganglia Monitor system for client nodes in the
+  cluster. We make the gmonds "deaf" for compute nodes
+  so the memory footprint is O(1) on compute nodes.
+
+  </description>
+
+  <changelog>
+  $Log: ganglia-client.xml,v $
+  Revision 1.6  2006/08/23 20:36:46  anoop
+  Upgraded Ganglia from 2.5.7 to 3.0.3
+  Upgraded RRD Tool from 1.0.38 to 1.2.15
+
+  Changes to the roll to adapt the roll to the upgrades.
+
+  Revision 1.5  2005/04/16 00:11:23  fds
+  Ganglia 3 is not ready for prime time yet. Rollback.
+
+  Revision 1.3  2005/03/08 00:21:20  fds
+  Linked in news node.
+
+  Revision 1.6  2004/02/03 00:57:25  mjk
+  decolorize / derollize
+
+  Revision 1.5  2004/01/30 00:22:54  mjk
+  color hpc green
+
+  Revision 1.4  2003/12/15 17:37:28  fds
+  Note for fully-aware client operation
+
+  Revision 1.3  2003/10/23 02:02:24  fds
+  Sorted out ganglia graph ordering.
+
+  Revision 1.2  2003/10/21 23:52:24  fds
+  Putting gmonds into deaf mode for lower footprint.
+  New nodes will not converge as fast, but that's not the common case.
+
+  Revision 1.1  2003/07/07 20:47:51  bruno
+  initial release
+
+  Revision 1.11  2002/12/05 20:55:24  fds
+  Resoved some ganglia config file issues, tested with both frontend and client
+  nodes.
+
+  Revision 1.10  2002/10/28 19:12:57  mjk
+  fix Node_Hostname bug
+
+  Revision 1.9  2002/10/21 20:36:34  bruno
+  had to change a bit in order to support frontend installation
+
+  Revision 1.8  2002/10/14 23:39:46  fds
+  Ganglia gmond service now in separate package.
+
+  Revision 1.7  2002/10/03 19:39:03  bruno
+  added full pathname to dbreports
+
+  Revision 1.6  2002/10/03 00:20:42  fds
+  Changed service name to Info on some things, and fancy index.html header
+  works.
+
+  Revision 1.5  2002/10/02 20:54:16  fds
+  Using dbreport.py to generate gmond.conf for compute nodes.
+
+  Revision 1.4  2002/04/23 20:21:26  mjk
+  new version of ganglia
+
+  Revision 1.3  2002/02/25 22:43:23  mjk
+  - Removed --sdsc flag from rocks-dist
+  - Changed ganglia xml file to new RPMS
+
+  Revision 1.2  2002/02/06 00:46:45  mjk
+  V2 changes
+  added rrdtool
+
+  Revision 1.1  2001/09/05 00:27:17  mjk
+  main and packages section is correct for compute nodes
+
+  </changelog>
+
+<post>
+
+/sbin/chkconfig --del gmetad
+
+<file name="/etc/gmond.conf">
+<eval shell="sh">
+/opt/rocks/bin/dbreport gmond $Node_Hostname
+</eval>
+</file>
+
+</post>
+
+</kickstart> 

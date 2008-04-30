@@ -1,0 +1,10 @@
+<preface id="preface" xreflabel="preface">
+<title>Preface</title>
+
+<para>
+This Roll installs and configures the 
+<ulink url="http://ganglia.info/">Ganglia</ulink> 
+cluster monitoring system.
+</para>
+
+</preface>

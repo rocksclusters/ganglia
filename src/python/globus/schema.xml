@@ -1,0 +1,87 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- 
+
+OID Space Management
+
+1.3.6.1.4.1.13230			SDSC OID space
+1.3.6.1.4.1.13230.1			SDSC Grid Software
+1.3.6.1.4.1.13230.1.1			SDSC MDS
+1.3.6.1.4.1.13230.1.1.1			SDSC Ganglia MDS metrics
+1.3.6.1.4.1.13230.1.1.1.1		SDSC Ganglia MDS Metrics version 1
+
+1.3.6.1.4.1.13230.1.1.1.1.1		clusterData
+1.3.6.1.4.1.13230.1.1.1.1.2		hostData
+1.3.6.1.4.1.13230.1.1.1.1.3		metricData
+
+-->
+
+
+
+
+<schema oid="1.3.6.4.1.13230.1.1.1.1">
+
+
+<object name="ClusterData">
+	<attribute name="LocalTime" require="must">
+ 		<desc>Cluster local time</desc>
+		<equality>caseIgnoreMatch</equality>
+		<ordering>caseIgnoreOrderingMatch</ordering>
+		<substr>caseIgnoreSubstringsMatch</substr>"
+		<syntax>1.3.6.1.4.1.1466.115.121.1.44</syntax>
+	</attribute>
+
+	<attribute name="Service" require="must">
+		<desc>Name of publishing service</desc>
+	</attribute>
+
+	<attribute name="ServiceVersion" require="must">
+		<desc>Publisher version number</desc>
+	</attribute>
+
+	<attribute name="ClusterName" require="must">
+		<desc>Cluster name</desc>
+	</attribute>
+</object>
+
+
+<object name="HostData">
+	<attribute name="HostAddress" require="must">
+		<desc>ip address of host</desc>
+	</attribute>
+
+	<attribute name="HostName" require="must">
+		<desc>name of host</desc>
+	</attribute>
+
+	<attribute name="ReportedTime" require="must">
+		<desc>the reported time of the metric</desc>
+	</attribute>
+</object>
+
+
+
+<object name="MetricData">
+
+	<attribute name="MetricName" require="must">
+		<desc>name of metric</desc>
+	</attribute>
+
+	<attribute name="MetricValue" require="must">
+		<desc>value of metric</desc>
+	</attribute>
+
+	<attribute name="MetricType" require="may">
+		<desc>type of metric</desc>
+	</attribute>
+
+	<attribute name="MetricUnits" require="may">
+		<desc>units of the metric</desc>
+	</attribute>
+
+	<attribute name="MetricSource" require="may">
+		<desc>source of metric</desc>
+	</attribute>
+</object>
+
+
+</schema>

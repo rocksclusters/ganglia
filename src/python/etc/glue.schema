@@ -1,0 +1,1446 @@
+# Glue Computing Element Schema
+#
+# Namespace: Glue
+#
+# Author: Sergio Andreozzi (INFN-CNAF)
+#         e-mail: andreozzi@cnaf.infn.it
+#
+# OID Structure
+#
+#     Top
+#      |
+#      ---- GlueTop 1.3.6.1.4.1.8005.100
+#             |
+#             ---- .1. GlueGeneralTop
+#             |     |
+#             |     ---- .1. ObjectClass
+#             |     |     |
+#             |     |     ---- .1 GlueSchemaVersion
+#             |     |     |
+#             |     |     ---- .4 GlueKey
+#             |     |     |
+#             |     |     ---- .5 GlueInformationService
+#             |     |
+#             |     ---- .2. Attributes
+#             |           |
+#             |           ---- .1. Attributes for GlueSchemaVersion
+#             |           |
+#             |           ---- .4. Attributes for GlueKey
+#             |           |
+#             |           ---- .5. Attributes for GlueInformationService
+#             |
+#             ---- .2. GlueCETop
+#             |     |
+#             |     ---- .1. ObjectClass
+#             |     |     |
+#             |     |     ---- .1  GlueCE
+#             |     |     |
+#             |     |     ---- .2  GlueCEInfo
+#             |     |     |
+#             |     |     ---- .3  GlueCEState
+#             |     |     |
+#             |     |     ---- .4  GlueCEPolicy
+#             |     |     |
+#             |     |     ---- .5  GlueCEAccessControlBase
+#             |     |     |
+#             |     |     ---- .6  GlueCEJob
+#             |     |
+#             |     ---- .2. Attributes
+#             |     |     |
+#             |     |     ---- .1.  Attributes for GlueCE
+#             |     |     |
+#             |     |     ---- .2.  Attributes for GlueCEInfo
+#             |     |     |
+#             |     |     ---- .3.  Attributes for GlueCEState
+#             |     |     |
+#             |     |     ---- .4.  Attributes for GlueCEPolicy
+#             |     |     |
+#             |     |     ---- .5.  Attributes for GlueCEAccessControlBase
+#             |     |     |
+#             |     |     ---- .6.  Attributes for GlueCEJob
+#             |     |
+#             |     ---- .3. MyObjectClass
+#             |     |
+#             |     ---- .4. MyAttributes
+#             |
+#             ---- .3. GlueClusterTop
+#             |     |
+#             |     ---- .1. ObjectClass
+#             |     |     |
+#             |     |     ---- .1  GlueCluster
+#             |     |     |
+#             |     |     ---- .2  GlueSubCluster
+#             |     |     |
+#             |     |     ---- .3  GlueHost
+#             |     |     |
+#             |     |     ---- .4  GlueHostArchitecture
+#             |     |     |
+#             |     |     ---- .5  GlueHostProcessor
+#             |     |     |
+#             |     |     ---- .6  GlueHostApplicationSoftware
+#             |     |     |
+#             |     |     ---- .7  GlueHostMainMemory
+#             |     |     |
+#             |     |     ---- .8  GlueHostBenchmark
+#             |     |     |
+#             |     |     ---- .9  GlueHostNetworkAdapter
+#             |     |     |
+#             |     |     ---- .10 GlueHostProcessorLoad
+#             |     |     |
+#             |     |     ---- .11 GlueHostSMPLoad
+#             |     |     |
+#             |     |     ---- .12 GlueHostOperatingSystem
+#             |     |     |
+#             |     |     ---- .13 GlueHostLocalFileSystem
+#             |     |     |
+#             |     |     ---- .14 GlueHostRemoteFileSystem
+#             |     |     |
+#             |     |     ---- .15 GlueHostStorageDevice
+#             |     |     |
+#             |     |     ---- .16 GlueHostFile
+#             |     |
+#             |     ---- .2. Attributes
+#             |     |     |
+#             |     |     ---- .1. Attributes for GlueCluster
+#             |     |     |
+#             |     |     ---- .2. Attributes for GlueSubCluster
+#             |     |     |
+#             |     |     ---- .3. Attributes for GlueHost
+#             |     |     |
+#             |     |     ---- .4. Attributes for GlueHostArchitecture
+#             |     |     |
+#             |     |     ---- .5. Attributes for GlueHostProcessor
+#             |     |     |
+#             |     |     ---- .6. Attributes for GlueHostApplicationSoftware
+#             |     |     |
+#             |     |     ---- .7. Attributes for GlueHostMainMemory
+#             |     |     |
+#             |     |     ---- .8. Attributes for GlueHostBenchmark
+#             |     |     |
+#             |     |     ---- .9. Attributes for GlueHostNetworkAdapter
+#             |     |     |
+#             |     |     ---- .10. Attributes for GlueHostProcessorLoad
+#             |     |     |
+#             |     |     ---- .11. Attributes for GlueHostSMPLoad
+#             |     |     |
+#             |     |     ---- .12. Attributes for GlueHostOperatingSystem
+#             |     |     |
+#             |     |     ---- .13. Attributes for GlueHostLocalFileSystem
+#             |     |     |
+#             |     |     ---- .14. Attributes for GlueHostRemoteFileSystem
+#             |     |     |
+#             |     |     ---- .15. Attributes for GlueHostStorageDevice
+#             |     |     |
+#             |     |     ---- .16  Attributes for GlueHostFile
+#             |     |
+#             |     ---- .3. MyObjectClass
+#             |     |
+#             |     ---- .4. MyAttributes
+
+
+#*************************************
+#   Base Class for the Glue Schema
+
+objectclass ( 1.3.6.1.4.1.8005.100
+    NAME 'GlueTop'
+    DESC 'Base class for the Glue Schema'
+    SUP  'Top'
+    ABSTRACT)
+
+#**********************************************
+#   Base Class for general object classes, attributes,
+#   matching rules, etc
+
+objectclass ( 1.3.6.1.4.1.8005.100.1
+    NAME 'GlueGeneralTop'
+    DESC 'Base class for general items in the glue schema'
+    SUP  'GlueTop'
+    ABSTRACT)
+
+#**********************************************
+#   Base Class for the Computing Element info
+
+objectclass ( 1.3.6.1.4.1.8005.100.2
+    NAME 'GlueCETop'
+    DESC 'Base class for the CE'
+    SUP  'GlueTop'
+    ABSTRACT)
+
+#**********************************************
+#   Base Class for the Cluster info
+
+objectclass ( 1.3.6.1.4.1.8005.100.3
+    NAME 'GlueClusterTop'
+    DESC 'Base class for the cluster info'
+    SUP  'GlueTop'
+    ABSTRACT)
+
+#******************************************************
+#     GlueGeneralTop  .1
+#            |
+#       ------------
+#       |         |
+#    Obj .1.    Attr .2.5.
+#       |         |
+#    GlueInformationService
+#       .5
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.1.2.5.1
+    NAME        'GlueInformationServiceURL'
+    DESC        'The Information Service URL publishing the related info'
+    EQUALITY    caseIgnoreIA5Match
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.1.1.5
+    NAME        'GlueInformationService'
+    DESC        'Info for the InformationService'
+    SUP         'GlueGeneralTop'
+    AUXILIARY
+    MAY        (GlueInformationServiceURL) )
+
+#******************************************************
+#     GlueGeneralTop  .1
+#            |
+#       -----------
+#       |         |
+#    Obj .1.    Attr .2.1.
+#       |         |
+#  GlueSchemaVersion
+#       .1
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.1.2.1.1
+    NAME 	'GlueSchemaVersionMajor'
+    DESC 	'Major Schema version number'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.1.2.1.2
+    NAME 	'GlueSchemaVersionMinor'
+    DESC 	'Minor Schema version number'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.1.1.1
+    NAME 	'GlueSchemaVersion'
+    DESC 	'Schema Version Number'
+    SUP  	'GlueGeneralTop'
+    AUXILIARY
+    MUST 	(GlueSchemaVersionMajor $ GlueSchemaVersionMinor) )	
+
+#**********************************************
+#
+#    Internal attributes to be used to overcome
+#    OpenLDAP limitations in query flexibility
+#
+#     GlueGeneralTop  .1
+#            |
+#       -----------
+#       |         |
+#    Obj .1.    Attr .4.2.
+#       |         |
+#    GlueKey
+#       .4
+#
+
+
+attributetype ( 1.3.6.1.4.1.8005.100.1.4.2.1
+    NAME        'GlueChunkKey'
+    DESC        'RDN (AttributeType=AttributeValue) to be used to reference related entry'
+    EQUALITY    caseIgnoreIA5Match
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26)
+
+attributetype ( 1.3.6.1.4.1.8005.100.1.4.2.2
+    NAME        'GlueForeignKey'
+    DESC        'RDN (AttributeType=AttributeValue)'
+    EQUALITY    caseIgnoreIA5Match
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26)
+
+objectclass ( 1.3.6.1.4.1.8005.100.1.1.4
+    NAME        'GlueKey'
+    DESC        'Internal atributes to express object associations'
+    SUP         'GlueGeneralTop'
+    AUXILIARY
+    MAY         (GlueChunkKey $ GlueForeignKey) )
+
+#******************************************************
+#     GlueCETop  .2
+#            |
+#       ------------
+#       |         |
+#    Obj .1.    Attr .2.1.
+#       |         |
+#    GlueCE
+#       .1
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.1.1
+    NAME 	'GlueCEUniqueID'
+    DESC 	'A CE Unique ID'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.1.2
+    NAME 	'GlueCEName'
+    DESC 	'name of this CE, could be the name of the local queue associated with it'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.1.3
+    NAME 	'GlueCEHostingCluster'
+    DESC 	'name of the underlying cluster - DEPRECATED - use GlueForeignKey'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.2.1.1
+    NAME 	'GlueCE'
+    DESC 	'Info for Computing Element service'
+    SUP  	'GlueCETop'
+    STRUCTURAL
+    MUST 	(GlueCEUniqueID)
+    MAY     (GlueCEName $ GlueCEHostingCluster))	
+
+#*****************************************************
+#        GlueCETop  .2
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.2.
+#       |         |
+# GlueCEInfo
+#       .2
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.2.1
+    NAME 	'GlueCEInfoLRMSType'
+    DESC 	'name of local resource management system'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.2.2
+    NAME 	'GlueCEInfoLRMSVersion'
+    DESC 	'version of local resource management system'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.2.3
+    NAME 	'GlueCEInfoGRAMVersion'
+    DESC 	'The GRAM version'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.2.4
+    NAME 	'GlueCEInfoHostName'
+    DESC 	'Fully qualified hostname for host where gatekeeper runs'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.2.5
+    NAME 	'GlueCEInfoGatekeeperPort'
+    DESC 	'Port number for the gatekeeper'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.2.6
+    NAME 	'GlueCEInfoTotalCPUs'
+    DESC 	'Number of CPUs available to the queue. NB: this number should not be used to total available resources as more then one queue may be pointed to the same physical resources'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.2.1.2
+    NAME 	'GlueCEInfo'
+    DESC 	'General info for the Queue associated to the CE'
+    SUP  	'GlueCETop'
+    AUXILIARY
+    MAY 	(GlueCEInfoTotalCPUs $ GlueCEInfoLRMSType $ GlueCEInfoLRMSVersion $ GlueCEInfoGRAMVersion $ GlueCEInfoHostName $ GlueCEInfoGatekeeperPort) )
+
+#******************************************************************
+#        GlueCETop  .2
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.3.
+#       |         |
+#  GlueCEState
+#       .3
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.3.1
+    NAME 	'GlueCEStateStatus'
+    DESC 	'States a queue can be in'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.3.2
+    NAME 	'GlueCEStateTotalJobs'
+    DESC 	'Number of jobs in the CE'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.3.3
+    NAME 	'GlueCEStateRunningJobs'
+    DESC 	'Number of jobs in a running state'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.3.4
+    NAME 	'GlueCEStateWaitingJobs'
+    DESC 	'Number of jobs that are in a state different than running'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.3.5
+    NAME 	'GlueCEStateWorstResponseTime'
+    DESC 	'Worst time between job submission till when job starts its execution'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.3.6
+    NAME 	'GlueCEStateEstimatedResponseTime'
+    DESC 	'Estimated time between job submission till when job starts its execution'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.3.7
+    NAME 	'GlueCEStateFreeCPUs'
+    DESC 	'Number of free CPUs available to a scheduler (generally used with Condor)'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.2.1.3
+    NAME 	'GlueCEState'
+    DESC 	'CE State info'
+    SUP  	'GlueCETop'
+    AUXILIARY
+    MAY 	(GlueCEStateRunningJobs $ GlueCEStateWaitingJobs $ GlueCEStateTotalJobs $ GlueCEStateStatus $ GlueCEStateWorstResponseTime $ GlueCEStateEstimatedResponseTime $ GlueCEStateFreeCpus) )
+
+#**************************
+#        GlueCETop  .2
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.4.
+#       |         |
+#   GlueCEPolicy
+#       .4
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.4.1
+    NAME 	'GlueCEPolicyMaxWallClockTime'
+    DESC 	'The maximum wall clock time allowed for jobs submitted to the CE in mins'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.4.2
+    NAME 	'GlueCEPolicyMaxCPUTime'
+    DESC 	'The maximum CPU time allowed for jobs submitted to the CE in mins'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.4.3
+    NAME 	'GlueCEPolicyMaxTotalJobs'
+    DESC 	'The maximum allowed number of jobs in the queue'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.4.4
+    NAME 	'GlueCEPolicyMaxRunningJobs'
+    DESC 	'The maximum number of jobs allowed to be running'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.4.5
+    NAME 	'GlueCEPolicyPriority'
+    DESC 	'Info about the Queue Priority'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX  	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.2.1.4
+    NAME 	'GlueCEPolicy'
+    DESC 	'Configuration Policy of the queue'
+    SUP  	'GlueCETop'
+    AUXILIARY
+    MAY 	(GlueCEPolicyPriority $ GlueCEPolicyMaxRunningJobs $ GlueCEPolicyMaxTotalJobs $ GlueCEPolicyMaxCPUTime $ GlueCEPolicyMaxWallClockTime) )
+
+#**************************************************************
+#      GlueCETop .2
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.5.
+#       |         |
+# GlueCEAccessControlBase
+#       .5
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.5.1
+    NAME 	'GlueCEAccessControlBaseRule'
+    DESC 	'The rule that grant/deny access of this service'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26)
+
+objectclass ( 1.3.6.1.4.1.8005.100.2.1.5
+    NAME 	'GlueCEAccessControlBase'
+    DESC 	'Info of a VO which users are allowed to access the CE'
+    SUP  	'GlueCETop'
+    AUXILIARY
+    MUST 	(GlueCEAccessControlBaseRule) )
+
+#**************************************************************
+#      GlueCETop .2
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.6.
+#       |         |
+# GlueCEJob
+#       .6
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.6.1
+    NAME 	'GlueCEJobLocalOwner'
+    DESC     'Owner local user name'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR   caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 
+    SINGLE-VALUE) 
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.6.2
+    NAME    'GlueCEJobGlobalOwner'
+    DESC    'Owner GSI subject name'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR   caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.6.3
+    NAME 'GlueCEJobLocalID'
+    DESC 'Job Local ID'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR   caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26 
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.6.4
+    NAME 'GlueCEJobGlobalID'
+    DESC 'Job Global ID'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR   caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.6.5
+    NAME 'GlueCEJobStatus'
+    DESC 'Job status: running, waiting'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR   caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.2.2.6.6
+    NAME 'GlueCEJobSchedulerSpecific'
+    DESC 'Scheduler specific info'
+    EQUALITY caseIgnoreIA5Match
+    SUBSTR   caseIgnoreIA5SubstringsMatch
+    SYNTAX 1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.2.1.6
+    NAME 'GlueCEJob'
+    DESC 'Info related to jobs in the CE'
+    SUP  'GlueCETop'
+    STRUCTURAL
+    MUST (GlueCEJobGlobalID)
+    MAY  (GlueCEJobLocalOwner $ GlueCEJobGlobalOwner $ GlueCEJobStatus $ GlueCEJobSchedulerSpecific $ GlueCEJobLocalID))
+
+#********************************************
+#      GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.1.
+#       |         |
+# GlueCluster
+#       .1
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.1.1
+    NAME 	'GlueClusterName'
+    DESC 	'The name of the Cluster'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.1.2
+    NAME 	'GlueClusterUniqueID'
+    DESC 	'The Unique Identifier for the cluster'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.1.3
+    NAME 	'GlueClusterService'
+    DESC 	'The Unique Identifier for the provided service - DEPRECATED - use GlueForeignKey'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.26)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.1
+    NAME 	'GlueCluster'
+    DESC 	'a cluster'
+    SUP  	'GlueClusterTop'
+    STRUCTURAL
+    MUST 	( GlueClusterUniqueID )
+    MAY         ( GlueClusterName $ GlueClusterService) )
+
+#********************************************
+#     GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.2.
+#       |         |
+# GlueSubCluster
+#       .2
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.2.1
+    NAME 	'GlueSubClusterName'
+    DESC 	'The name of the SubCluster'
+    EQUALITY    caseIgnoreIA5Match
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.2.2
+    NAME        'GlueSubClusterUniqueID'
+    DESC        'A UniqueID for the SubCluster'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.2
+    NAME 	'GlueSubCluster'
+    DESC 	'an homogeneous subset of hosts'
+    SUP 	'GlueClusterTop'
+    STRUCTURAL
+    MUST 	( GlueSubClusterUniqueID )
+    MAY         ( GlueSubClusterName     ) )
+
+#********************************************
+#      GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.3.
+#       |         |
+#  GlueHost
+#       .3
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.3.1
+    NAME 	'GlueHostName'
+    DESC 	'The name of the host'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.3.2
+    NAME 	'GlueHostUniqueID'
+    DESC 	'The Unique Identifier for the host'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.3
+    NAME 	'GlueHost'
+    DESC 	'a host'
+    SUP  	'GlueClusterTop'
+    STRUCTURAL
+    MUST 	( GlueHostUniqueID )
+    MAY         ( GlueHostName ) )
+
+#***********************************************
+#      GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.4.
+#       |         |
+# GlueHostArchitecture
+#      .4
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.4.1
+    NAME 	'GlueHostArchitecturePlatformType'
+    DESC 	'informally describes the platform type of the computing element'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.4.2
+    NAME 	'GlueHostArchitectureSMPSize'
+    DESC  	'number of CPUs in an SMP node'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE )
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.4
+    NAME 	'GlueHostArchitecture'
+    DESC 	'Information related to the hardware architecture'
+    SUP  	'GlueClusterTop'
+    AUXILIARY
+    MAY  	( GlueHostArchitecturePlatformType $ GlueHostArchitectureSMPSize) )
+
+#***********************************************
+#      GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.5.
+#       |         |
+# GlueHostProcessor
+#      .5
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.1
+    NAME 	'GlueHostProcessorVendor'
+    DESC 	'Name of the CPU vendor'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.2
+    NAME 	'GlueHostProcessorModel'
+    DESC 	'Model of the CPU'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.3
+    NAME 	'GlueHostProcessorVersion'
+    DESC 	'Version of the CPU'
+    EQUALITY 	caseIgnoreIA5Match
+    ORDERING 	caseIgnoreOrderingMatch
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.4
+    NAME 	'GlueHostProcessorClockSpeed'
+    DESC 	'MHz associated with the CPUs'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.5
+    NAME        'GlueHostProcessorInstructionSet'
+    DESC        'Processor instruction set'
+    EQUALITY    caseIgnoreIA5Match
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.6
+    NAME 	'GlueHostProcessorOtherProcessorDescription'
+    DESC 	'Other processor description'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.7
+    NAME 	'GlueHostProcessorCacheL1'
+    DESC 	'first-level unified cache size (in kb) of a cpu'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.8
+    NAME 	'GlueHostProcessorCacheL1I'
+    DESC 	'first-level instruction cache size (in kb) of a cpu'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.9
+    NAME 	'GlueHostProcessorCacheL1D'
+    DESC 	'first-level data cache size (in kb) of a cpu'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.5.10
+    NAME 	'GlueHostProcessorCacheL2'
+    DESC 	'second-level unified cache size (in kb) of a cpu'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.5
+    NAME 	'GlueHostProcessor'
+    DESC 	'Information related to the host processor'
+    SUP  	'GlueClusterTop'
+    AUXILIARY
+    MAY  	( GlueHostProcessorVendor $ GlueHostProcessorModel $ GlueHostProcessorVersion $ GlueHostProcessorClockSpeed $ GlueHostProcessorInstructionSet $ GlueHostProcessorOtherProcessorDescription $ GlueHostProcessorCacheL1 $ GlueHostProcessorCacheL1I $ GlueHostProcessorCacheL1D $ GlueHostProcessorCacheL2) )
+
+#*********************************************
+#      GlueClusterTop  .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.6.
+#       |         |
+# GlueHostApplicationSoftware
+#       .6
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.6.1
+    NAME 	'GlueHostApplicationSoftwareRunTimeEnvironment'
+    DESC 	'list of installed software/packages'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR 	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.6
+    NAME 	'GlueHostApplicationSoftware'
+    DESC 	'Info related to application software installed in the machine'
+    SUP 	'GlueClusterTop'
+    AUXILIARY
+    MAY		( GlueHostApplicationSoftwareRunTimeEnvironment ) )
+
+#***********************************************
+#      GlueClusterTop  .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.7.
+#       |         |
+#  GlueHostMainMemory
+#       .7
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.7.1
+    NAME 	'GlueHostMainMemoryRAMSize'
+    DESC 	'The amount of RAM'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.7.2
+    NAME 	'GlueHostMainMemoryRAMAvailable'
+    DESC 	'the amount of free RAM'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.7.3
+    NAME 	'GlueHostMainMemoryVirtualSize'
+    DESC 	'the amount of virtual memory'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.7.4
+    NAME 	'GlueHostMainMemoryVirtualAvailable'
+    DESC 	'the amount of available virtual memory'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.7
+    NAME 	'GlueHostMainMemory'
+    DESC 	'host memory info'
+    SUP   	'GlueClusterTop'
+    AUXILIARY
+    MAY 	(GlueHostMainMemoryRAMSize $ GlueHostMainMemoryRAMAvailable $ GlueHostMainMemoryVirtualSize $ GlueHostMainMemoryVirtualAvailable) )
+
+#***********************************************
+#      GlueClusterTop  .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.8.
+#       |         |
+#   GlueHostBenchmark
+#       .8
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.8.1
+    NAME 	'GlueHostBenchmarkSI00'
+    DESC 	'SpecInt2000 of the nodes associated to the subcluster'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE )
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.8.2
+    NAME 	'GlueHostBenchmarkSF00'
+    DESC 	'SpecFloat2000 of the nodes associated to the subcluster'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE )
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.8
+    NAME 	'GlueHostBenchmark'
+    DESC 	'Benchmarks for the system'
+    SUP   	'GlueClusterTop'
+    AUXILIARY
+    MAY  	(GlueHostBenchmarkSI00 $ GlueHostBenchmarkSF00) )
+
+#*************************************************
+#       GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.9.
+#       |         |
+#    GlueHostNetworkAdapter
+#       .9
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.9.1
+    NAME 	'GlueHostNetworkAdapterName'
+    DESC 	'The name of the network interface'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.9.2
+    NAME 	'GlueHostNetworkAdapterIPAddress'
+    DESC 	'the IP address of the network card'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.9.3
+    NAME 	'GlueHostNetworkAdapterMTU'
+    DESC 	'the MTU size for the LAN to which the network card is attached'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.9.4
+    NAME 	'GlueHostNetworkAdapterOutboundIP'
+    DESC 	'permission for outbound connectivity'
+    EQUALITY 	booleanMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.9.5
+    NAME 	'GlueHostNetworkAdapterInboundIP'
+    DESC 	'permission for inbound connectivity'
+    EQUALITY 	booleanMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.9
+    NAME 	'GlueHostNetworkAdapter'
+    DESC 	'Info related to network devices and permissions'
+    SUP 	'GlueClusterTop'
+    AUXILIARY
+    MAY 	( GlueHostNetworkAdapterOutboundIP $ GlueHostNetworkAdapterInboundIP $ GlueHostNetworkAdapterName $ GlueHostNetworkAdapterIPAddress $ GlueHostNetworkAdapterMTU ) )
+
+
+#*************************************************
+#       GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.10.
+#       |         |
+#   GlueHostProcessorLoad
+#       .10
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.10.1
+    NAME 	'GlueHostProcessorLoadLast1Min'
+    DESC 	'1-minute average processor availability for a single node (the difference between the available CPUs and the average runable task count during that time)'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.10.2
+    NAME 	'GlueHostProcessorLoadLast5Min'
+    DESC 	'5-minute average processor availability for a single node (the difference between the available CPUs and the average runable task count during that time)'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.10.3
+    NAME 	'GlueHostProcessorLoadLast15Min'
+    DESC 	'15-minute average processor availability for a single node (the difference between the available CPUs and the average runable task count during that time)'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.10
+    NAME 	'GlueHostProcessorLoad'
+    DESC 	'Info about the processor load'
+    SUP 	'GlueClusterTop'
+    AUXILIARY
+    MAY 	( GlueHostProcessorLoadLast1Min $ GlueHostProcessorLoadLast5Min $ GlueHostProcessorLoadLast15Min ) )
+
+#*************************************************
+#       GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.11.
+#       |         |
+#   GlueHostSMPLoad
+#       .11
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.11.1
+    NAME 	'GlueHostSMPLoadLast1Min'
+    DESC 	'1-minute average processor availability for a single node (the difference between the available CPUs and the average runable task count during that time)'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.11.2
+    NAME 	'GlueHostSMPLoadLast5Min'
+    DESC 	'5-minute average processor availability for a single node (the difference between the available CPUs and the average runable task count during that time)'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.11.3
+    NAME 	'GlueHostSMPLoadLast15Min'
+    DESC 	'15-minute average processor availability for a single node (the difference between the available CPUs and the average runable task count during that time)'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.11
+    NAME 	'GlueHostSMPLoad'
+    DESC 	'Info about the SMP load'
+    SUP 	'GlueClusterTop'
+    AUXILIARY
+    MAY 	( GlueHostSMPLoadLast1Min $ GlueHostSMPLoadLast5Min $ GlueHostSMPLoadLast15Min ) )
+
+#*********************************************
+#       GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.12.
+#       |         |
+#  GlueHostOperatingSystem
+#       .12
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.12.1
+    NAME 	'GlueHostOperatingSystemName'
+    DESC 	'the name of the operating system'
+    EQUALITY 	caseIgnoreIA5Match
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.12.2
+    NAME 	'GlueHostOperatingSystemRelease'
+    DESC 	'the release of the operating system'
+    EQUALITY 	caseIgnoreIA5Match
+    ORDERING 	caseIgnoreOrderingMatch
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.12.3
+    NAME 	'GlueHostOperatingSystemVersion'
+    DESC 	'the version of the operating system'
+    EQUALITY 	caseIgnoreIA5Match
+    ORDERING 	caseIgnoreOrderingMatch
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.12
+    NAME 	'GlueHostOperatingSystem'
+    DESC 	'operating system related information'
+    SUP 	'GlueClusterTop'
+    AUXILIARY
+    MAY 	( GlueHostOperatingSystemName $ GlueHostOperatingSystemRelease $ GlueHostOperatingSystemVersion) )
+
+#*********************************************
+#    GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.13.
+#       |         |
+#  GlueHostLocalFileSystem
+#       .13
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.13.1
+    NAME 	'GlueHostLocalFileSystemRoot'
+    DESC 	'path name or other information defining the root of the file system'
+    EQUALITY 	caseIgnoreIA5Match
+    ORDERING 	caseIgnoreOrderingMatch
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.13.2
+    NAME        'GlueHostLocalFileSystemSize'
+    DESC        'Size of teh file system, in bytes. If unknown, enter 0'
+    EQUALITY    integerMatch
+    ORDERING    caseIgnoreOrderingMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.13.3
+    NAME 	'GlueHostLocalFileSystemAvailableSpace'
+    DESC 	'Amount of free space, in bytes, for the file system. If unknown, enter 0'
+    EQUALITY 	integerMatch
+    ORDERING 	caseIgnoreOrderingMatch
+    SYNTAX   	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.13.4
+    NAME 	'GlueHostLocalFileSystemReadOnly'
+    DESC 	'Is this read only'
+    EQUALITY    booleanMatch
+    ORDERING    caseIgnoreOrderingMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.13.5
+    NAME 	'GlueHostLocalFileSystemType'
+    DESC 	'File system type'
+    EQUALITY 	caseIgnoreIA5Match
+    ORDERING 	caseIgnoreOrderingMatch
+    SUBSTR   	caseIgnoreIA5SubstringsMatch
+    SYNTAX 	1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.13.6
+    NAME        'GlueHostLocalFileSystemName'
+    DESC        'The name for the file system'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.13.7
+    NAME        'GlueHostLocalFileSystemClient'
+    DESC        'Host uniqueID of clients allowed to remotely access this file system'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.13
+    NAME 	'GlueHostLocalFileSystem'
+    DESC        ' file store controlled by a computer system through local means (e.g., direct device driver access)'
+    SUP 	'GlueClusterTop'
+    STRUCTURAL
+    MUST        (GlueHostLocalFileSystemName)
+    MAY 	(GlueHostLocalFileSystemRoot $ GlueHostLocalFileSystemSize $ GlueHostLocalFileSystemAvailableSpace $ GlueHostLocalFileSystemReadOnly $ GlueHostLocalFileSystemType $ GlueHostLocalFileSystemClient) )
+
+#*********************************************
+#    GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.14.
+#       |         |
+#  GlueHostRemoteFileSystem
+#       .14
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.14.1
+    NAME        'GlueHostRemoteFileSystemRoot'
+    DESC        'path name or other information defining the root of the file system'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.14.2
+    NAME        'GlueHostRemoteFileSystemSize'
+    DESC        'Size of teh file system, in bytes. If unknown, enter 0'
+    EQUALITY    integerMatch
+    ORDERING    caseIgnoreOrderingMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.14.3
+    NAME        'GlueHostRemoteFileSystemAvailableSpace'
+    DESC        'Amount of free space, in bytes, for the file system. If unknown, enter 0'
+    EQUALITY    integerMatch
+    ORDERING    caseIgnoreOrderingMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.14.4
+    NAME        'GlueHostRemoteFileSystemReadOnly'
+    DESC        'Is this read only'
+    EQUALITY    booleanMatch
+    ORDERING    caseIgnoreOrderingMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.7
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.14.5
+    NAME        'GlueHostRemoteFileSystemType'
+    DESC        'File system type'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.14.6
+    NAME        'GlueHostRemoteFileSystemName'
+    DESC        'The name for the file system'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.14.7
+    NAME        'GlueHostRemoteFileSystemServer'
+    DESC        'Host uniqueID of clients allowed to remotely access this file system'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.14
+    NAME        'GlueHostRemoteFileSystem'
+    DESC 	'represents a remote file system that is accessed via a network-related service'
+    SUP         'GlueClusterTop'
+    STRUCTURAL
+    MUST        (GlueHostRemoteFileSystemName)
+    MAY         (GlueHostRemoteFileSystemRoot $ GlueHostRemoteFileSystemSize $ GlueHostRemoteFileSystemAvailableSpace $ GlueHostRemoteFileSystemReadOnly $ GlueHostRemoteFileSystemType $ GlueHostRemoteFileSystemName $ GlueHostRemoteFileSystemServer) )
+
+#*********************************************
+#    GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.15.
+#       |         |
+#  GlueHostStorageDevice
+#       .15
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.15.1
+    NAME        'GlueHostStorageDeviceName'
+    DESC        'Name for the storage device'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.15.2
+    NAME        'GlueHostStorageDeviceType'
+    DESC        'Storage device type'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.15.3
+    NAME        'GlueHostStorageDeviceTransferRate'
+    DESC        'Maximum transfer rate for the device'
+    EQUALITY    integerMatch
+    ORDERING    caseIgnoreOrderingMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.15.4
+    NAME        'GlueHostStorageDeviceSize'
+    DESC        'Size in MB'
+    EQUALITY    integerMatch
+    ORDERING    caseIgnoreOrderingMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.15.5
+    NAME        'GlueHostStorageDeviceAvailableSpace'
+    DESC        'Amount of free space, in megabytes, for the file system. If unknown, enter 0'
+    EQUALITY    integerMatch
+    ORDERING    caseIgnoreOrderingMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.15
+    NAME        'GlueHostStorageDevice'
+    DESC        'Storage device info'
+    SUP         'GlueClusterTop'
+    AUXILIARY
+    MUST        ( GlueHostStorageDeviceName)
+    MAY         ( GlueHostStorageDeviceType $ GlueHostStorageDeviceTransferRate $ GlueHostStorageDeviceSize $ GlueHostStorageDeviceAvailableSpace) )
+
+#*********************************************
+#    GlueClusterTop .3
+#            |
+#       -----------
+#       |         |
+#    Obj .1    Attr .2.16.
+#       |         |
+#  GlueHostFile
+#       .16
+#
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.16.1
+    NAME        'GlueHostFileName'
+    DESC        'Name for the file'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.16.2
+    NAME        'GlueHostFileSize'
+    DESC        'File size in bytes'
+    EQUALITY    	integerMatch
+    ORDERING    	caseIgnoreOrderingMatch
+    SYNTAX      	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.16.3
+    NAME        'GlueHostFileCreationDate'
+    DESC        'File creation date and time'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.16.4
+    NAME        'GlueHostFileLastModified'
+    DESC        'Last modified date and time'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.16.5
+    NAME        'GlueHostFileLastAccessed'
+    DESC        'Last access date and time'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.16.6
+    NAME        'GlueHostFileLatency'
+    DESC        'Time taken to access file in seconds'
+    EQUALITY    	integerMatch
+    ORDERING    	caseIgnoreOrderingMatch
+    SYNTAX      	1.3.6.1.4.1.1466.115.121.1.27
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.16.7
+    NAME        'GlueHostFileLifeTime'
+    DESC        'Time file will stay on the storage device'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+attributetype ( 1.3.6.1.4.1.8005.100.3.2.16.8
+    NAME        'GlueHostFileOwner'
+    DESC        'Name of the owner for the file'
+    EQUALITY    caseIgnoreIA5Match
+    ORDERING    caseIgnoreOrderingMatch
+    SUBSTR      caseIgnoreIA5SubstringsMatch
+    SYNTAX      1.3.6.1.4.1.1466.115.121.1.26
+    SINGLE-VALUE)
+
+objectclass ( 1.3.6.1.4.1.8005.100.3.1.16
+    NAME        'GlueHostFile'
+    DESC        'File info'
+    SUP         'GlueClusterTop'
+    STRUCTURAL
+    MUST        ( GlueHostFileName)
+    MAY         ( GlueHostFileSize $ GlueHostFileCreationDate $ GlueHostFileLastModified $ GlueHostFileLastAccessed $ GlueHostFileLatency $ GlueHostFileLifeTime $ GlueHostFileOwner) )

@@ -1,0 +1,70 @@
+<appendix id="faq" xreflabel="faq">
+	<title>Frequently Asked Questions</title>
+
+<qandaset defaultlabel="number">
+
+<qandaentry>
+
+<question id="ganglia-restart">
+<para>
+I see IP addresses not names in my Ganglia graphs. Why is this?
+</para>
+</question>
+
+<answer>
+<para>
+The DNS system in the cluster sometimes causes Ganglia to record bogus node names (usually their IP addresses). To clear this situation, restart the "gmond" and "gmetad" services on the frontend. This action may be useful later, as it will flush any dead nodes from the Ganglia output.
+</para>
+
+<para>
+<screen>
+# service gmond restart
+# service gmetad restart
+</screen>
+</para>
+
+<para>
+This method is also useful when replacing or renaming nodes in your cluster.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="ganglia-parse-error">
+<para>
+When looking at the Ganglia page, I dont see graphs, just the error:
+</para>
+
+<para>
+<computeroutput>
+There was an error collecting ganglia data (127.0.0.1:8652): XML 
+error: not well-formed (invalid token) at xxx
+</computeroutput>
+</para>
+
+</question>
+
+<answer>
+<para>
+This indicates a parse error in the Ganglia gmond XML output. It is generally
+caused by non-XML characters (&amp; especially) in the cluster name or cluster
+owner fields, although any ganglia field (including node names) with these
+characters will cause this problem.
+
+</para>
+
+<para>
+We hope future versions of Ganglia will correctly escape all names to
+make them XML safe. If you have a bad name, to edit
+<literal>/etc/gmond.conf</literal> on the frontend node, remove the offending
+characters, then restart gmond.
+
+</para>
+
+</answer>
+
+</qandaentry>
+
+</qandaset>
+
+</appendix>

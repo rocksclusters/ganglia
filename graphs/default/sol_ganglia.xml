@@ -1,0 +1,28 @@
+<?xml version="1.0" standalone="no"?>
+
+<graph>
+
+	<description>
+	Solaris Ganglia graph
+	</description>
+	
+    <copyright>
+    Copyright (c) 2000 - 2008 The Regents of the University of California.
+    All rights reserved. Rocks(r) v5.0 www.rocksclusters.org
+    </copyright>
+   
+    <changelog>
+    $Log: sol_ganglia.xml,v $
+    Revision 1.2  2008/03/06 23:41:50  mjk
+    copyright storm on
+
+    Revision 1.1  2007/11/09 00:03:43  anoop
+    Add the graph file. Don't just talk about adding it.
+
+    </changelog>
+
+    <edge from="sol_app" to="sol_ganglia-client"/>
+    <order head="sol_post">
+	<tail>sol_ganglia-client</tail>
+    </order>	
+</graph>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE GANGLIA_XML [
+   <!ELEMENT GANGLIA_XML (CLUSTER)*>
+      <!ATTLIST GANGLIA_XML VERSION CDATA #REQUIRED>
+      <!ATTLIST GANGLIA_XML SOURCE CDATA #REQUIRED>
+   <!ELEMENT CLUSTER (HOST)*>
+      <!ATTLIST CLUSTER NAME CDATA #REQUIRED>
+      <!ATTLIST CLUSTER OWNER CDATA #IMPLIED>
+      <!ATTLIST CLUSTER LATLONG CDATA #IMPLIED>
+      <!ATTLIST CLUSTER URL CDATA #IMPLIED>
+      <!ATTLIST CLUSTER LOCALTIME CDATA #REQUIRED>
+   <!ELEMENT HOST (METRIC)*>
+      <!ATTLIST HOST NAME CDATA #REQUIRED>
+      <!ATTLIST HOST IP CDATA #REQUIRED>
+      <!ATTLIST HOST LOCATION CDATA #IMPLIED>
+      <!ATTLIST HOST REPORTED CDATA #REQUIRED>
+      <!ATTLIST HOST TN CDATA #IMPLIED>
+      <!ATTLIST HOST TMAX CDATA #IMPLIED>
+      <!ATTLIST HOST DMAX CDATA #IMPLIED>
+      <!ATTLIST HOST GMOND_STARTED CDATA #IMPLIED>
+   <!ELEMENT METRIC EMPTY>
+      <!ATTLIST METRIC NAME CDATA #REQUIRED>
+      <!ATTLIST METRIC VAL CDATA #REQUIRED>
+      <!ATTLIST METRIC TYPE (string | int8 | uint8 | int16 | uint16 | int32 | uint32 | float | double | timestamp) #REQUIRED>
+      <!ATTLIST METRIC UNITS CDATA #IMPLIED>
+      <!ATTLIST METRIC TN CDATA #IMPLIED>
+      <!ATTLIST METRIC TMAX CDATA #IMPLIED>
+      <!ATTLIST METRIC DMAX CDATA #IMPLIED>
+      <!ATTLIST METRIC SLOPE (zero | positive | negative | both) #IMPLIED>
+      <!ATTLIST METRIC SOURCE (gmond | gmetric) #REQUIRED>
+]>
+<GANGLIA_XML VERSION="2.5.0" SOURCE="gmond">
+<CLUSTER NAME="Rocks Fossil Design" LOCALTIME="1032378019" OWNER="SDSC" LATLONG="N32.87 W117.22" URL="http://fossil.sdsc.edu/">
+<HOST NAME="frontend" IP="10.1.1.1" REPORTED="1032378018" TN="1" TMAX="20" DMAX="0" LOCATION="0,0,0" GMOND_STARTED="1032377289">
+<METRIC NAME="load_one" VAL="0.06" TYPE="float" UNITS="" TN="21" TMAX="70" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="load_fifteen" VAL="0.01" TYPE="float" UNITS="" TN="729" TMAX="950" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="cpu_nice" VAL="0.0" TYPE="float" UNITS="%" TN="4" TMAX="90" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="pkts_out" VAL="20.50" TYPE="float" UNITS="packets/sec" TN="20" TMAX="70" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="cpu_user" VAL="3.1" TYPE="float" UNITS="%" TN="1" TMAX="90" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="proc_total" VAL="100" TYPE="uint32" UNITS="" TN="4" TMAX="950" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="mem_free" VAL="31928" TYPE="uint32" UNITS="KB" TN="6" TMAX="180" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="gexec" VAL="OFF" TYPE="string" UNITS="" TN="8" TMAX="300" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="sys_clock" VAL="1032377289" TYPE="timestamp" UNITS="s" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="proc_run" VAL="0" TYPE="uint32" UNITS="" TN="3" TMAX="950" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="cpu_system" VAL="3.7" TYPE="float" UNITS="%" TN="2" TMAX="90" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="cpu_aidle" VAL="97.8" TYPE="float" UNITS="%" TN="729" TMAX="3800" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="cpu_speed" VAL="300" TYPE="uint32" UNITS="MHz" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="bytes_in" VAL="1782.93" TYPE="float" UNITS="bytes/sec" TN="18" TMAX="70" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="bytes_out" VAL="22.31" TYPE="float" UNITS="bytes/sec" TN="24" TMAX="70" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="mtu" VAL="1500" TYPE="uint32" UNITS="B" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="swap_total" VAL="128512" TYPE="uint32" UNITS="KB" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="mem_shared" VAL="72" TYPE="uint32" UNITS="KB" TN="6" TMAX="180" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="mem_cached" VAL="163204" TYPE="uint32" UNITS="KB" TN="7" TMAX="180" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="cpu_idle" VAL="93.2" TYPE="float" UNITS="%" TN="6" TMAX="90" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="machine_type" VAL="x86" TYPE="string" UNITS="" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="swap_free" VAL="101928" TYPE="uint32" UNITS="KB" TN="4" TMAX="180" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="load_five" VAL="0.04" TYPE="float" UNITS="" TN="178" TMAX="325" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="disk_total" VAL="17.621" TYPE="double" UNITS="GB" TN="729" TMAX="1200" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="pkts_in" VAL="22.31" TYPE="float" UNITS="packets/sec" TN="19" TMAX="70" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="os_release" VAL="2.4.9-31smp" TYPE="string" UNITS="" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="boottime" VAL="1022116012" TYPE="timestamp" UNITS="s" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="cpu_num" VAL="2" TYPE="uint16" UNITS="" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="disk_free" VAL="13.109" TYPE="double" UNITS="GB" TN="7" TMAX="180" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="part_max_used" VAL="63.3" TYPE="float" UNITS="%" TN="9" TMAX="180" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="mem_buffers" VAL="83856" TYPE="uint32" UNITS="KB" TN="5" TMAX="180" DMAX="0" SLOPE="both" SOURCE="gmond"/>
+<METRIC NAME="os_name" VAL="Linux" TYPE="string" UNITS="" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="mem_total" VAL="383548" TYPE="uint32" UNITS="KB" TN="729" TMAX="1200" DMAX="0" SLOPE="zero" SOURCE="gmond"/>
+<METRIC NAME="pbs-job-17" VAL="name=linpack.sh state=R P=2 runtime=0 nodes=compute-0-5,compute-0-5" TYPE="string" UNITS="" TN="0" TMAX="60" DMAX="0" SLOPE="both" SOURCE="gmetric"/>
+<METRIC NAME="pbs-jobs-fds" VAL="jobs=17:R" TYPE="string" UNITS="" TN="0" TMAX="60" DMAX="0" SLOPE="both" SOURCE="gmetric"/>
+</HOST>
+</CLUSTER>
+</GANGLIA_XML>

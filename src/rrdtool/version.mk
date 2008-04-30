@@ -1,0 +1,4 @@
+NAME = rrdtool
+VERSION = 1.2.23
+RELEASE = 1
+
