@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.14 2008/04/24 12:20:06 bruno Exp $
+# $Id: Makefile,v 1.15 2008/05/21 18:03:49 anoop Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.15  2008/05/21 18:03:49  anoop
+# Added solaris support for building packages
+#
 # Revision 1.14  2008/04/24 12:20:06  bruno
 # refresh
 #
@@ -118,7 +121,7 @@
 #
 
 RELEASE = 1
-HTML = /var/www/html
+HTML = $(WEBSERVER_ROOT)
 
 REDHAT.ROOT	= $(CURDIR)/../../
 ROCKSROOT	= ../../../../..

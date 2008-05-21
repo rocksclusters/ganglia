@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.11 2008/03/06 23:41:50 mjk Exp $
+# $Id: Makefile,v 1.12 2008/05/21 18:03:49 anoop Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.12  2008/05/21 18:03:49  anoop
+# Added solaris support for building packages
+#
 # Revision 1.11  2008/03/06 23:41:50  mjk
 # copyright storm on
 #
@@ -105,8 +108,7 @@
 #
 
 
-#SRCDIRS = `find . -type d -maxdepth 1 -not -name CVS -not -name .`
-SRCDIRS = `find ./* -type d -prune ! -name CVS ! -name .`
+-include $(shell ../../../../bin/os).mk
 
 default:	pkg
 

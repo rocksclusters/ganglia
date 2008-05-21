@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="no"?>
+
+<jumpstart>
+	
+<description>
+
+  UCB's Ganglia Cluster Monitoring tool. This roll
+  creates the machine-specific /etc/gmond.conf ganglia
+  configuration file using information from the Rocks cluster
+  database.
+
+	</description>
+
+	<copyright>
+	Copyright (c) 2000 - 2008 The Regents of the University of California.
+	All rights reserved. Rocks(r) v5.0 www.rocksclusters.org
+	</copyright>
+
+	<changelog>
+	$Log: sol_ganglia.xml,v $
+	Revision 1.1  2008/05/21 18:03:49  anoop
+	Added solaris support for building packages
+	
+	
+	</changelog>
+	
+	<package>ROCKSganglia-monitor-core</package>
+	<package>ROCKSganglia-python</package>
+	<package>ROCKSganglia-hpc</package>
+	<package>ROCKSphpsysinfo</package>
+
+<post>
+ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
+ln -s /opt/rocks/bin/rrdtool /usr/bin/rrdtool
+
+cp /opt/ganglia/share/ganglia/gmond.xml /var/svc/manifest/network/gmond.xml
+<service name='network/gmond' enabled='yes'/>
+</post>
+
+
+</jumpstart>
