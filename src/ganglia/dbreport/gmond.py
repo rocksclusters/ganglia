@@ -60,6 +60,9 @@
 # @Copyright@
 #
 # $Log: gmond.py,v $
+# Revision 1.17  2008/06/16 19:19:46  bruno
+# block all gmetad requests by default
+#
 # Revision 1.16  2008/03/06 23:41:51  mjk
 # copyright storm on
 #
@@ -273,6 +276,12 @@ udp_send_channel {
 		print """
 tcp_accept_channel {
 	port = 8649
+	acl {
+		default = "deny"
+		access {
+			action = "deny"
+		}
+	}
 }"""
 		# Now this is an important part. Metrics in ganglia 3.x follow
 		# the collection group style of collecting metrics. Look at the 
