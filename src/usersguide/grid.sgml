@@ -33,17 +33,46 @@ Then restart the gmetad server on "A" frontend.
 
 <listitem>
 <para>
-On "B" frontend, add the line to /etc/gmond.conf:
+On "B" frontend, get the IP address of "A.frontend.domain.name" and edit
+/etc/gmond.conf and change the section from:
 </para>
 
 <para>
 <screen>
-trusted_hosts A.frontend.domain.name
+tcp_accept_channel {
+	port = 8649
+	acl {
+		default = "deny"
+		access {
+			action = "deny"
+		}
+	}
+}
 </screen>
 </para>
 
 <para>
-Then restart the gmetad server on "B" frontend.
+to:
+</para>
+
+<para>
+<screen>
+tcp_accept_channel {
+	port = 8649
+	acl {
+		default = "deny"
+		access {
+			ip = ip-address-of-A.frontend.domain.name
+			mask = 32
+			action = "allow"
+		}
+	}
+}
+</screen>
+</para>
+
+<para>
+Then restart gmond server on "B" frontend.
 </para>
 </listitem>
 
