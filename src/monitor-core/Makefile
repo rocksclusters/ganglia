@@ -1,5 +1,5 @@
 # --------------------------------------------------- -*- Makefile -*- --
-# $Id: Makefile,v 1.15 2008/04/24 23:44:44 bruno Exp $
+# $Id: Makefile,v 1.16 2008/06/16 17:58:08 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.16  2008/06/16 17:58:08  bruno
+# include man pages
+#
 # Revision 1.15  2008/04/24 23:44:44  bruno
 # updated for 3.0.7
 #
@@ -155,6 +158,8 @@ build:
 	
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
+	mkdir -p $(ROOT)/usr/share/man/man1
+	mkdir -p $(ROOT)/usr/share/man/man5
 	mkdir -p $(ROOT)/var/lib/ganglia/rrds/
 	chown -R nobody:nobody  $(ROOT)/var/lib/ganglia/rrds/
 	( 							\
@@ -168,6 +173,16 @@ install::
 		mkdir -p $(ROOT)/$(WEBSERVER_ROOT)/; 		\
 		cp -rf web/ $(ROOT)/$(WEBSERVER_ROOT)/ganglia/;	\
 	)
-
+	(							\
+		cd $(ARCHIVE)-$(VERSION)/gmond;			\
+		gzip gmond.conf.5;				\
+		cp gmond.conf.5.gz $(ROOT)/usr/share/man/man5;	\
+	)
+	(							\
+		cd $(ARCHIVE)-$(VERSION)/mans;			\
+		gzip *.1;					\
+		cp *.1.gz $(ROOT)/usr/share/man/man1;		\
+	)
+		
 clean::
 	rm -rf $(ARCHIVE)-$(VERSION)
