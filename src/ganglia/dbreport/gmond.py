@@ -60,6 +60,9 @@
 # @Copyright@
 #
 # $Log: gmond.py,v $
+# Revision 1.19  2008/06/27 21:45:36  bruno
+# need to allow access to private network too
+#
 # Revision 1.18  2008/06/27 21:29:11  bruno
 # new access control that doesn't cause gmond to seg fault
 #
@@ -219,6 +222,10 @@ class Report(rocks.reports.base.ReportBase):
 		if self.rowcount():
 			eth_if = self.fetchone()[0]
 			
+		private_network = self.sql.getGlobalVar('Kickstart',
+			'PrivateNetwork')
+		private_netmask = self.sql.getGlobalVar('Kickstart',
+			'PrivateNetmaskCIDR')
 		
 		# Finally start printing out the gmond configuration
 		# The comments in the gmond configuration file are C-style
@@ -286,8 +293,14 @@ tcp_accept_channel {
 			mask = 32
 			action = "allow"
 		}
+		access {
+			ip = %s
+			mask = %s
+			action = "allow"
+		}
 	}
-}"""
+}""" % (private_network, private_netmask)
+
 		# Now this is an important part. Metrics in ganglia 3.x follow
 		# the collection group style of collecting metrics. Look at the 
 		# ganglia README to define your own metrics. For this we create 
