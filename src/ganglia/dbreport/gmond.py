@@ -60,6 +60,9 @@
 # @Copyright@
 #
 # $Log: gmond.py,v $
+# Revision 1.18  2008/06/27 21:29:11  bruno
+# new access control that doesn't cause gmond to seg fault
+#
 # Revision 1.17  2008/06/16 19:19:46  bruno
 # block all gmetad requests by default
 #
@@ -279,7 +282,9 @@ tcp_accept_channel {
 	acl {
 		default = "deny"
 		access {
-			action = "deny"
+			ip = 127.0.0.1
+			mask = 32
+			action = "allow"
 		}
 	}
 }"""
