@@ -48,6 +48,11 @@ tcp_accept_channel {
                         mask = 32
                         action = "allow"
                 }
+		access {
+			ip = 10.0.0.0
+			mask = 8
+			action = "allow"
+		}
 	}
 }
 </screen>
@@ -68,6 +73,11 @@ tcp_accept_channel {
                         mask = 32
                         action = "allow"
                 }
+		access {
+			ip = 10.0.0.0
+			mask = 8
+			action = "allow"
+		}
 		access {
 			ip = ip-address-of-A.frontend
 			mask = 32
