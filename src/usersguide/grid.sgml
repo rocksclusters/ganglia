@@ -43,9 +43,11 @@ tcp_accept_channel {
 	port = 8649
 	acl {
 		default = "deny"
-		access {
-			action = "deny"
-		}
+                access {
+                        ip = 127.0.0.1
+                        mask = 32
+                        action = "allow"
+                }
 	}
 }
 </screen>
@@ -61,8 +63,13 @@ tcp_accept_channel {
 	port = 8649
 	acl {
 		default = "deny"
+                access {
+                        ip = 127.0.0.1
+                        mask = 32
+                        action = "allow"
+                }
 		access {
-			ip = ip-address-of-A.frontend.domain.name
+			ip = ip-address-of-A.frontend
 			mask = 32
 			action = "allow"
 		}
