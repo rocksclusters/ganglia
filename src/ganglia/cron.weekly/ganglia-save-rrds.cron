@@ -58,6 +58,9 @@
 # @Copyright@
 #
 # $Log: ganglia-save-rrds.cron,v $
+# Revision 1.3  2008/07/01 15:11:53  bruno
+# fix for the weekly cron script -- thanks to Scott Woods at West Arete Computing.
+#
 # Revision 1.2  2008/03/06 23:41:51  mjk
 # copyright storm on
 #
@@ -114,7 +117,7 @@ tar cPf $archive/ganglia-rrds.$date.tar /var/lib/ganglia/rrds
 
 # Keep only the three most recent archives
 # Assumes that only archives are in this directory.
-removeme=`ls -t /var/lib/ganglia/archives | tail +4`
+removeme=`ls -t /var/lib/ganglia/archives | tail -n +4`
 for a in $removeme
 do
 	rm -f $archive/$a
