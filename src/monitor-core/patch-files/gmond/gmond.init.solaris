@@ -1,12 +1,14 @@
 #!/bin/sh
-# $Id: gmond.init.solaris,v 1.1 2007/04/28 00:02:57 anoop Exp $
+# $Id: gmond.init.solaris,v 1.2 2008/07/02 17:55:34 anoop Exp $
 #
 # description: gmond startup script
 #
 . /lib/svc/share/smf_include.sh
 
 PATH=$PATH:/opt/ganglia/sbin
-GMETAD=gmond
+GMOND=/opt/ganglia/sbin/gmond
+PIDFILE=/var/run/gmond.pid
+LOCKFILE=/var/lock/gmond
 export PATH
 
 RETVAL=0
@@ -14,19 +16,19 @@ RETVAL=0
 case "$1" in
    start)
       echo "Starting GANGLIA gmond"
-      [ -f `which $GMETAD` ] || exit 1
-      $GMETAD
+      $GMOND -p $PIDFILE
       RETVAL=$?
       echo
-      [ $RETVAL -eq 0 ] && touch /var/lock/gmond
+      [ $RETVAL -eq 0 ] && touch $LOCKFILE
       ;;
 
   stop)
       echo "Shutting down GANGLIA gmond"
-      pkill -TERM $GMETAD
+      PID=`cat $PIDFILE`
+      kill -TERM $PID
       RETVAL=$?
       echo
-      [ $RETVAL -eq 0 ] && rm -f /var/lock/gmond
+      [ $RETVAL -eq 0 ] && rm -f $LOCKFILE && rm -f $PIDFILE
       ;;
 
   restart|reload)

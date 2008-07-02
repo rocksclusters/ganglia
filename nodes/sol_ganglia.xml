@@ -18,6 +18,12 @@
 
 	<changelog>
 	$Log: sol_ganglia.xml,v $
+	Revision 1.2  2008/07/02 17:55:34  anoop
+	Bug fixes to ganglia startup scripts
+	Bug fixes and general cleanup to ganglia
+	node files to remove duplicate entries
+	for services
+	
 	Revision 1.1  2008/05/21 18:03:49  anoop
 	Added solaris support for building packages
 	
@@ -30,11 +36,20 @@
 	<package>ROCKSphpsysinfo</package>
 
 <post>
-ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
+ln -s /pt/ganglia/sbin/gmond /usr/sbin/gmond
 ln -s /opt/rocks/bin/rrdtool /usr/bin/rrdtool
+
+mkdir -p /var/lock
 
 cp /opt/ganglia/share/ganglia/gmond.xml /var/svc/manifest/network/gmond.xml
 <service name='network/gmond' enabled='yes'/>
+
+<file name="/etc/gmond.conf">
+<eval shell="sh">
+/opt/rocks/bin/dbreport gmond $Node_Hostname
+</eval>
+</file>
+
 </post>
 
 

@@ -12,6 +12,12 @@
 
   <changelog>
   $Log: sol_ganglia-client.xml,v $
+  Revision 1.8  2008/07/02 17:55:34  anoop
+  Bug fixes to ganglia startup scripts
+  Bug fixes and general cleanup to ganglia
+  node files to remove duplicate entries
+  for services
+
   Revision 1.7  2007/11/09 22:12:55  anoop
   Bug fix
 
@@ -40,21 +46,5 @@
 
 
   </changelog>
-
-<package>ROCKSganglia-monitor-core</package>
-
-<post>
-	
-mkdir -p /var/lock
-
-<file name="/etc/gmond.conf">
-<eval shell="sh">
-/opt/rocks/bin/dbreport gmond $Node_Hostname
-</eval>
-</file>
-
-cp /opt/ganglia/share/ganglia/gmond.xml /var/svc/manifest/network/gmond.xml
-<service name='network/gmond' enabled='yes'/>
-</post>
 
 </jumpstart> 
