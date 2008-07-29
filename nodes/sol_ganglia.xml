@@ -18,6 +18,9 @@
 
 	<changelog>
 	$Log: sol_ganglia.xml,v $
+	Revision 1.3  2008/07/29 20:25:56  anoop
+	Bug Fix
+	
 	Revision 1.2  2008/07/02 17:55:34  anoop
 	Bug fixes to ganglia startup scripts
 	Bug fixes and general cleanup to ganglia
@@ -36,7 +39,7 @@
 	<package>ROCKSphpsysinfo</package>
 
 <post>
-ln -s /pt/ganglia/sbin/gmond /usr/sbin/gmond
+ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
 ln -s /opt/rocks/bin/rrdtool /usr/bin/rrdtool
 
 mkdir -p /var/lock
