@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.10 2008/03/06 23:41:50 mjk Exp $
+# $Id: Makefile,v 1.11 2008/10/15 20:13:03 mjk Exp $
 #
 # Makefile for the Ganglia Roll.
 #
@@ -57,6 +57,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.11  2008/10/15 20:13:03  mjk
+# - more changes to build outside of the tree
+# - removed some old fds-only targets
+#
 # Revision 1.10  2008/03/06 23:41:50  mjk
 # copyright storm on
 #
@@ -88,7 +92,6 @@
 #
 #
 
-ROLLSROOT = ..
 -include $(ROLLSROOT)/etc/Rolls.mk
 include Rolls.mk
 

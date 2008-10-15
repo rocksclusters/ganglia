@@ -1,5 +1,5 @@
 # --------------------------------------------------- -*- Makefile -*- --
-# $Id: Makefile,v 1.16 2008/06/16 17:58:08 bruno Exp $
+# $Id: Makefile,v 1.17 2008/10/15 20:13:03 mjk Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.17  2008/10/15 20:13:03  mjk
+# - more changes to build outside of the tree
+# - removed some old fds-only targets
+#
 # Revision 1.16  2008/06/16 17:58:08  bruno
 # include man pages
 #
@@ -132,7 +136,6 @@
 
 PKGROOT		= /opt/ganglia
 REDHAT.ROOT     = $(CURDIR)/../../
-ROCKSROOT       = ../../../../..
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 

@@ -53,6 +53,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.13  2008/10/15 20:13:04  mjk
+# - more changes to build outside of the tree
+# - removed some old fds-only targets
+#
 # Revision 1.12  2008/03/06 23:41:52  mjk
 # copyright storm on
 #
@@ -156,7 +160,6 @@ TEMPLATES = $(wildcard $(ADDONS)/templates/*tpl)
 EXTRAS = $(wildcard templates/Rocks/*tpl)
 
 REDHAT.ROOT = $(CURDIR)/../../
-ROCKSROOT = ../../../../..
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 

@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.15 2008/05/21 18:03:49 anoop Exp $
+# $Id: Makefile,v 1.16 2008/10/15 20:13:03 mjk Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.16  2008/10/15 20:13:03  mjk
+# - more changes to build outside of the tree
+# - removed some old fds-only targets
+#
 # Revision 1.15  2008/05/21 18:03:49  anoop
 # Added solaris support for building packages
 #
@@ -124,7 +128,6 @@ RELEASE = 1
 HTML = $(WEBSERVER_ROOT)
 
 REDHAT.ROOT	= $(CURDIR)/../../
-ROCKSROOT	= ../../../../..
 
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk

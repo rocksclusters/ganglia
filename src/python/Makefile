@@ -53,6 +53,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.14  2008/10/15 20:13:03  mjk
+# - more changes to build outside of the tree
+# - removed some old fds-only targets
+#
 # Revision 1.13  2008/03/06 23:41:51  mjk
 # copyright storm on
 #
@@ -202,7 +206,6 @@ GLOBUS_LOCATION = /usr/local/apps/globus-2.0
 
 
 REDHAT.ROOT = $(CURDIR)/../../
-ROCKSROOT = ../../../../..
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 

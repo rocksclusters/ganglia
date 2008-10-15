@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.12 2008/03/06 23:41:51 mjk Exp $
+# $Id: Makefile,v 1.13 2008/10/15 20:13:04 mjk Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.13  2008/10/15 20:13:04  mjk
+# - more changes to build outside of the tree
+# - removed some old fds-only targets
+#
 # Revision 1.12  2008/03/06 23:41:51  mjk
 # copyright storm on
 #
@@ -125,7 +129,6 @@
 #RPMNAME = dummy
 
 REDHAT.ROOT = $(CURDIR)/../../
-ROCKSROOT = ../../../../..
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 

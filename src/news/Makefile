@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.14 2008/03/06 23:41:51 mjk Exp $
+# $Id: Makefile,v 1.15 2008/10/15 20:13:03 mjk Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.15  2008/10/15 20:13:03  mjk
+# - more changes to build outside of the tree
+# - removed some old fds-only targets
+#
 # Revision 1.14  2008/03/06 23:41:51  mjk
 # copyright storm on
 #
@@ -134,7 +138,6 @@ CGI = $(wildcard www/*cgi)
 JOURNALISTS = $(wildcard gmon/news/*.py)
 
 REDHAT.ROOT = $(CURDIR)/../../
-ROCKSROOT = ../../../../..
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 -include $(ROCKSROOT)/etc/python.mk
