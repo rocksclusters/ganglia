@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.11 2008/10/15 20:13:03 mjk Exp $
+# $Id: Makefile,v 1.12 2008/10/18 00:56:07 mjk Exp $
 #
 # Makefile for the Ganglia Roll.
 #
@@ -7,7 +7,7 @@
 # 
 # 				Rocks(r)
 # 		         www.rocksclusters.org
-# 		            version 5.0 (V)
+# 		           version 5.1  (VI)
 # 
 # Copyright (c) 2000 - 2008 The Regents of the University of California.
 # All rights reserved.	
@@ -57,6 +57,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.12  2008/10/18 00:56:07  mjk
+# copyright 5.1
+#
 # Revision 1.11  2008/10/15 20:13:03  mjk
 # - more changes to build outside of the tree
 # - removed some old fds-only targets

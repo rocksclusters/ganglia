@@ -2,13 +2,13 @@
 #
 # This file should remain OS independent
 #
-# $Id: bootstrap.sh,v 1.8 2008/10/15 20:13:03 mjk Exp $
+# $Id: bootstrap.sh,v 1.9 2008/10/18 00:56:07 mjk Exp $
 #
 # @Copyright@
 # 
 # 				Rocks(r)
 # 		         www.rocksclusters.org
-# 		            version 5.0 (V)
+# 		           version 5.1  (VI)
 # 
 # Copyright (c) 2000 - 2008 The Regents of the University of California.
 # All rights reserved.	
@@ -58,6 +58,9 @@
 # @Copyright@
 #
 # $Log: bootstrap.sh,v $
+# Revision 1.9  2008/10/18 00:56:07  mjk
+# copyright 5.1
+#
 # Revision 1.8  2008/10/15 20:13:03  mjk
 # - more changes to build outside of the tree
 # - removed some old fds-only targets
