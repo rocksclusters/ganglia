@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.14 2008/10/18 00:56:07 mjk Exp $
+# $Id: Makefile,v 1.15 2008/11/30 19:00:16 anoop Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.15  2008/11/30 19:00:16  anoop
+# *** empty log message ***
+#
 # Revision 1.14  2008/10/18 00:56:07  mjk
 # copyright 5.1
 #
@@ -116,6 +119,7 @@
 
 
 -include $(shell $(ROCKSROOT)/bin/os).mk
+-include $(shell $(ROCKSROOT)/bin/arch).mk
 
 default:	pkg
 
