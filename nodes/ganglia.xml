@@ -18,6 +18,9 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.20  2008/12/16 18:41:29  anoop
+	Merged solaris specific info into common XML files
+	
 	Revision 1.19  2008/10/18 00:56:07  mjk
 	copyright 5.1
 	
@@ -79,27 +82,39 @@
 	
 	</changelog>
 
-	<package>ganglia-monitor-core</package>
-	<package>ganglia-python</package>
-	<package>ganglia-hpc</package>
-	<package>phpsysinfo</package>
+	<package os="linux">ganglia-monitor-core</package>
+	<package os="linux">ganglia-python</package>
+	<package os="linux">ganglia-hpc</package>
+	<package os="linux">phpsysinfo</package>
+
+	<package os="sunos">ROCKSganglia-monitor-core</package>
+	<package os="sunos">ROCKSganglia-python</package>
+	<package os="sunos">ROCKSganglia-hpc</package>
+	<package os="sunos">ROCKSrrdtool</package>
+	<package os="sunos">ROCKSphpsysinfo</package>
+
 
 <post>
-/sbin/chkconfig --add gmond
-
 ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
 ln -s /opt/rocks/bin/rrdtool /usr/bin/rrdtool
+</post>
+
+<post os="linux">
+/sbin/chkconfig --add gmond
 
 <file name="/etc/man.config" mode="append">
 MANPATH /opt/ganglia/man
 </file>
 
-</post>
-
-<post>
 cp /var/www/html/phpsysinfo/config.php.new /var/www/html/phpsysinfo/config.php
 </post>
 
+<post os="sunos">
+mkdir -p /var/lock
+
+cp /opt/ganglia/share/ganglia/gmond.xml /var/svc/manifest/network/gmond.xml
+<service name='network/gmond' enabled='yes'/>
+
+</post>
 
 </kickstart>
-

@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-client.xml,v $
+  Revision 1.7  2008/12/16 18:41:29  anoop
+  Merged solaris specific info into common XML files
+
   Revision 1.6  2006/08/23 20:36:46  anoop
   Upgraded Ganglia from 2.5.7 to 3.0.3
   Upgraded RRD Tool from 1.0.38 to 1.2.15
@@ -82,10 +85,12 @@
 
   </changelog>
 
-<post>
-
+<post os="linux">
 /sbin/chkconfig --del gmetad
 
+</post>
+
+<post>
 <file name="/etc/gmond.conf">
 <eval shell="sh">
 /opt/rocks/bin/dbreport gmond $Node_Hostname
