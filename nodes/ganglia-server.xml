@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.19  2009/01/23 21:13:22  bruno
+  convert var tags to entities
+
   Revision 1.18  2007/06/09 03:38:17  bruno
   needed to build rrdtool
 
@@ -255,7 +258,7 @@
 
 ln -s /opt/ganglia/sbin/gmetad /usr/sbin/gmetad
 
-/opt/rocks/bin/dbreport gmond <var name="Kickstart_PrivateHostname"/> &gt; /etc/gmond.conf
+/opt/rocks/bin/dbreport gmond &Kickstart_PrivateHostname; &gt; /etc/gmond.conf
 
 <!-- Make homepage links that require Ganglia. -->
 <file name="/var/www/html/homepage/20-ganglia.html">
@@ -274,7 +277,7 @@ Cluster Top (Process Viewer)&lt;/a&gt;
 # The Gmetad configuration file for this cluster.
 # Generated automatically by ganglia-server.xml.
 #
-data_source "<var name="Info_ClusterName"/>" localhost:8649
+data_source "&Info_ClusterName;" localhost:8649
 </file>
 
 
