@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 
-<kickstart>
+<kickstart interface="public">
 
   <description>
 
@@ -12,6 +12,10 @@
 
   <changelog>
   $Log: ganglia-client.xml,v $
+  Revision 1.8  2009/01/28 20:45:52  mjk
+  - make node files "public"
+  - added glew to bootstap
+
   Revision 1.7  2008/12/16 18:41:29  anoop
   Merged solaris specific info into common XML files
 
