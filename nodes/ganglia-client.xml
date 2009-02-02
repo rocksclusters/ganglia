@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-client.xml,v $
+  Revision 1.9  2009/02/02 19:56:07  mjk
+  Node_Hostname -> hostname
+
   Revision 1.8  2009/01/28 20:45:52  mjk
   - make node files "public"
   - added glew to bootstap
@@ -97,7 +100,7 @@
 <post>
 <file name="/etc/gmond.conf">
 <eval shell="sh">
-/opt/rocks/bin/dbreport gmond $Node_Hostname
+/opt/rocks/bin/dbreport gmond &hostname;
 </eval>
 </file>
 
