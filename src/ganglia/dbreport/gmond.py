@@ -60,6 +60,9 @@
 # @Copyright@
 #
 # $Log: gmond.py,v $
+# Revision 1.21  2009/03/12 22:15:18  mjk
+# fixed multicast addr
+#
 # Revision 1.20  2008/10/18 00:56:08  mjk
 # copyright 5.1
 #
@@ -202,12 +205,10 @@ class Report(rocks.reports.base.ReportBase):
 		except:
 			clustername=owner=url=latlong="unspecified" 
 
-		# Get the multicast address of the cluster. If it's not in the
-		# database, just choose some random one. It's all randomly generated anyway
-		try:
-			mcast = self.sql.getGlobalVar('Kickstart','Multicast')
-		except:
-			mcast = '239.2.11.171'
+		# Pick a low unassigned multicast address, no more random
+		# address picking
+
+		mcast = '224.0.0.3'
 
 		# Get the location of the machine in the cluster.
 		# The cluster is assumed to be 2 dimensional.
