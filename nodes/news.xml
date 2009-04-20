@@ -10,6 +10,9 @@ RSS-style Cluster News.
 
   <changelog>
   $Log: news.xml,v $
+  Revision 1.4  2009/04/20 21:16:35  bruno
+  cleanup dead 'homepage' links
+
   Revision 1.3  2005/03/31 22:11:03  fds
   Package for ganglia pie graph
 
@@ -30,11 +33,6 @@ RSS-style Cluster News.
   <package>ganglia-news</package>
 
 <post>
-
-<!-- Make homepage links. Only needed on the frontend. -->
-<file name="/var/www/html/homepage/25-news.html">
-&lt;a href="/rss/ganglia/"&gt;Cluster RSS&lt;/a&gt;
-</file>
 
 <!-- A Cron Job to run the news journalists every night. -->
 <file name="/etc/cron.hourly/ganglia-news" perms="0755">

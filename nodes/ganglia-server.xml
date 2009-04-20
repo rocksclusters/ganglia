@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.21  2009/04/20 21:16:35  bruno
+  cleanup dead 'homepage' links
+
   Revision 1.20  2009/01/28 20:45:52  mjk
   - make node files "public"
   - added glew to bootstap
@@ -263,17 +266,6 @@
 ln -s /opt/ganglia/sbin/gmetad /usr/sbin/gmetad
 
 /opt/rocks/bin/dbreport gmond &Kickstart_PrivateHostname; &gt; /etc/gmond.conf
-
-<!-- Make homepage links that require Ganglia. -->
-<file name="/var/www/html/homepage/20-ganglia.html">
-&lt;a href="ganglia/"&gt;Cluster Status (Ganglia)&lt;/a&gt;
-</file>
-
-
-<file name="/var/www/html/homepage/22-cluster-top.html">
-&lt;a href="ganglia/addons/rocks/top.php"&gt;
-Cluster Top (Process Viewer)&lt;/a&gt;
-</file>
 
 
 <file name="/etc/gmetad.conf">
