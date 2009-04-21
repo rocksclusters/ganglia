@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.1 2009/04/21 18:10:54 bruno Exp $
+# $Id: Makefile,v 1.2 2009/04/21 23:42:12 anoop Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.2  2009/04/21 23:42:12  anoop
+# Modified confuse build to build to the right directory
+#
 # Revision 1.1  2009/04/21 18:10:54  bruno
 #  - converted gmond dbreport to rocks command line
 #  - added supporting packages for ganglia monitor core
@@ -67,10 +70,11 @@ include Rules.mk
 
 build::
 	gunzip -c $(NAME)-$(VERSION).tar.gz | $(TAR) -xf -
-	(							\
-		cd $(NAME)-$(VERSION) ;				\
-		./configure --enable-shared ;			\
-		$(MAKE) ;					\
+	(					\
+		cd $(NAME)-$(VERSION) ;		\
+		./configure --prefix=$(PKGROOT) \
+			--enable-shared ;	\
+		$(MAKE) ;			\
 	)
 
 install::
