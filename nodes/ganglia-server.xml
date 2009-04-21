@@ -12,6 +12,10 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.22  2009/04/21 18:10:54  bruno
+   - converted gmond dbreport to rocks command line
+   - added supporting packages for ganglia monitor core
+
   Revision 1.21  2009/04/20 21:16:35  bruno
   cleanup dead 'homepage' links
 
@@ -248,8 +252,8 @@
   <package>libart_lgpl-devel</package>
   <package>rrdtool</package>
   <package>rrdtool-devel</package>
-<!--  <package>ganglia-web</package> -->
   <package>php-gd</package>
+  <package>rocks-command-ganglia</package>
 
   <!-- The PBS monitoring extensions to Ganglia -->
   <package>ganglia-webfrontend-addons</package>
@@ -259,14 +263,11 @@
 <post>
 
 /sbin/chkconfig --add ganglia-restore-rrds
-
-
 /sbin/chkconfig --add gmetad
 
 ln -s /opt/ganglia/sbin/gmetad /usr/sbin/gmetad
 
-/opt/rocks/bin/dbreport gmond &Kickstart_PrivateHostname; &gt; /etc/gmond.conf
-
+/opt/rocks/bin/rocks report host ganglia gmond &hostname; &gt; /etc/gmond.conf
 
 <file name="/etc/gmetad.conf">
 #

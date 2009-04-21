@@ -1,5 +1,5 @@
 # --------------------------------------------------- -*- Makefile -*- --
-# $Id: Makefile,v 1.18 2008/10/18 00:56:08 mjk Exp $
+# $Id: Makefile,v 1.19 2009/04/21 18:10:55 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.19  2009/04/21 18:10:55  bruno
+#  - converted gmond dbreport to rocks command line
+#  - added supporting packages for ganglia monitor core
+#
 # Revision 1.18  2008/10/18 00:56:08  mjk
 # copyright 5.1
 #
@@ -156,6 +160,7 @@ build:
 		./configure 					\
 			--prefix=$(PKGROOT)			\
 			--with-gmetad 				\
+			--with-libconfuse=/opt/confuse/		\
 			CFLAGS="-I/opt/rocks/include/"		\
 			CPPFLAGS="-I/opt/rocks/include/"	\
 			LDFLAGS="-L/opt/rocks/lib/";		\

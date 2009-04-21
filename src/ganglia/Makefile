@@ -55,6 +55,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.23  2009/04/21 18:10:54  bruno
+#  - converted gmond dbreport to rocks command line
+#  - added supporting packages for ganglia monitor core
+#
 # Revision 1.22  2008/10/18 00:56:08  mjk
 # copyright 5.1
 #
@@ -155,7 +159,6 @@
 PKGROOT = /opt/ganglia
 PLUGINDIR = /opt/rocks/var/plugins/insertethers
 METRICS = $(wildcard metrics/*.py)
-REPORTS = $(wildcard dbreport/*.py)
 PLUGINS = $(wildcard plugins/*.py)
 REDHAT.ROOT = $(CURDIR)/../../
 
@@ -170,9 +173,6 @@ build:
 install:: $(SCRIPTS)
 	mkdir -p $(ROOT)/$(PY.ROCKS)/gmon/metrics/
 	$(INSTALL) -m 0444 $(METRICS) $(ROOT)/$(PY.ROCKS)/gmon/metrics/
-
-	mkdir -p $(ROOT)/$(PY.ROCKS)/rocks/reports/
-	$(INSTALL) -m 0644 $(REPORTS) $(ROOT)/$(PY.ROCKS)/rocks/reports/
 
 	mkdir -p $(ROOT)/$(PLUGINDIR)
 	$(INSTALL) -m 0444 $(PLUGINS) $(ROOT)/$(PLUGINDIR)

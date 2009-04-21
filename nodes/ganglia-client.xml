@@ -12,6 +12,10 @@
 
   <changelog>
   $Log: ganglia-client.xml,v $
+  Revision 1.10  2009/04/21 18:10:54  bruno
+   - converted gmond dbreport to rocks command line
+   - added supporting packages for ganglia monitor core
+
   Revision 1.9  2009/02/02 19:56:07  mjk
   Node_Hostname -> hostname
 
@@ -100,7 +104,7 @@
 <post>
 <file name="/etc/gmond.conf">
 <eval shell="sh">
-/opt/rocks/bin/dbreport gmond &hostname;
+/opt/rocks/bin/rocks report host ganglia gmond &hostname;
 </eval>
 </file>
 
