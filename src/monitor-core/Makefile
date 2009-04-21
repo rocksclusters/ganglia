@@ -1,5 +1,5 @@
 # --------------------------------------------------- -*- Makefile -*- --
-# $Id: Makefile,v 1.19 2009/04/21 18:10:55 bruno Exp $
+# $Id: Makefile,v 1.20 2009/04/21 23:42:56 anoop Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.20  2009/04/21 23:42:56  anoop
+# Moved the build target from common Makefile to OS specific
+# makefile
+#
 # Revision 1.19  2009/04/21 18:10:55  bruno
 #  - converted gmond dbreport to rocks command line
 #  - added supporting packages for ganglia monitor core
@@ -145,27 +149,6 @@ PKGROOT		= /opt/ganglia
 REDHAT.ROOT     = $(CURDIR)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
-
-CC = gcc
-export CC
-
-
-build:	
-	gunzip -c $(ARCHIVE)-$(VERSION).tar.gz | $(TAR) -xf -
-	( 							\
-		cd patch-files;					\
-		find . -type f | grep -v CVS | cpio -pduv 	\
-			../$(ARCHIVE)-$(VERSION);		\
-		cd ../$(ARCHIVE)-$(VERSION);			\
-		./configure 					\
-			--prefix=$(PKGROOT)			\
-			--with-gmetad 				\
-			--with-libconfuse=/opt/confuse/		\
-			CFLAGS="-I/opt/rocks/include/"		\
-			CPPFLAGS="-I/opt/rocks/include/"	\
-			LDFLAGS="-L/opt/rocks/lib/";		\
-		$(MAKE);					\
-	)
 	
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
