@@ -1,5 +1,5 @@
 # --------------------------------------------------- -*- Makefile -*- --
-# $Id: Makefile,v 1.20 2009/04/21 23:42:56 anoop Exp $
+# $Id: Makefile,v 1.21 2009/04/23 20:04:13 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.21  2009/04/23 20:04:13  bruno
+# need to use DESTDIR instead of prefix for install
+#
 # Revision 1.20  2009/04/21 23:42:56  anoop
 # Moved the build target from common Makefile to OS specific
 # makefile
@@ -149,7 +152,8 @@ PKGROOT		= /opt/ganglia
 REDHAT.ROOT     = $(CURDIR)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
-	
+
+
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
 	mkdir -p $(ROOT)/usr/share/man/man1
@@ -158,7 +162,7 @@ install::
 	chown -R nobody:nobody  $(ROOT)/var/lib/ganglia/rrds/
 	( 							\
 		cd $(ARCHIVE)-$(VERSION);			\
-		$(MAKE) prefix=$(ROOT)/$(PKGROOT) install; 	\
+		$(MAKE) install DESTDIR=$(ROOT);	 	\
 		mkdir -p $(ROOT)/$(INIT_SCRIPTS_DIR);		\
 		$(INSTALL) -m 0755 $(GMOND_INIT)		\
 			$(ROOT)/$(INIT_SCRIPTS_DIR)/gmond;	\
