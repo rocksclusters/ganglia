@@ -18,6 +18,9 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.22  2009/04/24 22:10:35  anoop
+	Renamed ganglia-hpc to rocks-ganglia
+	
 	Revision 1.21  2009/04/21 18:10:54  bruno
 	 - converted gmond dbreport to rocks command line
 	 - added supporting packages for ganglia monitor core
@@ -88,13 +91,13 @@
 
 	<package os="linux">ganglia-monitor-core</package>
 	<package os="linux">ganglia-python</package>
-	<package os="linux">ganglia-hpc</package>
+	<package os="linux">rocks-ganglia</package>
 	<package os="linux">phpsysinfo</package>
 	<package os="linux">confuse</package>
 
 	<package os="sunos">ROCKSganglia-monitor-core</package>
 	<package os="sunos">ROCKSganglia-python</package>
-	<package os="sunos">ROCKSganglia-hpc</package>
+	<package os="sunos">ROCKSrocks-ganglia</package>
 	<package os="sunos">ROCKSrrdtool</package>
 	<package os="sunos">ROCKSphpsysinfo</package>
 

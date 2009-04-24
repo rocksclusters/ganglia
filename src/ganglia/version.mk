@@ -1,2 +1,2 @@
-NAME = ganglia-hpc
-RELEASE = 2
+NAME = rocks-ganglia
+RELEASE = 3
