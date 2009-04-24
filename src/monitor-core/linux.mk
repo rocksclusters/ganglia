@@ -18,3 +18,9 @@ build:
 install::
 GMOND_INIT	= gmond/gmond.init
 GMETAD_INIT	= gmetad/gmetad.init
+install::
+	mkdir -p $(ROOT)/$(INIT_SCRIPTS_DIR)
+	$(INSTALL) -m 0755 $(GMOND_INIT)		\
+		$(ROOT)/$(INIT_SCRIPTS_DIR)/gmond
+	$(INSTALL) -m 0755 $(GMETAD_INIT) 		\
+		$(ROOT)/$(INIT_SCRIPTS_DIR)/gmetad

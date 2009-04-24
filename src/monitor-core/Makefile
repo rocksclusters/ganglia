@@ -1,5 +1,5 @@
 # --------------------------------------------------- -*- Makefile -*- --
-# $Id: Makefile,v 1.21 2009/04/23 20:04:13 bruno Exp $
+# $Id: Makefile,v 1.22 2009/04/24 22:07:49 anoop Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.22  2009/04/24 22:07:49  anoop
+# Moved the solaris specific startup scripts to ganglia-hpc package
+#
 # Revision 1.21  2009/04/23 20:04:13  bruno
 # need to use DESTDIR instead of prefix for install
 #
@@ -163,11 +166,6 @@ install::
 	( 							\
 		cd $(ARCHIVE)-$(VERSION);			\
 		$(MAKE) install DESTDIR=$(ROOT);	 	\
-		mkdir -p $(ROOT)/$(INIT_SCRIPTS_DIR);		\
-		$(INSTALL) -m 0755 $(GMOND_INIT)		\
-			$(ROOT)/$(INIT_SCRIPTS_DIR)/gmond;	\
-		$(INSTALL) -m 0755 $(GMETAD_INIT) 		\
-			$(ROOT)/$(INIT_SCRIPTS_DIR)/gmetad;	\
 		mkdir -p $(ROOT)/$(WEBSERVER_ROOT)/; 		\
 		cp -rf web/ $(ROOT)/$(WEBSERVER_ROOT)/ganglia/;	\
 	)

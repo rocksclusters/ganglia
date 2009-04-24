@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.24  2009/04/24 22:07:49  anoop
+# Moved the solaris specific startup scripts to ganglia-hpc package
+#
 # Revision 1.23  2009/04/21 18:10:54  bruno
 #  - converted gmond dbreport to rocks command line
 #  - added supporting packages for ganglia monitor core
@@ -155,7 +158,6 @@
 #
 #
 
-
 PKGROOT = /opt/ganglia
 PLUGINDIR = /opt/rocks/var/plugins/insertethers
 METRICS = $(wildcard metrics/*.py)
@@ -170,25 +172,21 @@ include python.mk
 
 build:
 
-install:: $(SCRIPTS)
+install::
 	mkdir -p $(ROOT)/$(PY.ROCKS)/gmon/metrics/
 	$(INSTALL) -m 0444 $(METRICS) $(ROOT)/$(PY.ROCKS)/gmon/metrics/
-
+	# Install insert-ethers plugins
 	mkdir -p $(ROOT)/$(PLUGINDIR)
 	$(INSTALL) -m 0444 $(PLUGINS) $(ROOT)/$(PLUGINDIR)
-
-	mkdir -p $(ROOT)/etc/rc.d/init.d
-	$(INSTALL) -m 0755 init.d/ganglia-restore-rrds $(ROOT)/etc/rc.d/init.d
-
+	# Install ganglia-restore-rrds scripts
+	mkdir -p $(ROOT)/$(INIT_SCRIPTS_DIR)
+	$(INSTALL) -m 0755 init.d/ganglia-restore-rrds $(ROOT)/$(INIT_SCRIPTS_DIR)
+	# Install cron job that works saves ganglia data
 	mkdir -p $(ROOT)/etc/cron.weekly
 	$(INSTALL) -m 0755 cron.weekly/ganglia-save-rrds.cron \
 		$(ROOT)/etc/cron.weekly
-
+	# Install the ganglia profile scripts
 	mkdir -p $(ROOT)/etc/profile.d
 	$(INSTALL) -m 0755 profile.d/*sh $(ROOT)/etc/profile.d
 
-
 clean::
-	rm -f $(SCRIPTS)
-	rm -f $(NAME).spec.in
-
