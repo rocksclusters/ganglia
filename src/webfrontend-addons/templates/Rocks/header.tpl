@@ -13,7 +13,7 @@
 <TR>
   <TD ROWSPAN="2" WIDTH="110">
   <A HREF="http://www.rocksclusters.org/">
-  <IMG SRC="{images}/rocks.jpg" HEIGHT="100" WIDTH="100" 
+  <IMG SRC="./addons/rocks/images/rocks.jpg" HEIGHT="100" WIDTH="100" 
       ALT="Rocks User's Guide" BORDER="0"></A>
   </TD>
   <TD VALIGN="TOP">
@@ -30,7 +30,7 @@
      </TD>
   <TD ROWSPAN="2" WIDTH="150">
   <A HREF="http://ganglia.sourceforge.net/">
-  <IMG SRC="{images}/ganglia.jpg" HEIGHT="91" WIDTH="150" 
+  <IMG SRC="./addons/rocks/images/ganglia.jpg" HEIGHT="91" WIDTH="150" 
       ALT="Ganglia Cluster Toolkit" BORDER="0"></A>
   </TD>
   </TR>

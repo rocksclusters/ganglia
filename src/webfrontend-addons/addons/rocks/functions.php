@@ -58,7 +58,7 @@ function getJobs()
 	$jobs=array();
 	$queue=array();
 	
-	$queue[LOCALTIME] = $cluster[LOCALTIME];
+	$queue['LOCALTIME'] = $cluster['LOCALTIME'];
 
 	foreach ($hosts_up as $hostname=>$v)
 	{

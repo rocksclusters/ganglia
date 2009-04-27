@@ -5,6 +5,7 @@
 # usually "../..".
 #
 include_once "$GHOME/conf.php";
+include_once "$GHOME/functions.php";
 include_once "$GHOME/ganglia.php";
 
 # Collect cluster name from the command line if it exists.
@@ -24,7 +25,7 @@ else
 	$rc=Gmetad($ganglia_ip, 8649);
 }
 
-if (!rc)
+if (!$rc)
 {
 	print "<H4>There was an error collecting ganglia data ".
 		"($ganglia_ip:$ganglia_port): $error</H4>\n";

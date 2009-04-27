@@ -61,6 +61,9 @@
 # @Copyright@
 #
 # $Log: queue.php,v $
+# Revision 1.13  2009/04/27 17:58:26  bruno
+# fixes
+#
 # Revision 1.12  2008/10/18 00:56:09  mjk
 # copyright 5.1
 #
@@ -242,7 +245,7 @@ if (is_array($jobs)) {
 		if ( $started == 0 )
 			$secs_in_state = 0;
 		else
-			$secs_in_state = $queue[LOCALTIME] - $started;
+			$secs_in_state = $queue['LOCALTIME'] - $started;
 
 		if ($secs_in_state < 0)
 			$time_in_state = "??";

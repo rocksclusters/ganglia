@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.23  2009/04/27 17:58:26  bruno
+  fixes
+
   Revision 1.22  2009/04/21 18:10:54  bruno
    - converted gmond dbreport to rocks command line
    - added supporting packages for ganglia monitor core
@@ -267,9 +270,10 @@
 
 ln -s /opt/ganglia/sbin/gmetad /usr/sbin/gmetad
 
-/opt/rocks/bin/rocks report host ganglia gmond &hostname; &gt; /etc/gmond.conf
+/opt/rocks/bin/rocks report host ganglia gmond localhost &gt; \
+	/etc/ganglia/gmond.conf
 
-<file name="/etc/gmetad.conf">
+<file name="/etc/ganglia/gmetad.conf">
 #
 # The Gmetad configuration file for this cluster.
 # Generated automatically by ganglia-server.xml.
