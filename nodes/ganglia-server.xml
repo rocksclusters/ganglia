@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.24  2009/04/28 23:10:52  bruno
+  fix
+
   Revision 1.23  2009/04/27 17:58:26  bruno
   fixes
 
@@ -269,6 +272,8 @@
 /sbin/chkconfig --add gmetad
 
 ln -s /opt/ganglia/sbin/gmetad /usr/sbin/gmetad
+
+mkdir -p /etc/ganglia
 
 /opt/rocks/bin/rocks report host ganglia gmond localhost &gt; \
 	/etc/ganglia/gmond.conf
