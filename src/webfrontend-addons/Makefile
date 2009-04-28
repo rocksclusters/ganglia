@@ -53,6 +53,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.15  2009/04/28 23:28:09  bruno
+# fixes
+#
 # Revision 1.14  2008/10/18 00:56:09  mjk
 # copyright 5.1
 #
@@ -169,13 +172,16 @@ include Rules.mk
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)/$(ADDONS)/templates/
 	mkdir -p $(ROOT)/$(PKGROOT)/$(ADDONS)/images/
-	mkdir -p $(ROOT)/$(PKGROOT)/$(ADDONS)/images/
+
 	$(INSTALL) -m644 $(PHP) $(ROOT)/$(PKGROOT)/$(ADDONS)
 	$(INSTALL) -m644 $(ADDONS)/styles.css $(ROOT)/$(PKGROOT)/$(ADDONS)
 	$(INSTALL) -m644 $(IMAGES) $(ROOT)/$(PKGROOT)/$(ADDONS)/images
 	$(INSTALL) -m644 $(TEMPLATES) $(ROOT)/$(PKGROOT)/$(ADDONS)/templates
+	$(INSTALL) -m644 conf.php $(ROOT)/$(PKGROOT)/
+
 	# For backwards compatibility with 2.3.0
 	-(cd $(ROOT)/$(PKGROOT)/rocks/; ln -sf queue.php pbs.php)
+
 	# Extend the standard Ganglia 'Rocks' template.
 	mkdir -p $(ROOT)/$(PKGROOT)/templates/Rocks
 	$(INSTALL) -m644 $(EXTRAS) $(ROOT)/$(PKGROOT)/templates/Rocks

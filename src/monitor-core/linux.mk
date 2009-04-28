@@ -20,8 +20,8 @@ build:
 # cd ../$(ARCHIVE)-$(VERSION);
 
 install::
-GMOND_INIT	= gmond/gmond.init
-GMETAD_INIT	= gmetad/gmetad.init
+GMOND_INIT	= $(ARCHIVE)-$(VERSION)/gmond/gmond.init
+GMETAD_INIT	= $(ARCHIVE)-$(VERSION)/gmetad/gmetad.init
 install::
 	mkdir -p $(ROOT)/$(INIT_SCRIPTS_DIR)
 	$(INSTALL) -m 0755 $(GMOND_INIT)		\

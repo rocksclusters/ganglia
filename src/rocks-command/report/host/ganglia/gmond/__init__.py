@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.1 2009/04/21 18:10:55 bruno Exp $
+# $Id: __init__.py,v 1.2 2009/04/28 23:28:09 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.2  2009/04/28 23:28:09  bruno
+# fixes
+#
 # Revision 1.1  2009/04/21 18:10:55  bruno
 #  - converted gmond dbreport to rocks command line
 #  - added supporting packages for ganglia monitor core
@@ -222,6 +225,51 @@ udp_send_channel {
 		}
 	}
 }""" % (private_network, private_netmask))
+
+		# 
+		# load the metrics modules
+		# 
+		self.addOutput('', "\n/* Modules */")
+		self.addOutput('', """modules {
+	module {
+		name = "core_metrics"
+	}
+
+	module {
+		name = "cpu_module"
+		path = "modcpu.so"
+	}
+
+	module {
+		name = "disk_module"
+		path = "moddisk.so"
+	}
+
+	module {
+		name = "load_module"
+		path = "modload.so"
+	}
+
+	module {
+		name = "mem_module"
+		path = "modmem.so"
+	}
+
+	module {
+		name = "net_module"
+		path = "modnet.so"
+	}
+
+	module {
+		name = "proc_module"
+		path = "modproc.so"
+	}
+
+	module {
+		name = "sys_module"
+		path = "modsys.so"
+	}
+}""")
 
 		# Now this is an important part. Metrics in ganglia 3.x follow
 		# the collection group style of collecting metrics. Look at the 

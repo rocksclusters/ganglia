@@ -15,6 +15,9 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.24  2009/04/28 23:28:09  bruno
+	fixes
+	
 	Revision 1.23  2009/04/27 17:58:26  bruno
 	fixes
 	
@@ -123,6 +126,22 @@ mkdir -p /var/lock
 cp /opt/ganglia/share/ganglia/gmond.xml /var/svc/manifest/network/gmond.xml
 <service name='network/gmond' enabled='yes'/>
 
+</post>
+
+<post>
+
+<file name="/etc/ld.so.conf.d/ganglia.conf" arch="x86_64">
+/opt/ganglia/lib64
+</file>
+
+<file name="/etc/ld.so.conf.d/ganglia.conf" arch="i386">
+/opt/ganglia/lib
+</file>
+
+</post>
+
+<post>
+/sbin/ldconfig
 </post>
 
 </kickstart>
