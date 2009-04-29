@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-client.xml,v $
+  Revision 1.12  2009/04/29 23:34:57  bruno
+  gettin' close
+
   Revision 1.11  2009/04/27 17:58:26  bruno
   fixes
 
@@ -101,10 +104,12 @@
 
 <post os="linux">
 /sbin/chkconfig --del gmetad
-
 </post>
 
 <post>
+
+mkdir -p /etc/ganglia
+
 <file name="/etc/ganglia/gmond.conf">
 <eval shell="sh">
 /opt/rocks/bin/rocks report host ganglia gmond &hostname;

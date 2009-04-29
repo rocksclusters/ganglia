@@ -15,6 +15,9 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.25  2009/04/29 23:34:57  bruno
+	gettin' close
+	
 	Revision 1.24  2009/04/28 23:28:09  bruno
 	fixes
 	
@@ -128,16 +131,16 @@ cp /opt/ganglia/share/ganglia/gmond.xml /var/svc/manifest/network/gmond.xml
 
 </post>
 
-<post>
-
-<file name="/etc/ld.so.conf.d/ganglia.conf" arch="x86_64">
+<post arch="x86_64">
+<file name="/etc/ld.so.conf.d/ganglia.conf">
 /opt/ganglia/lib64
 </file>
+</post>
 
-<file name="/etc/ld.so.conf.d/ganglia.conf" arch="i386">
+<post arch="i386">
+<file name="/etc/ld.so.conf.d/ganglia.conf">
 /opt/ganglia/lib
 </file>
-
 </post>
 
 <post>
