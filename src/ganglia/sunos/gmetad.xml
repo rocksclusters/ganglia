@@ -45,7 +45,7 @@
 		grouping='require_all'
 		restart_on='restart'
 		type='path'>
-		<service_fmri value='file://localhost/etc/gmetad.conf' />
+		<service_fmri value='file://localhost/etc/ganglia/gmetad.conf' />
 	</dependency>
 
 	<exec_method

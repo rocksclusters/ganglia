@@ -45,7 +45,7 @@
 		grouping='require_all'
 		restart_on='restart'
 		type='path'>
-		<service_fmri value='file://localhost/etc/gmond.conf' />
+		<service_fmri value='file://localhost/etc/ganglia/gmond.conf' />
 	</dependency>
 
 	<exec_method
