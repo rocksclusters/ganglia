@@ -1,4 +1,4 @@
-SRCDIRS	=	apr apr-utils confuse	\
+SRCDIRS	=	apr apr-util confuse	\
 		ganglia monitor-core 	\
 		news phpSysInfo python 	\
-		rrdtool webfrontend-addons
+		webfrontend-addons
