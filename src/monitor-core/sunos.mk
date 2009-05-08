@@ -7,7 +7,9 @@ build:
 		cd ../$(ARCHIVE)-$(VERSION);			\
 		./configure 					\
 			--prefix=$(PKGROOT)			\
-			--with-gmetad 				\
+			--without-gmetad 			\
+			--without-librrd			\
+			--with-python=/opt/rocks		\
 			--with-libconfuse=/opt/confuse/		\
 			--with-libexpat=/usr/sfw		\
 			CFLAGS="-I/opt/rocks/include/ -I/usr/sfw"\
