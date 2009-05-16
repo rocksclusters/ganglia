@@ -8,6 +8,17 @@ Link to ganglia status page on the frontend's web site
 
 <changelog>
 $Log: ganglia-wordpress-data.xml,v $
+Revision 1.5  2009/05/16 02:10:50  anoop
+Moved from RedHat MySQL to Rocks foundation-mysql
+rather forcefully.
+
+Turned off RedHat MySQL and cleanup of node xml files
+to remove all access to RedHat MySQL.
+
+Wordpress data and generic php mysql accesses are now
+directed to foundation-mysql. Here's hoping we got all
+of it.
+
 Revision 1.4  2008/10/23 22:00:25  bruno
 add description to the link
 
@@ -31,7 +42,7 @@ insert into wp_links (link_name, link_description, link_url, link_category)
 	2);
 </file>
 
-cat /tmp/ganglia-wp.sql | mysql -u wordpress wordpress
+/opt/rocks/bin/mysql --user=root --password='' wordpress &lt; /tmp/ganglia-wp.sql
 rm -f /tmp/ganglia-wp.sql
 </post>
 
