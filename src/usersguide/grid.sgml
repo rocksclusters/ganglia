@@ -34,7 +34,7 @@ Then restart the gmetad server on "A" frontend.
 <listitem>
 <para>
 On "B" frontend, get the IP address of "A.frontend.domain.name" and edit
-/etc/gmond.conf and change the section from:
+/etc/ganglia/gmond.conf and change the section from:
 </para>
 
 <para>

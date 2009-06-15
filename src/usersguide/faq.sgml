@@ -56,8 +56,8 @@ characters will cause this problem.
 <para>
 We hope future versions of Ganglia will correctly escape all names to
 make them XML safe. If you have a bad name, to edit
-<literal>/etc/gmond.conf</literal> on the frontend node, remove the offending
-characters, then restart gmond.
+<literal>/etc/ganglia/gmond.conf</literal> on the frontend node, remove the
+offending characters, then restart gmond.
 
 </para>
 
