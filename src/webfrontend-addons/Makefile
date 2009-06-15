@@ -53,6 +53,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.17  2009/06/15 23:46:00  bruno
+# don't include the rocks tools links (job queue, cluster top, etc.) for this
+# release
+#
 # Revision 1.16  2009/05/01 19:07:17  mjk
 # chimi con queso
 #
@@ -166,7 +170,8 @@ PHP = $(wildcard $(ADDONS)/*.php)
 IMAGES = $(wildcard $(ADDONS)/images/*jpg)
 TEMPLATES = $(wildcard $(ADDONS)/templates/*tpl)
 # Extensions to the standard Ganglia Rocks template.
-EXTRAS = $(wildcard templates/Rocks/*tpl)
+#EXTRAS = $(wildcard templates/Rocks/*tpl)
+EXTRAS = templates/Rocks/header.tpl templates/Rocks/host_extra.tpl
 
 REDHAT.ROOT = $(CURDIR)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
