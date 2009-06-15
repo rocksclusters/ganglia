@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.3 2009/05/01 19:07:17 mjk Exp $
+# $Id: __init__.py,v 1.4 2009/06/15 18:12:18 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,10 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.4  2009/06/15 18:12:18  bruno
+# nuke some characters from the user input fields that may cause ganglia to
+# not correctly gather and report metrics
+#
 # Revision 1.3  2009/05/01 19:07:17  mjk
 # chimi con queso
 #
@@ -76,6 +80,16 @@ class Command(rocks.commands.report.host.ganglia.command):
 	Report the machines that are managed by SGE.
 	</example>
 	"""
+
+	def cleanstr(self, dirty):
+		clean = []
+
+		for c in dirty:
+			if c not in [ '<', '>', '&', '"' ]:
+				clean.append(c)
+
+		return '%s' % (''.join(clean))
+
 
 	def run(self, params, args):
 		hosts = self.getHostnames(args)
@@ -102,14 +116,14 @@ class Command(rocks.commands.report.host.ganglia.command):
 		# Get information about the cluster.
 		#
 		try:
-			owner = self.db.getHostAttr(host,
-				'Info_CertificateOrganization')
+			owner = self.cleanstr(self.db.getHostAttr(host,
+				'Info_CertificateOrganization'))
 		except:
 			owner = "unspecified"
 
 		try:
-			clustername = self.db.getHostAttr(host,
-				'Info_ClusterName')
+			clustername = self.cleanstr(self.db.getHostAttr(host,
+				'Info_ClusterName'))
 		except:
 			clustername = "unspecified"
 
@@ -119,8 +133,8 @@ class Command(rocks.commands.report.host.ganglia.command):
 			url = "unspecified"
 
 		try:
-			latlong = self.db.getHostAttr(host,
-				'Info_ClusterLatlong')
+			latlong = self.cleanstr(self.db.getHostAttr(host,
+				'Info_ClusterLatlong'))
 		except:
 			latlong = "unspecified"
 
