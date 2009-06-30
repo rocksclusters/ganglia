@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.4 2009/06/15 18:12:18 bruno Exp $
+# $Id: __init__.py,v 1.5 2009/06/30 00:08:56 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.5  2009/06/30 00:08:56  bruno
+# change ganglia traffic from multicast to unicast
+#
 # Revision 1.4  2009/06/15 18:12:18  bruno
 # nuke some characters from the user input fields that may cause ganglia to
 # not correctly gather and report metrics
@@ -139,11 +142,6 @@ class Command(rocks.commands.report.host.ganglia.command):
 			latlong = "unspecified"
 
 		#
-		# Pick a low unassigned multicast address
-		#
-		mcast = '224.0.0.3'
-
-		#
 		# Get the location of the machine in the cluster.
 		# The cluster is assumed to be 2 dimensional.
 		#
@@ -172,6 +170,8 @@ class Command(rocks.commands.report.host.ganglia.command):
 		#
 		# more networking info
 		#
+		private_address = self.db.getHostAttr(host,
+			'Kickstart_PrivateAddress')
 		private_network = self.db.getHostAttr(host,
 			'Kickstart_PrivateNetwork')
 		private_netmask = self.db.getHostAttr(host,
@@ -213,14 +213,13 @@ class Command(rocks.commands.report.host.ganglia.command):
 
 		self.addOutput('', "\n/* UDP Channels for Send and Recv */")
 		self.addOutput('', """udp_recv_channel {
-	mcast_join = %s
 	port = 8649
 }
 
 udp_send_channel {
-	mcast_join = %s
+	host = %s
 	port = 8649
-}""" % (mcast, mcast))
+}""" % (private_address))
 
 		self.addOutput('', "\n/* TCP Accept Channel */")
 		self.addOutput('', """tcp_accept_channel {
