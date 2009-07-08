@@ -1,23 +1,21 @@
 build:	
 	gunzip -c $(ARCHIVE)-$(VERSION).tar.gz | $(TAR) -xf -
 	( 							\
-		cd $(ARCHIVE)-$(VERSION);			\
+		cd patch-files;					\
+		find . -type f | grep -v CVS | 			\
+			cpio -pduv ../$(ARCHIVE)-$(VERSION);	\
+		cd ../$(ARCHIVE)-$(VERSION);			\
 		./configure 					\
 			--prefix=$(PKGROOT)			\
 			--with-gmetad 				\
 			--with-libconfuse=/opt/confuse/		\
 			--with-librrd=/opt/rocks/lib/		\
-			CFLAGS="-I/opt/rocks/include/"		\
+			CFLAGS="-I/opt/rocks/include/ -DROCKS"	\
 			CPPFLAGS="-I/opt/rocks/include/"	\
 			LDFLAGS="-L/opt/rocks/lib/";		\
 		$(MAKE);					\
 	)
 
-
-# cd patch-files;				
-# find . -type f | grep -v CVS | cpio -pduv
-# ../$(ARCHIVE)-$(VERSION);
-# cd ../$(ARCHIVE)-$(VERSION);
 
 install::
 GMOND_INIT	= $(ARCHIVE)-$(VERSION)/gmond/gmond.init
