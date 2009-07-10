@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.27  2009/07/10 21:05:18  bruno
+# make 80 column friendly
+#
 # Revision 1.26  2009/07/10 20:32:04  bruno
 # get rocks-defined metrics back in ganglia roll
 #
@@ -190,7 +193,8 @@ install::
 	$(INSTALL) -m 0444 $(PLUGINS) $(ROOT)/$(PLUGINDIR)
 	# Install ganglia-restore-rrds scripts
 	mkdir -p $(ROOT)/$(INIT_SCRIPTS_DIR)
-	$(INSTALL) -m 0755 init.d/ganglia-restore-rrds $(ROOT)/$(INIT_SCRIPTS_DIR)
+	$(INSTALL) -m 0755 init.d/ganglia-restore-rrds \
+		$(ROOT)/$(INIT_SCRIPTS_DIR)
 	# Install cron job that works saves ganglia data
 	mkdir -p $(ROOT)/etc/cron.weekly
 	$(INSTALL) -m 0755 cron.weekly/ganglia-save-rrds.cron \
