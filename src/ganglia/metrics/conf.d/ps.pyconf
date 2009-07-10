@@ -1,0 +1,15 @@
+modules {
+	module {
+		name = "ps"
+		language = "python"
+	}
+}
+
+collection_group {
+	collect_every = 30
+	time_threshold = 60
+	metric {
+		name = "ps"
+		value_threshold = 5.0
+	}
+}
