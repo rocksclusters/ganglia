@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.26  2009/07/10 20:32:04  bruno
+# get rocks-defined metrics back in ganglia roll
+#
 # Revision 1.25  2009/05/01 19:07:15  mjk
 # chimi con queso
 #
@@ -164,6 +167,7 @@
 PKGROOT = /opt/ganglia
 PLUGINDIR = /opt/rocks/var/plugins/insertethers
 METRICS = $(wildcard metrics/*.py)
+CONF = $(wildcard metrics/conf.d/*.pyconf)
 PLUGINS = $(wildcard plugins/*.py)
 REDHAT.ROOT = $(CURDIR)/../../
 
@@ -176,8 +180,11 @@ include python.mk
 build:
 
 install::
-	mkdir -p $(ROOT)/$(PY.ROCKS)/gmon/metrics/
-	$(INSTALL) -m 0444 $(METRICS) $(ROOT)/$(PY.ROCKS)/gmon/metrics/
+	mkdir -p $(ROOT)/$(PKGROOT)/$(LIBARCH)/ganglia/python_modules
+	$(INSTALL) -m 0444 $(METRICS) \
+		$(ROOT)/$(PKGROOT)/$(LIBARCH)/ganglia/python_modules
+	mkdir -p $(ROOT)/$(PKGROOT)/etc/conf.d
+	$(INSTALL) -m 0444 $(CONF) $(ROOT)/$(PKGROOT)/etc/conf.d
 	# Install insert-ethers plugins
 	mkdir -p $(ROOT)/$(PLUGINDIR)
 	$(INSTALL) -m 0444 $(PLUGINS) $(ROOT)/$(PLUGINDIR)

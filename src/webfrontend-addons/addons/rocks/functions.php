@@ -121,9 +121,6 @@ function getPS()
 		{
 			if (strpos($metricname, "ps-") === 0)
 			{
-				# Ignore dead metrics. Detect and mask failures.
-				if ($v[TN] > $v[DMAX]) continue;
-
 				$pid=0;
 				sscanf($v[NAME], "ps-%d", $pid);
 				#echo "Adding ps $pid<br>";
@@ -139,7 +136,6 @@ function getPS()
 					$key = strtoupper($l[0]);
 					$ps[$pkey][$key] = $l[1];
 				}
-				$ps[$pkey][PID] = $pid;
 				$ps[$pkey][HOST] = $hostname;
 				$ps[$pkey][TN] = $v[TN];
 			}

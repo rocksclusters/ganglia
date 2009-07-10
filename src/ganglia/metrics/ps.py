@@ -1,8 +1,5 @@
 #!/opt/rocks/bin/python
 #
-# A metric for Gschedule that publishes Process information
-# for the node.
-#
 # @Copyright@
 # 
 # 				Rocks(r)
@@ -57,145 +54,78 @@
 # @Copyright@
 #
 # $Log: ps.py,v $
-# Revision 1.12  2009/05/01 19:07:16  mjk
-# chimi con queso
-#
-# Revision 1.11  2008/10/18 00:56:08  mjk
-# copyright 5.1
-#
-# Revision 1.10  2008/03/06 23:41:51  mjk
-# copyright storm on
-#
-# Revision 1.9  2007/06/23 04:03:35  mjk
-# mars hill copyright
-#
-# Revision 1.8  2006/09/11 22:48:12  mjk
-# monkey face copyright
-#
-# Revision 1.7  2006/08/10 00:10:29  mjk
-# 4.2 copyright
-#
-# Revision 1.6  2006/01/16 06:49:03  mjk
-# fix python path for source built foundation python
-#
-# Revision 1.5  2005/10/12 18:09:16  mjk
-# final copyright for 4.1
-#
-# Revision 1.4  2005/09/16 01:02:53  mjk
-# updated copyright
-#
-# Revision 1.3  2005/08/08 21:24:57  mjk
-# foundation
-#
-# Revision 1.2  2005/05/24 21:22:22  mjk
-# update copyright, release is not any closer
-#
-# Revision 1.1  2005/03/08 00:26:59  fds
-# Rocks Ganglia Custom Metrics for HPC
-#
-# Revision 1.3  2004/11/02 00:57:05  fds
-# Same channel/port as gmond. For bug 68.
-#
-# Revision 1.2  2004/03/25 03:16:10  bruno
-# touch 'em all!
-#
-# update version numbers to 3.2.0 and update copyrights
-#
-# Revision 1.1  2004/02/18 20:21:32  fds
-# Moved mpd and cluster-top metrics here from base.
-#
-# Revision 1.2  2003/11/17 18:55:24  fds
-# Fixes from rockstar testing. Cluster top works again.
-#
-# Revision 1.1  2003/10/17 19:24:08  fds
-# Presenting the greceptor daemon. Replaces gschedule and glisten.
-#
-# Revision 1.4  2003/08/27 23:10:55  mjk
-# - copyright update
-# - rocks-dist uses getArch() fix the i686 distro bug
-# - ganglia-python spec file fixes (bad service start code)
-# - found some 80col issues while reading code
-# - WAN ks support starting
-#
-# Revision 1.3  2003/08/04 19:57:59  fds
-# Using Process.cpus() call to make things more clear.
-#
-# Revision 1.2  2003/08/01 22:47:31  fds
-# Small changes
-#
-# Revision 1.1  2003/07/29 22:02:19  fds
-# First design
-#
+# Revision 1.13  2009/07/10 20:32:05  bruno
+# get rocks-defined metrics back in ganglia roll
 #
 #
 
 import os
-import time
+import sys
+sys.path.append('/opt/rocks/lib/python2.4/site-packages')
 import gmon.Process
-import gmon.events
-from gmon.Gmetric import publish
+
+def ps_handler(name):
+	global top_processes
+
+	value = ''
+
+	try:
+		a = top_processes
+	except:
+		top_processes = gmon.Process.ps(gmon.Process.cpus(), 1.5)
+
+	#
+	# parse the cpu number from the name of the metric
+	#
+	try:
+		cpuid = int(name.split('-')[1]) - 1
+	except:
+		cpuid = 0
+
+	ps = top_processes[cpuid]
+
+	if ps == {}:
+		top_processes = gmon.Process.ps(gmon.Process.cpus(), 1.5)
+		ps = top_processes[cpuid]
+
+	if ps != {}:
+		value = "pid=%s, cmd=%s, user=%s, %%cpu=%.2f, %%mem=%.2f, size=%u, data=%u, shared=%u, vm=%u" % (ps['PID'], ps['COMMAND'], ps['USER'], ps['%CPU'], ps['%MEM'], ps['SIZE'], ps['DATA'], ps['SHARED'], ps['VM'])
+		
+		top_processes[cpuid] = {}
+
+	return value
 
 
-class PS(gmon.events.Metric):
-	"Reports process usage."
+def metric_init(params):
+	global descriptors
 
-	# How often we publish (in sec), on average.
-	# Should not be set too low, as this metric will run on 
-	# compute-bound nodes.
-	freq = 60
+	descriptors = []
 
-	def __init__(self, app):
-		# Schedule every few seconds on average.
-		gmon.events.Metric.__init__(self, app, self.freq)
+	for i in range(0, gmon.Process.cpus()):
+		d = {
+			'name': 'ps-%d' % (i + 1),
+			'call_back': ps_handler,
+			'time_max': 60,
+			'value_type': 'string',
+			'units': '',
+			'slope': 'zero',
+			'format': '%s',
+			'description': 'Process Data',
+			'groups': 'health'
+		}
 
-		# How many CPUs do we have?
-		self.cpus = gmon.Process.cpus()
+		descriptors.append(d)
 
-
-	def name(self):
-		return "ps"
-
-
-	def dmax(self):
-		# Process data is easily perishable (needs to be fresh).
-		return self.freq * 2
-
-
-	# Re-implemented from our superclass. Will publish many metrics at once.
-	def run(self):
-		"""Reports the N top processes by CPU usage, where N is the
-		number of processors we have."""
-
-		# Provides only as many processes as we have CPUs.
-		# Returns a list of dictionaries. The second arg gives the 
-		# measurement window in seconds.
-		processes = gmon.Process.ps(self.cpus, 1.5)
-
-		for ps in processes:
-			name = "ps-%s" % ps['PID']
-			value = "cmd=%s, user=%s, %%cpu=%.2f, %%mem=%.2f, size=%u, data=%u, shared=%u, vm=%u" % \
-				(ps['COMMAND'],
-				ps['USER'],
-				ps['%CPU'],
-				ps['%MEM'],
-				ps['SIZE'],
-				ps['DATA'],
-				ps['SHARED'],
-				ps['VM'])
-
-			self.publish(name, value)
-			
-			#print "Sent <%s>, <%s>" % (name, value)
-
-
-
-def initEvents():
-	return PS
-
-
-# My Main. Not run if loaded as a module.
-#
-if __name__=="__main__":
-	app=PS()
-	app.run()
+	return descriptors
+ 
+def metric_cleanup():
+	'''Clean up the metric module.'''
+	pass
+ 
+#This code is for debugging and unit testing
+if __name__ == '__main__':
+	metric_init(None)
+	for d in descriptors:
+		v = d['call_back'](d['name'])
+		print 'value for %s is %s' % (d['name'],  v)
 

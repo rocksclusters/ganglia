@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.5 2009/06/30 00:08:56 bruno Exp $
+# $Id: __init__.py,v 1.6 2009/07/10 20:32:05 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.6  2009/07/10 20:32:05  bruno
+# get rocks-defined metrics back in ganglia roll
+#
 # Revision 1.5  2009/06/30 00:08:56  bruno
 # change ganglia traffic from multicast to unicast
 #
@@ -245,6 +248,11 @@ udp_send_channel {
 		# 
 		# load the metrics modules
 		# 
+		if self.arch == 'i386':
+			libdir = 'lib'
+		else:
+			libdir = 'lib64'
+
 		self.addOutput('', "\n/* Modules */")
 		self.addOutput('', """modules {
 	module {
@@ -285,7 +293,13 @@ udp_send_channel {
 		name = "sys_module"
 		path = "modsys.so"
 	}
-}""")
+
+        module {
+                name = "python_module"
+                path = "modpython.so"
+                params = "/opt/ganglia/%s/ganglia/python_modules"
+        }
+}""" % libdir)
 
 		# Now this is an important part. Metrics in ganglia 3.x follow
 		# the collection group style of collecting metrics. Look at the 
@@ -345,5 +359,12 @@ udp_send_channel {
 	}""" % (i.strip()))
 
 		self.addOutput('', "}")
+
+		#
+		# point gmond to the configuration files for the user-defined
+		# metrics
+		#
+		self.addOutput('',
+			"include ('/opt/ganglia/etc/conf.d/*.pyconf')")
 
 		self.endOutput()
