@@ -2,7 +2,7 @@ build:
 	gunzip -c $(ARCHIVE)-$(VERSION).tar.gz | $(TAR) -xf -
 	( 							\
 		cd patch-files;					\
-		find . -type f | grep -v CVS | 			\
+		find gmond include -type f | grep -v CVS |	\
 			cpio -pduv ../$(ARCHIVE)-$(VERSION);	\
 		cd ../$(ARCHIVE)-$(VERSION);			\
 		./configure 					\
