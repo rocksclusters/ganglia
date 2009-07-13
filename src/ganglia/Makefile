@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.28  2009/07/13 20:20:30  bruno
+# restart gmond on all nodes after the frontend boots
+#
 # Revision 1.27  2009/07/10 21:05:18  bruno
 # make 80 column friendly
 #
@@ -171,6 +174,7 @@ PKGROOT = /opt/ganglia
 PLUGINDIR = /opt/rocks/var/plugins/insertethers
 METRICS = $(wildcard metrics/*.py)
 CONF = $(wildcard metrics/conf.d/*.pyconf)
+ROCKSCONF = $(wildcard rocksconfig.d/post-*)
 PLUGINS = $(wildcard plugins/*.py)
 REDHAT.ROOT = $(CURDIR)/../../
 
@@ -188,6 +192,8 @@ install::
 		$(ROOT)/$(PKGROOT)/$(LIBARCH)/ganglia/python_modules
 	mkdir -p $(ROOT)/$(PKGROOT)/etc/conf.d
 	$(INSTALL) -m 0444 $(CONF) $(ROOT)/$(PKGROOT)/etc/conf.d
+	mkdir -p $(ROOT)/etc/rc.d/rocksconfig.d
+	$(INSTALL) -m 0700 $(ROCKSCONF) $(ROOT)/etc/rc.d/rocksconfig.d
 	# Install insert-ethers plugins
 	mkdir -p $(ROOT)/$(PLUGINDIR)
 	$(INSTALL) -m 0444 $(PLUGINS) $(ROOT)/$(PLUGINDIR)
