@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: ps.py,v $
+# Revision 1.14  2009/07/13 21:51:48  bruno
+# one more tweak
+#
 # Revision 1.13  2009/07/10 20:32:05  bruno
 # get rocks-defined metrics back in ganglia roll
 #
@@ -65,35 +68,31 @@ sys.path.append('/opt/rocks/lib/python2.4/site-packages')
 import gmon.Process
 
 def ps_handler(name):
-	global top_processes
-
-	value = ''
-
-	try:
-		a = top_processes
-	except:
-		top_processes = gmon.Process.ps(gmon.Process.cpus(), 1.5)
-
 	#
-	# parse the cpu number from the name of the metric
+	# this is a bit twisted.
 	#
-	try:
-		cpuid = int(name.split('-')[1]) - 1
-	except:
-		cpuid = 0
-
-	ps = top_processes[cpuid]
-
-	if ps == {}:
-		top_processes = gmon.Process.ps(gmon.Process.cpus(), 1.5)
-		ps = top_processes[cpuid]
-
-	if ps != {}:
+	# since ganglia doesn't support dynamic number of metrics (e.g., in
+	# our case, we want to send out 4 'ps' metrics on a 4-processor
+	# system and only 2 'ps' metrics on a 2-processor system), then we'll
+	# use this metric a 'shell' to call 'gmetric' a variable number of
+	# times.
+	#
+	
+	i = 0
+	for ps in gmon.Process.ps(gmon.Process.cpus(), 1.5):
 		value = "pid=%s, cmd=%s, user=%s, %%cpu=%.2f, %%mem=%.2f, size=%u, data=%u, shared=%u, vm=%u" % (ps['PID'], ps['COMMAND'], ps['USER'], ps['%CPU'], ps['%MEM'], ps['SIZE'], ps['DATA'], ps['SHARED'], ps['VM'])
-		
-		top_processes[cpuid] = {}
 
-	return value
+		cmd = '/opt/ganglia/bin/gmetric '
+		cmd += '--name="ps-%d" ' % i
+		cmd += '--value="%s" ' % value
+		cmd += '--type="string" '
+                cmd += '--slope=zero '
+                cmd += '--dmax=120 '
+                os.system(cmd)
+
+		i += 1
+
+	return ''
 
 
 def metric_init(params):
@@ -101,20 +100,19 @@ def metric_init(params):
 
 	descriptors = []
 
-	for i in range(0, gmon.Process.cpus()):
-		d = {
-			'name': 'ps-%d' % (i + 1),
-			'call_back': ps_handler,
-			'time_max': 60,
-			'value_type': 'string',
-			'units': '',
-			'slope': 'zero',
-			'format': '%s',
-			'description': 'Process Data',
-			'groups': 'health'
-		}
+	d = {
+		'name': 'ps',
+		'call_back': ps_handler,
+		'time_max': 60,
+		'value_type': 'string',
+		'units': '',
+		'slope': 'zero',
+		'format': '%s',
+		'description': 'Process Data',
+		'groups': 'health'
+	}
 
-		descriptors.append(d)
+	descriptors.append(d)
 
 	return descriptors
  

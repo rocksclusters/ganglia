@@ -121,6 +121,9 @@ function getPS()
 		{
 			if (strpos($metricname, "ps-") === 0)
 			{
+				# ignore dead metrics
+				if ($v[TN] > $v[TMAX]) continue;
+
 				$pid=0;
 				sscanf($v[NAME], "ps-%d", $pid);
 				#echo "Adding ps $pid<br>";

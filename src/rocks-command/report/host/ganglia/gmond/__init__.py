@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.6 2009/07/10 20:32:05 bruno Exp $
+# $Id: __init__.py,v 1.7 2009/07/13 21:51:48 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.7  2009/07/13 21:51:48  bruno
+# one more tweak
+#
 # Revision 1.6  2009/07/10 20:32:05  bruno
 # get rocks-defined metrics back in ganglia roll
 #
@@ -216,13 +219,19 @@ class Command(rocks.commands.report.host.ganglia.command):
 
 		self.addOutput('', "\n/* UDP Channels for Send and Recv */")
 		self.addOutput('', """udp_recv_channel {
+	mcast_join = 224.0.0.4
 	port = 8649
-}
+}""")
 
-udp_send_channel {
-	host = %s
+		if host in frontends:
+			sendinfo = 'mcast_join = 224.0.0.4'
+		else:
+			sendinfo = 'host = %s' % private_address
+			
+		self.addOutput('', """udp_send_channel {
+	%s
 	port = 8649
-}""" % (private_address))
+}""" % (sendinfo))
 
 		self.addOutput('', "\n/* TCP Accept Channel */")
 		self.addOutput('', """tcp_accept_channel {
