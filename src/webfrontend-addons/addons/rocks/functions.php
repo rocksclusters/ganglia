@@ -71,7 +71,7 @@ function getJobs()
 			if (strpos($metricname, "queue-job") === 0)
 			{
 				# Ignore dead metrics. Detect and mask failures.
-				#if ($v[TN] > $v[DMAX]) continue;
+				if ($v[TN] > $v[DMAX]) continue;
 
 				$jobid=0;
 				sscanf($v[NAME], "queue-job-%d", $jobid);
