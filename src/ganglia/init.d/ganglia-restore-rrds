@@ -60,6 +60,10 @@
 # @Copyright@
 #
 # $Log: ganglia-restore-rrds,v $
+# Revision 1.6  2009/10/30 22:46:02  bruno
+# need to touch the file '/var/lock/subsys/ganglia-restore-rrds', otherwise
+# this init script will *not* be called on shutdown
+#
 # Revision 1.5  2009/05/01 19:07:16  mjk
 # chimi con queso
 #
@@ -125,6 +129,8 @@ archives=/var/lib/ganglia/archives
 case "$1" in
 	start)
 		echo -n "Restoring Ganglia RRDs..."
+		touch /var/lock/subsys/ganglia-restore-rrds
+		echo
 
 		# Check that the rrd archives directory exists
 		[ -d $archives ] || exit 0
@@ -138,20 +144,16 @@ case "$1" in
 
 		# Restore the RRDs.
 		tar xf $archives/$useme
-
-		echo
 		;;
-
 	stop)
 		$0 save
+		rm -f /var/lock/subsys/ganglia-restore-rrds
 		;;
-
 	save)
 		echo -n "Saving Ganglia RRD metric histories..."
 		/etc/cron.weekly/ganglia-save-rrds.cron
 		echo
 		;;
-
 	restart)
 		$0 stop
 		$0 start
