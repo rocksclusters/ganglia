@@ -64,6 +64,9 @@
 # @Copyright@
 #
 # $Log: assignments.php,v $
+# Revision 1.14  2009/11/17 23:03:37  bruno
+# more cleanup
+#
 # Revision 1.13  2009/11/17 19:02:08  bruno
 # order the nodes like they are in the rack
 #
@@ -186,7 +189,7 @@ function showrack($ID)
 	# A string of node HTML for the template.
 	$nodes="";
 
-	foreach (array_reverse($racks[$ID]) as $name) {
+	foreach ($racks[$ID] as $name => $rank) {
 		error_log("name : ($name)");
 
 		if ($onejob and !$jobnodes[$onejob][$name]) 
@@ -226,9 +229,6 @@ function showrack($ID)
 #
 # My Main
 #
-
-uksort($hosts_up, "strnatcmp");
-uksort($hosts_down, "strnatcmp");
 
 # 2Key = "Rack ID / Rank (order in rack)" = [hostname, UP|DOWN]
 $racks = physical_racks();

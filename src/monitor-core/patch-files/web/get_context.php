@@ -1,5 +1,5 @@
 <?php
-/* $Id: get_context.php,v 1.1 2009/11/14 00:34:00 bruno Exp $ */
+/* $Id: get_context.php,v 1.2 2009/11/17 23:03:37 bruno Exp $ */
 
 include_once "./functions.php";
   
@@ -117,13 +117,16 @@ $end = "N";
 // ROCKS
 if (isset($_GET["r"])) {
 	$r = escapeshellcmd(clean_string(rawurldecode($_GET["r"])));
+	if ($r == 'job') {
+		$range = "job";
+	}
 } else {
 	$r = "";
 }
 
-if( $r == 'job' && isSet( $jobrange ) ) {
+if ($range == 'job' && isSet($jobrange)) {
   $start = $jobrange;
-} else if( isSet( $time_ranges[ $range ] ) ) {
+} else if (isSet($time_ranges[$range])) {
   $start = $time_ranges[ $range ] * -1;
 } else {
   $start = $time_ranges[ $default_time_range ] * -1;
