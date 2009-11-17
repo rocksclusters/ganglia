@@ -64,6 +64,9 @@
 # @Copyright@
 #
 # $Log: assignments.php,v $
+# Revision 1.13  2009/11/17 19:02:08  bruno
+# order the nodes like they are in the rack
+#
 # Revision 1.12  2009/05/01 19:07:17  mjk
 # chimi con queso
 #
@@ -116,10 +119,13 @@ $onejob = $_GET["onejob"];
 $oneuser = $_GET["oneuser"];
 
 $GHOME="../..";
-include_once "$GHOME/class.TemplatePower.inc.php";
-include_once "./get-ganglia.php";
+
+include_once "$GHOME/conf.php";
 include_once "$GHOME/functions.php";
-include_once "./functions.php";
+include_once "$GHOME/get_context.php";
+include_once "$GHOME/ganglia.php";
+include_once "$GHOME/get_ganglia.php";
+include_once "$GHOME/class.TemplatePower.inc.php";
 
 $tpl = new TemplatePower("templates/assignments.tpl");
 $tpl->assignInclude("header", "templates/header.tpl");
@@ -180,7 +186,8 @@ function showrack($ID)
 	# A string of node HTML for the template.
 	$nodes="";
 
-	foreach ($racks[$ID] as $name) {
+	foreach (array_reverse($racks[$ID]) as $name) {
+		error_log("name : ($name)");
 
 		if ($onejob and !$jobnodes[$onejob][$name]) 
 			continue;
@@ -220,6 +227,9 @@ function showrack($ID)
 # My Main
 #
 
+uksort($hosts_up, "strnatcmp");
+uksort($hosts_down, "strnatcmp");
+
 # 2Key = "Rack ID / Rank (order in rack)" = [hostname, UP|DOWN]
 $racks = physical_racks();
 
@@ -232,7 +242,7 @@ foreach ($racks as $rack=>$v)
 
 	$racknodes = showrack($rack);
 
-	$tpl->assign("nodes",$racknodes);
+	$tpl->assign("nodes", $racknodes);
 
 	if (! ($i++ % $cols))
 		$tpl->assign("tr","</tr><tr>");
