@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.7 2009/07/13 21:51:48 bruno Exp $
+# $Id: __init__.py,v 1.8 2009/11/20 01:06:51 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,13 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.8  2009/11/20 01:06:51  bruno
+# fix from Yurly in New Zealand.
+#
+# without this fix, if you restart gmond on the frontend, then it requires
+# restarting gmond on all the compute nodes in order to get metrics to report
+# again.
+#
 # Revision 1.7  2009/07/13 21:51:48  bruno
 # one more tweak
 #
@@ -226,7 +233,8 @@ class Command(rocks.commands.report.host.ganglia.command):
 		if host in frontends:
 			sendinfo = 'mcast_join = 224.0.0.4'
 		else:
-			sendinfo = 'host = %s' % private_address
+			sendinfo = 'mcast_join = 224.0.0.4\n\thost = %s' % \
+				private_address
 			
 		self.addOutput('', """udp_send_channel {
 	%s
