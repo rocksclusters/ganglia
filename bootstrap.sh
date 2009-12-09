@@ -2,7 +2,7 @@
 #
 # This file should remain OS independent
 #
-# $Id: bootstrap.sh,v 1.10 2009/05/01 19:07:15 mjk Exp $
+# $Id: bootstrap.sh,v 1.11 2009/12/09 22:19:00 bruno Exp $
 #
 # @Copyright@
 # 
@@ -58,6 +58,9 @@
 # @Copyright@
 #
 # $Log: bootstrap.sh,v $
+# Revision 1.11  2009/12/09 22:19:00  bruno
+# new
+#
 # Revision 1.10  2009/05/01 19:07:15  mjk
 # chimi con queso
 #
@@ -97,4 +100,5 @@
 . $ROLLSROOT/etc/bootstrap-functions.sh
 
 compile_and_install rrdtool
+compile_and_install confuse
 
