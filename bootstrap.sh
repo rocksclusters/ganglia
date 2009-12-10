@@ -2,7 +2,7 @@
 #
 # This file should remain OS independent
 #
-# $Id: bootstrap.sh,v 1.11 2009/12/09 22:19:00 bruno Exp $
+# $Id: bootstrap.sh,v 1.12 2009/12/10 00:06:37 bruno Exp $
 #
 # @Copyright@
 # 
@@ -58,6 +58,9 @@
 # @Copyright@
 #
 # $Log: bootstrap.sh,v $
+# Revision 1.12  2009/12/10 00:06:37  bruno
+# more junk
+#
 # Revision 1.11  2009/12/09 22:19:00  bruno
 # new
 #
@@ -99,6 +102,14 @@
 
 . $ROLLSROOT/etc/bootstrap-functions.sh
 
-compile_and_install rrdtool
+if [ `./_os` == "linux" ]; then
+	compile_and_install rrdtool
+fi
+
 compile_and_install confuse
+
+if [ `./_os` == "sunos" ]; then
+	compile_and_install apr
+	compile_and_install apr-util
+fi
 
