@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.8 2009/11/20 01:06:51 bruno Exp $
+# $Id: __init__.py,v 1.9 2010/03/04 19:29:19 mjk Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,11 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.9  2010/03/04 19:29:19  mjk
+# - ganglia multicast address is now an attribute
+# - default address switched from 244.0.0.4 to 244.0.0.3 (IANA Unassigned)
+#   www.iana.org/assignments/multicast-addresses
+#
 # Revision 1.8  2009/11/20 01:06:51  bruno
 # fix from Yurly in New Zealand.
 #
@@ -117,6 +122,7 @@ class Command(rocks.commands.report.host.ganglia.command):
 			return
 
 		host = hosts[0]
+		mcastaddr = self.db.getHostAttr(host, 'ganglia_address')
 
 		#
 		# all non-frontend nodes are 'deaf'
@@ -226,15 +232,15 @@ class Command(rocks.commands.report.host.ganglia.command):
 
 		self.addOutput('', "\n/* UDP Channels for Send and Recv */")
 		self.addOutput('', """udp_recv_channel {
-	mcast_join = 224.0.0.4
+	mcast_join = %s
 	port = 8649
-}""")
+}""" % (mcastaddr))
 
 		if host in frontends:
-			sendinfo = 'mcast_join = 224.0.0.4'
+			sendinfo = 'mcast_join = %s' % mcastaddr
 		else:
-			sendinfo = 'mcast_join = 224.0.0.4\n\thost = %s' % \
-				private_address
+			sendinfo = 'mcast_join = %s\n\thost = %s' % \
+				(mcastaddr, private_address)
 			
 		self.addOutput('', """udp_send_channel {
 	%s
