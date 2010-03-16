@@ -73,8 +73,7 @@ function getJobs()
 				# Ignore dead metrics. Detect and mask failures.
 				if ($v[TN] > ($v[TMAX] * 2)) continue;
 
-				$jobid=0;
-				sscanf($v[NAME], "queue-job-%d", $jobid);
+				sscanf($v[NAME], "queue-job-%s", $jobid);
 				#echo "Adding job $jobid<br>";
 
 				# Note explode is faster than split.
