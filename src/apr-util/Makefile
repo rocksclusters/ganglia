@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.2 2009/05/01 19:07:15 mjk Exp $
+# $Id: Makefile,v 1.3 2010/08/25 21:54:22 bruno Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.3  2010/08/25 21:54:22  bruno
+# refreshed for the beta
+#
 # Revision 1.2  2009/05/01 19:07:15  mjk
 # chimi con queso
 #
@@ -77,7 +80,7 @@ build::
 	(				\
 		cd $(NAME)-$(VERSION) ;	\
 		./configure --prefix=$(PKGROOT)	\
-			--with-apr=$(PKGROOT)	\
+			--with-apr=/opt/rocks/bin/apr-1-config \
 			--with-mysql=$(PKGROOT);\
 		$(MAKE) ;		\
 	)

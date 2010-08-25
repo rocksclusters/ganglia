@@ -1,5 +1,5 @@
 PKGROOT		= /opt/confuse
 NAME		= confuse
-VERSION		= 2.6
+VERSION		= 2.7
 RELEASE		= 1
 

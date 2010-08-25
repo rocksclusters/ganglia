@@ -1,4 +1,4 @@
 PKGROOT		= /opt/rocks
 NAME		= apr
-VERSION		= 1.3.3
+VERSION		= 1.4.2
 RELEASE		= 1
