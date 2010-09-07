@@ -9,13 +9,16 @@
 	</description>
 
 	<copyright>
-	Copyright (c) 2000 - 2009 The Regents of the University of California.
-	All rights reserved. Rocks(r) v5.2 www.rocksclusters.org
+	Copyright (c) 2000 - 2010 The Regents of the University of California.
+	All rights reserved. Rocks(r) v5.4 www.rocksclusters.org
 	
 	</copyright>
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.28  2010/09/07 23:53:13  bruno
+	star power for gb
+	
 	Revision 1.27  2009/05/08 22:23:43  anoop
 	Add apr, apr-util to solaris nodes
 	designate post sections based on OS
