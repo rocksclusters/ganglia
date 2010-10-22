@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.10 2010/09/07 23:53:19 bruno Exp $
+# $Id: __init__.py,v 1.11 2010/10/22 22:38:36 bruno Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,13 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.11  2010/10/22 22:38:36  bruno
+# tell client nodes to periodically resend their metadata.
+#
+# this catches the case where gmond on the frontend is started after gmond on
+# a client node. in this case, gmond on the frontend has no metadata info
+# from the client nodes and it has no way to get it (the client nodes are deaf).
+#
 # Revision 1.10  2010/09/07 23:53:19  bruno
 # star power for gb
 #
@@ -134,8 +141,10 @@ class Command(rocks.commands.report.host.ganglia.command):
 
 		if host in frontends:
 			deaf = 'no'
+			send_metadata_interval = 0
 		else:
 			deaf = 'yes'
+			send_metadata_interval = 180
 
 		#
 		# Get information about the cluster.
@@ -215,10 +224,11 @@ class Command(rocks.commands.report.host.ganglia.command):
 	max_udp_msg_len = 1472 
 	mute = no
 	deaf = %s 
-	host_dmax = 0 /*secs */ 
-	cleanup_threshold = 300 /*secs */ 
+	host_dmax = 0 /* secs */ 
+	cleanup_threshold = 300 /* secs */ 
 	gexec = no 
-}""" % (deaf))
+	send_metadata_interval = %s /* secs */
+}""" % (deaf, send_metadata_interval))
 
 		self.addOutput('', "\n/* Cluster Specific attributes */")
 		self.addOutput('', """cluster { 
