@@ -1,4 +1,4 @@
-# $Id: plugin_ganglia.py,v 1.1 2010/10/21 19:27:54 bruno Exp $
+# $Id: plugin_ganglia.py,v 1.2 2010/10/22 22:36:45 bruno Exp $
 # 
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: plugin_ganglia.py,v $
+# Revision 1.2  2010/10/22 22:36:45  bruno
+# need to restart gmond on the frontend if the frontend's network is restarted
+#
 # Revision 1.1  2010/10/21 19:27:54  bruno
 # when the network is restarted, make sure to restart gmond and, if the
 # frontend's network is restarted, be sure to restart gmetad too.
@@ -62,20 +65,24 @@
 
 import rocks.commands
 
-class Plugin(rocks.commands.Plugin):
+class Plugin(rocks.commands.Plugin, rocks.commands.HostArgumentProcessor):
 
 	def provides(self):
 		return 'ganglia'
 
 	def run(self, hosts):
 		#
-		# after the network is restarted, we need to restart gmond
+		# if the the network is restarted on the frontend, we need to
+		# restart gmond on the frontend, because once the network is
+		# restarted, gmond needs to rejoin the multicast group.
 		#
-		self.owner.command('run.host', hosts +
-			[ 'service gmond restart > /dev/null 2>&1' ] )
-
 		if self.db.getHostname('localhost') in hosts:
+			#
+			# restart gmond on the frontend first
+			#
+			self.owner.command('run.host', [ 'localhost',
+				'service gmond restart > /dev/null 2>&1' ] )
+
 			self.owner.command('run.host', [ 'localhost',
 				'service gmetad restart > /dev/null 2>&1' ] )
-			
 
