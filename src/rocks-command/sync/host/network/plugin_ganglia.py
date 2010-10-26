@@ -1,4 +1,4 @@
-# $Id: plugin_ganglia.py,v 1.2 2010/10/22 22:36:45 bruno Exp $
+# $Id: plugin_ganglia.py,v 1.3 2010/10/26 19:25:56 bruno Exp $
 # 
 # @Copyright@
 # 
@@ -54,6 +54,11 @@
 # @Copyright@
 #
 # $Log: plugin_ganglia.py,v $
+# Revision 1.3  2010/10/26 19:25:56  bruno
+# only restart gmond and make sure this is the last plugin run. this is important
+# when the xen roll is installed, we want to restart gmond after xen has done
+# its networking voodoo.
+#
 # Revision 1.2  2010/10/22 22:36:45  bruno
 # need to restart gmond on the frontend if the frontend's network is restarted
 #
@@ -70,6 +75,9 @@ class Plugin(rocks.commands.Plugin, rocks.commands.HostArgumentProcessor):
 	def provides(self):
 		return 'ganglia'
 
+	def requires(self):
+		return [ 'TAIL' ]
+
 	def run(self, hosts):
 		#
 		# if the the network is restarted on the frontend, we need to
@@ -82,7 +90,4 @@ class Plugin(rocks.commands.Plugin, rocks.commands.HostArgumentProcessor):
 			#
 			self.owner.command('run.host', [ 'localhost',
 				'service gmond restart > /dev/null 2>&1' ] )
-
-			self.owner.command('run.host', [ 'localhost',
-				'service gmetad restart > /dev/null 2>&1' ] )
 
