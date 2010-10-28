@@ -5,4 +5,83 @@
 
 &source_roll-installing-standard;
 
+
+<section id="installing-onthefly" xreflabel="On an Existing Server">
+<title>On an Existing Server</title>
+
+<para>
+The Ganglia Roll can be installed on running frontend.
+</para>
+
+<para>
+The following procedure will install the roll on the frontend.
+After the frontend reboots, the roll will be fully configured.
+</para>
+
+<para>
+First download the Ganglia Roll ISO from the Rocks web site.
+Then, as root, execute:
+</para>
+
+<para>
+<screen>
+# rocks add roll ganglia*iso
+# rocks enable roll ganglia
+# cd /export/rocks/install
+# rocks create distro
+# rocks run roll ganglia | bash
+</screen>
+</para>
+
+<para>
+The Ganglia requires more manual steps after the above completes.
+This step is necessary as it adds a table to database and that procedure
+requires the root password.
+To complete the installation, then create a file named
+<computeroutput>/tmp/ganglia.sql</computeroutput> and put the following in it:
+</para>
+
+<para>
+<screen>
+insert into wp_links (link_name, link_description, link_url, link_category)
+       values ('Cluster Status', 'Click here to monitor your cluster',
+       '/ganglia/',
+       2);
+</screen>
+</para>
+
+<para>
+Then as the root user, execute:
+</para>
+
+<para>
+<screen>
+# /opt/rocks/bin/mysql --user=root -p cluster &lt; /tmp/ganglia.sql
+</screen>
+</para>
+
+<para>
+Then reboot:
+</para>
+
+<para>
+<screen>
+# init 6
+</screen>
+</para>
+
+<para>
+To apply ganglia to the compute nodes, you will need to reinstall the compute
+nodes, e.g.,:
+</para>
+
+<para>
+<screen>
+# rocks run host compute "/boot/kickstart/cluster-kickstart-pxe ; exit"
+</screen>
+</para>
+
+
+</section>
+
 </chapter>
