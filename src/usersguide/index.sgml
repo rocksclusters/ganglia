@@ -1,10 +1,17 @@
 <!--
-$Id: index.sgml,v 1.3 2008/04/14 23:15:03 bruno Exp $
+$Id: index.sgml,v 1.4 2011/02/14 22:14:16 mjk Exp $
 
 @Copyright@
 @Copyright@
 
 $Log: index.sgml,v $
+Revision 1.4  2011/02/14 22:14:16  mjk
+- Build Env
+  - ROLLNAME defaults to ROLL
+  - Fixes for docbook
+- All userguides build again
+- All userguides are now NOARCH rpms
+
 Revision 1.3  2008/04/14 23:15:03  bruno
 first pass
 
@@ -17,15 +24,16 @@ builds
 
 -->
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V3.1//EN" [
-	<!ENTITY % entities SYSTEM "entities.sgml">
-	%entities;
+	  <!ENTITY % entities SYSTEM "entities.sgml">
+	  %entities;
 ]>
 
 <book>
 <bookinfo>
 
-	<title> Ganglia Roll: Users Guide </title>
+	<title>&roll-ganglia; Users Guide</title>
 
+<!-- no image
 	<subtitle>
 		<inlinemediaobject>
 			<imageobject>
@@ -33,13 +41,14 @@ builds
 			</imageobject>
 		</inlinemediaobject>
 	</subtitle>
+-->
 
 	
-        <edition>Version &document_version;</edition>
-        <pubdate>&document_pubdate;</pubdate>
+        <edition>&document-version;</edition>
+        <pubdate>&document-pubdate;</pubdate>
         <copyright id="copyright" xreflabel="copyright">
-                <year>&document_year;</year>
-                <holder>&document_copyright;</holder>   
+                <year>&document-year;</year>
+                <holder>&document-copyright;</holder>   
         </copyright>
 
         <releaseinfo>
@@ -48,18 +57,19 @@ builds
 
         <legalnotice>
                 <para>
-                This document is subject to the Rocks License 
+                This document is subject to the &rocks; License 
                 (see <xref linkend="rocks-copyright">).
                 </para>
         </legalnotice>
 
 </bookinfo>
 
-&source_preface;
-&source_roll-overview;
-&source_installing;
-&source_using;
-&source_customizing;
-&source_appendix;
+&source-preface;
+&source-roll-overview;
+&source-installing;
+&source-using;
+&source-customizing;
+&source-appendix;
+
 
 </book>

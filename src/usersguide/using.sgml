@@ -6,8 +6,8 @@
 <section id="using-ganglia" xreflabel="Using the ganglia roll">
 	<title>Using the Ganglia Roll</title>
 
-&source_cluster-status;
-&source_top;
+&source-cluster-status;
+&source-top;
 
 </section>
 

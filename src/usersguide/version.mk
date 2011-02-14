@@ -1,10 +1,11 @@
-NAME    = roll-ganglia-usersguide
+NAME    = roll-$(ROLL)-usersguide
 RELEASE = 0
+RPM.ARCH = noarch
 
 SUMMARY_COMPATIBLE      = $(VERSION)
 SUMMARY_MAINTAINER      = Rocks Group
 SUMMARY_ARCHITECTURE    = i386, x86_64
 
-ROLL_REQUIRES           = base kernel os1 os2 ganglia web-server
+ROLL_REQUIRES           = base kernel os web-server
 ROLL_CONFLICTS          =
 

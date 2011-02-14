@@ -1,5 +1,5 @@
 <!--
-$Id: appendix.sgml,v 1.3 2008/04/24 12:22:29 bruno Exp $
+$Id: appendix.sgml,v 1.4 2011/02/14 22:14:16 mjk Exp $
 
 Appendix for Copyright and License notices
 
@@ -7,6 +7,13 @@ Appendix for Copyright and License notices
 @Copyright@
 
 $Log: appendix.sgml,v $
+Revision 1.4  2011/02/14 22:14:16  mjk
+- Build Env
+  - ROLLNAME defaults to ROLL
+  - Fixes for docbook
+- All userguides build again
+- All userguides are now NOARCH rpms
+
 Revision 1.3  2008/04/24 12:22:29  bruno
 phpSysInfo name changed to phpsysinfo
 
@@ -19,10 +26,10 @@ builds
 
 -->
 
-&source_faq;
+&source-faq;
 
 <appendix id="rocks-copyright" xreflabel="Appendix: Rocks Copyright">
-	<title>Rocks Copyright</title>
+	<title>&rocks; Copyright</title>
 
 <para>
 <screen>
