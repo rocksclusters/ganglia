@@ -34,33 +34,6 @@ Then, as root, execute:
 </para>
 
 <para>
-The Ganglia requires more manual steps after the above completes.
-This step is necessary as it adds a table to database and that procedure
-requires the root password.
-To complete the installation, then create a file named
-<computeroutput>/tmp/ganglia.sql</computeroutput> and put the following in it:
-</para>
-
-<para>
-<screen>
-insert into wp_links (link_name, link_description, link_url, link_category)
-       values ('Cluster Status', 'Click here to monitor your cluster',
-       '/ganglia/',
-       2);
-</screen>
-</para>
-
-<para>
-Then as the root user, execute:
-</para>
-
-<para>
-<screen>
-# /opt/rocks/bin/mysql --user=root -p cluster &lt; /tmp/ganglia.sql
-</screen>
-</para>
-
-<para>
 Then reboot:
 </para>
 
@@ -77,11 +50,10 @@ nodes, e.g.,:
 
 <para>
 <screen>
-# rocks run host compute "/boot/kickstart/cluster-kickstart-pxe ; exit"
+# rocks set host boot compute action=install
+# rocks run host compute command="reboot"
 </screen>
 </para>
 
-
 </section>
-
 </chapter>
