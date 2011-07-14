@@ -1,2 +1,2 @@
 NAME	= phpsysinfo
-VERSION = 2.5.4
+VERSION = 3.0.11
