@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.12 2011/07/23 02:31:00 phil Exp $
+# $Id: __init__.py,v 1.13 2011/07/27 21:46:47 anoop Exp $
 #
 # @Copyright@
 # 
@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.13  2011/07/27 21:46:47  anoop
+# gmond.conf has too much whitespace. Cleaup
+#
 # Revision 1.12  2011/07/23 02:31:00  phil
 # Viper Copyright
 #
@@ -218,39 +221,39 @@ class Command(rocks.commands.report.host.ganglia.command):
 		#
 		# the globals
 		#
-		self.addOutput('', '/* Global Configuration */')
-		self.addOutput('', """globals {
-	daemonize = yes      
+		self.addText( '/* Global Configuration */\n')
+		self.addText( """globals {
+	daemonize = yes     
 	setuid = yes
 	user = nobody
 	debug_level = 0
-	max_udp_msg_len = 1472 
+	max_udp_msg_len = 1472
 	mute = no
-	deaf = %s 
-	host_dmax = 0 /* secs */ 
-	cleanup_threshold = 300 /* secs */ 
-	gexec = no 
+	deaf = %s
+	host_dmax = 0 /* secs */
+	cleanup_threshold = 300 /* secs */
+	gexec = no
 	send_metadata_interval = %s /* secs */
-}""" % (deaf, send_metadata_interval))
+}\n""" % (deaf, send_metadata_interval))
 
-		self.addOutput('', "\n/* Cluster Specific attributes */")
-		self.addOutput('', """cluster { 
-	name = "%s" 
-	owner = "%s" 
-	latlong = "%s" 
+		self.addText( "\n/* Cluster Specific attributes */\n")
+		self.addText( """cluster {
+	name = "%s"
+	owner = "%s"
+	latlong = "%s"
 	url = "%s"
-}""" % (clustername, owner, latlong, url))
+}\n""" % (clustername, owner, latlong, url))
 
-		self.addOutput('', "\n/* Host configuration */")
-		self.addOutput('', """host {
+		self.addText( "\n/* Host configuration */")
+		self.addText( """host {
 	location="%s"
-}""" % (location))
+}\n""" % (location))
 
-		self.addOutput('', "\n/* UDP Channels for Send and Recv */")
-		self.addOutput('', """udp_recv_channel {
+		self.addText( "\n/* UDP Channels for Send and Recv */")
+		self.addText( """udp_recv_channel {
 	mcast_join = %s
 	port = 8649
-}""" % (mcastaddr))
+}\n""" % (mcastaddr))
 
 		if host in frontends:
 			sendinfo = 'mcast_join = %s' % mcastaddr
@@ -258,13 +261,13 @@ class Command(rocks.commands.report.host.ganglia.command):
 			sendinfo = 'mcast_join = %s\n\thost = %s' % \
 				(mcastaddr, private_address)
 			
-		self.addOutput('', """udp_send_channel {
+		self.addText( """udp_send_channel {
 	%s
 	port = 8649
-}""" % (sendinfo))
+}\n""" % (sendinfo))
 
-		self.addOutput('', "\n/* TCP Accept Channel */")
-		self.addOutput('', """tcp_accept_channel {
+		self.addText( "\n/* TCP Accept Channel */\n")
+		self.addText( """tcp_accept_channel {
 	port = 8649
 
 	acl {
@@ -282,18 +285,18 @@ class Command(rocks.commands.report.host.ganglia.command):
 			action = "allow"
 		}
 	}
-}""" % (private_network, private_netmask))
+}\n""" % (private_network, private_netmask))
 
-		# 
+		#
 		# load the metrics modules
-		# 
+		#
 		if self.arch == 'i386':
 			libdir = 'lib'
 		else:
 			libdir = 'lib64'
 
-		self.addOutput('', "\n/* Modules */")
-		self.addOutput('', """modules {
+		self.addText( "\n/* Modules */\n")
+		self.addText( """modules {
 	module {
 		name = "core_metrics"
 	}
@@ -338,16 +341,16 @@ class Command(rocks.commands.report.host.ganglia.command):
                 path = "modpython.so"
                 params = "/opt/ganglia/%s/ganglia/python_modules"
         }
-}""" % libdir)
+}\n""" % libdir)
 
 		# Now this is an important part. Metrics in ganglia 3.x follow
-		# the collection group style of collecting metrics. Look at the 
-		# ganglia README to define your own metrics. For this we create 
+		# the collection group style of collecting metrics. Look at the
+		# ganglia README to define your own metrics. For this we create
 		# a list with all the metrics we want to list, and then create
 		# a metrics array. Finally, we assign a default value_threshold
 		# of 10% to each metric. This means, data is sent every time any
 		# metric increases by 10%.
-		
+	
 		metric_array = [
 			'location',
 			'load_one',
@@ -386,24 +389,30 @@ class Command(rocks.commands.report.host.ganglia.command):
 			'swap_free'
 		]
 
-		self.addOutput('', "\n/* Metrics Collection group */")
-		self.addOutput('', """collection_group {
+		self.addText( "\n/* Metrics Collection group */\n")
+		self.addText( """collection_group {
 	collect_every = 60
-	time_threshold = 300""")
+	time_threshold = 300\n""")
 
 		for i in metric_array:
-			self.addOutput('', """	metric {
+			self.addText( """\tmetric {
 		name = "%s"
 		value_threshold = 10.0
-	}""" % (i.strip()))
+	}\n""" % (i.strip()))
 
-		self.addOutput('', "}")
+		self.addText("""\tmetric{
+		name = 'os_name'
+	}\n""")
+		self.addText("""\tmetric{
+		name = 'os_release'
+	}\n""")
+		self.addText( "}\n")
 
 		#
 		# point gmond to the configuration files for the user-defined
 		# metrics
 		#
-		self.addOutput('',
-			"include ('/opt/ganglia/etc/conf.d/*.pyconf')")
+		self.addText(
+			"\ninclude ('/opt/ganglia/etc/conf.d/*.pyconf')\n")
 
 		self.endOutput()
