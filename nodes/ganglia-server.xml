@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.27  2011/07/27 21:34:34  anoop
+  *** empty log message ***
+
   Revision 1.26  2010/03/04 19:29:19  mjk
   - ganglia multicast address is now an attribute
   - default address switched from 244.0.0.4 to 244.0.0.3 (IANA Unassigned)
@@ -314,8 +317,11 @@ tmpfs /var/lib/ganglia/rrds tmpfs size=$RRDSIZE,gid=nobody,uid=nobody,defaults 1
 
 
 <!-- Choose the 'Rocks' style for Ganglia Pages. --> 
-<file name="/var/www/html/ganglia/conf.php" mode="append">
-&lt;?php $template_name="Rocks"; ?&gt;
+<file name="/var/www/html/ganglia/conf.php" mode="append"><![CDATA[
+<?php
+$template_name = "Rocks";
+?>
+]]>
 </file>
 
 
