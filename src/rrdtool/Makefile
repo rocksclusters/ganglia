@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.17 2011/07/23 02:31:00 phil Exp $
+# $Id: Makefile,v 1.18 2011/07/27 21:28:44 anoop Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,10 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.18  2011/07/27 21:28:44  anoop
+# Removed OS specific build for rrdtool
+# Removed all perl examples from rrdtool
+#
 # Revision 1.17  2011/07/23 02:31:00  phil
 # Viper Copyright
 #
@@ -135,29 +139,32 @@
 #
 #
 
-# We are supplying our own tarball to build, dont try to make
-# one (see Rules.mk). This name just needs to be different than our
-# NAME-VERSION.
-#RPMNAME = dummy
-
 REDHAT.ROOT = $(CURDIR)/../../
+PKGROOT	= /opt/rocks
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
 
-BASENAME = $(NAME)-$(VERSION)
-PKGROOT	= /opt/rocks
-
-export PERL
-export PYTHON=$(PY.PATH)
-
 build::
+	gunzip -c $(NAME)-$(VERSION).tar.gz | $(TAR) -xf -
+	(\
+		cd $(NAME)-$(VERSION);		\
+		./configure --disable-perl	\
+			--disable-python 	\
+			--prefix=$(PKGROOT);	\
+		$(MAKE);			\
+	)
 
 install::
-	(\
-		cd $(BASENAME);		\
-		$(MAKE) prefix=$(ROOT)/$(PKGROOT) install;	\
+	(				\
+		cd $(NAME)-$(VERSION);	\
+		$(MAKE) prefix=$(ROOT)/$(PKGROOT) \
+			install;	\
+	)
+	(				\
+		cd $(ROOT)/$(PKGROOT)/share/rrdtool/examples;	\
+		find . -type f \( -name \*.pl -o -name \*.pm \) \
+			-exec rm -rf {} \; ;\
 	)
 
 clean::
-	rm -rf $(BASENAME)
-
+	rm -rf $(NAME)-$(VERSION)
