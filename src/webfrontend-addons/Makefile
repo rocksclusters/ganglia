@@ -53,6 +53,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.21  2011/07/27 22:52:36  anoop
+# Disable addons for the current release
+#
 # Revision 1.20  2011/07/23 02:31:00  phil
 # Viper Copyright
 #
@@ -173,14 +176,17 @@
 #
 
 PKGROOT = $(WEBSERVER_ROOT)/ganglia
-ADDONS = addons/rocks
 
-PHP = $(wildcard $(ADDONS)/*.php)
-IMAGES = $(wildcard $(ADDONS)/images/*jpg)
-TEMPLATES = $(wildcard $(ADDONS)/templates/*tpl)
+#ADDONS = addons/rocks
+#PHP = $(wildcard $(ADDONS)/*.php)
+#IMAGES = $(wildcard $(ADDONS)/images/*jpg)
+#TEMPLATES = $(wildcard $(ADDONS)/templates/*tpl)
+
 # Extensions to the standard Ganglia Rocks template.
-EXTRAS = $(wildcard templates/Rocks/*tpl)
-#EXTRAS = templates/Rocks/header.tpl templates/Rocks/host_extra.tpl
+EXTRAS = $(wildcard templates/Rocks/*.tpl)
+IMAGES = $(wildcard templates/Rocks/images/*.png)
+IMAGES += $(wildcard templates/Rocks/images/*.jpg)
+
 
 REDHAT.ROOT = $(CURDIR)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
@@ -190,24 +196,22 @@ install::
 	mkdir -p $(ROOT)/$(PKGROOT)/$(ADDONS)/templates/
 	mkdir -p $(ROOT)/$(PKGROOT)/$(ADDONS)/images/
 
-	$(INSTALL) -m644 $(PHP) $(ROOT)/$(PKGROOT)/$(ADDONS)
-	$(INSTALL) -m644 $(ADDONS)/styles.css $(ROOT)/$(PKGROOT)/$(ADDONS)
-	$(INSTALL) -m644 $(IMAGES) $(ROOT)/$(PKGROOT)/$(ADDONS)/images
-	$(INSTALL) -m644 $(TEMPLATES) $(ROOT)/$(PKGROOT)/$(ADDONS)/templates
-	$(INSTALL) -m644 conf.php $(ROOT)/$(PKGROOT)/
+	#$(INSTALL) -m644 $(PHP) $(ROOT)/$(PKGROOT)/$(ADDONS)
+	#$(INSTALL) -m644 $(ADDONS)/styles.css $(ROOT)/$(PKGROOT)/$(ADDONS)
+	#$(INSTALL) -m644 $(IMAGES) $(ROOT)/$(PKGROOT)/$(ADDONS)/images
+	#$(INSTALL) -m644 $(TEMPLATES) $(ROOT)/$(PKGROOT)/$(ADDONS)/templates
+	#$(INSTALL) -m644 conf.php $(ROOT)/$(PKGROOT)/
 
 	# For backwards compatibility with 2.3.0
-	-(cd $(ROOT)/$(PKGROOT)/rocks/; ln -sf queue.php pbs.php)
+	#-(cd $(ROOT)/$(PKGROOT)/rocks/; ln -sf queue.php pbs.php)
 
 	# Extend the standard Ganglia 'Rocks' template.
 	mkdir -p $(ROOT)/$(PKGROOT)/templates/Rocks
+	mkdir -p $(ROOT)/$(PKGROOT)/templates/Rocks/images
 	$(INSTALL) -m644 $(EXTRAS) $(ROOT)/$(PKGROOT)/templates/Rocks
-
+	$(INSTALL) -m644 $(IMAGES) $(ROOT)/$(PKGROOT)/templates/Rocks/images
 
 build:
 
 clean::
 	rm -f $(NAME).spec.in
-
-
-
