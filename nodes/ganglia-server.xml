@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.28  2011/07/30 20:49:14  anoop
+  New ganglia requires dwoo compile directory
+
   Revision 1.27  2011/07/27 21:34:34  anoop
   *** empty log message ***
 
@@ -314,6 +317,10 @@ RRDSIZE=`gawk '/MemTotal:/ { print int($2/4) }' /proc/meminfo`000
 # The ram-backed filesystem for ganglia RRD graph databases.
 tmpfs /var/lib/ganglia/rrds tmpfs size=$RRDSIZE,gid=nobody,uid=nobody,defaults 1 0	
 </file>
+
+<!-- Setup dwoo compile directory -->
+mkdir -p /var/lib/ganglia/dwoo
+chown -R apache:apache /var/lib/ganglia/dwoo
 
 
 <!-- Choose the 'Rocks' style for Ganglia Pages. --> 
