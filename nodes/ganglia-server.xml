@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.29  2011/08/03 00:02:38  anoop
+  Apparently whitespace can wreck your whole ganglia setup.
+
   Revision 1.28  2011/07/30 20:49:14  anoop
   New ganglia requires dwoo compile directory
 
@@ -327,8 +330,7 @@ chown -R apache:apache /var/lib/ganglia/dwoo
 <file name="/var/www/html/ganglia/conf.php" mode="append"><![CDATA[
 <?php
 $template_name = "Rocks";
-?>
-]]>
+?>]]>
 </file>
 
 
