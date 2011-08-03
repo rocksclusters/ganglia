@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.30  2011/08/03 00:07:38  anoop
+  This time with feeling
+
   Revision 1.29  2011/08/03 00:02:38  anoop
   Apparently whitespace can wreck your whole ganglia setup.
 
@@ -330,8 +333,7 @@ chown -R apache:apache /var/lib/ganglia/dwoo
 <file name="/var/www/html/ganglia/conf.php" mode="append"><![CDATA[
 <?php
 $template_name = "Rocks";
-?>]]>
-</file>
+?>]]></file>
 
 
 <file name="/etc/rc.d/rocksconfig.d/post-90-restart-gmond" perms="0755">
