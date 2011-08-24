@@ -16,6 +16,10 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.30  2011/08/24 22:11:25  anoop
+	Solaris does not need rrdtool
+	Removed unnecessary utils from solaris
+	
 	Revision 1.29  2011/07/23 02:30:58  phil
 	Viper Copyright
 	
@@ -121,16 +125,13 @@
 	<package os="sunos">ROCKSganglia-monitor-core</package>
 	<package os="sunos">ROCKSganglia-python</package>
 	<package os="sunos">ROCKSrocks-ganglia</package>
-	<package os="sunos">ROCKSrrdtool</package>
-	<package os="sunos">ROCKSphpsysinfo</package>
-
 
 <post>
 ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
-ln -s /opt/rocks/bin/rrdtool /usr/bin/rrdtool
 </post>
 
 <post os="linux">
+ln -s /opt/rocks/bin/rrdtool /usr/bin/rrdtool
 /sbin/chkconfig --add gmond
 
 <file name="/etc/man.config" mode="append">
