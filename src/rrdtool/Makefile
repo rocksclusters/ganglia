@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.18 2011/07/27 21:28:44 anoop Exp $
+# $Id: Makefile,v 1.19 2012/01/24 03:45:38 phil Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.19  2012/01/24 03:45:38  phil
+# Force linking to proper rocks-compiled lib
+#
 # Revision 1.18  2011/07/27 21:28:44  anoop
 # Removed OS specific build for rrdtool
 # Removed all perl examples from rrdtool
@@ -148,7 +151,7 @@ build::
 	gunzip -c $(NAME)-$(VERSION).tar.gz | $(TAR) -xf -
 	(\
 		cd $(NAME)-$(VERSION);		\
-		./configure --disable-perl	\
+		LDFLAGS=-L/opt/rocks/lib ./configure --disable-perl	\
 			--disable-python 	\
 			--prefix=$(PKGROOT);	\
 		$(MAKE);			\
