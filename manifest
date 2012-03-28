@@ -1,4 +1,5 @@
 confuse
+foundation-rrdtool
 ganglia-monitor-core
 ganglia-news
 ganglia-python
@@ -8,4 +9,3 @@ rocks-command-ganglia
 rocks-ganglia
 roll-ganglia-kickstart
 roll-ganglia-usersguide
-rrdtool

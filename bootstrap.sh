@@ -2,7 +2,7 @@
 #
 # This file should remain OS independent
 #
-# $Id: bootstrap.sh,v 1.14 2011/07/23 02:30:58 phil Exp $
+# $Id: bootstrap.sh,v 1.15 2012/03/28 16:51:07 phil Exp $
 #
 # @Copyright@
 # 
@@ -58,6 +58,11 @@
 # @Copyright@
 #
 # $Log: bootstrap.sh,v $
+# Revision 1.15  2012/03/28 16:51:07  phil
+# change package name from rrdtool to foundation-rrdtool.
+# Modify /var/www/html/ganglia/conf.php to point to /opt/rocks/bin/rrdtool.
+# This fixes broken graphs.
+#
 # Revision 1.14  2011/07/23 02:30:58  phil
 # Viper Copyright
 #
@@ -109,7 +114,8 @@
 . $ROLLSROOT/etc/bootstrap-functions.sh
 
 if [ `./_os` == "linux" ]; then
-	compile_and_install rrdtool
+	compile rrdtool
+	install foundation-rrdtool
 fi
 
 compile_and_install confuse

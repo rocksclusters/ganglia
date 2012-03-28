@@ -16,6 +16,11 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.31  2012/03/28 16:51:08  phil
+	change package name from rrdtool to foundation-rrdtool.
+	Modify /var/www/html/ganglia/conf.php to point to /opt/rocks/bin/rrdtool.
+	This fixes broken graphs.
+	
 	Revision 1.30  2011/08/24 22:11:25  anoop
 	Solaris does not need rrdtool
 	Removed unnecessary utils from solaris
@@ -131,7 +136,11 @@ ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
 </post>
 
 <post os="linux">
-ln -s /opt/rocks/bin/rrdtool /usr/bin/rrdtool
+<!-- Modify ganglia conf to use foundation-rrdtool -->
+<file name="/var/www/html/ganglia/conf.php" mode="append" vars="expanded">
+`/bin/sed -i -e "s%/usr/bin/rrdtool%/opt/rocks/bin/rrdtool%g" /var/www/html/ganglia/conf.php`
+</file>
+
 /sbin/chkconfig --add gmond
 
 <file name="/etc/man.config" mode="append">

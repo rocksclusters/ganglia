@@ -12,6 +12,11 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.32  2012/03/28 16:51:08  phil
+  change package name from rrdtool to foundation-rrdtool.
+  Modify /var/www/html/ganglia/conf.php to point to /opt/rocks/bin/rrdtool.
+  This fixes broken graphs.
+
   Revision 1.31  2011/10/04 20:17:13  anoop
   restart gmond only on managed nodes, not on unmanaged nodes
 
@@ -282,8 +287,7 @@
   </changelog>
 
   <package>libart_lgpl-devel</package>
-  <package>rrdtool</package>
-  <package>rrdtool-devel</package>
+  <package>foundation-rrdtool</package>
   <package>php-gd</package>
   <package>rocks-command-ganglia</package>
 

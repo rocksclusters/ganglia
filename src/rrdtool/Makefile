@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.19 2012/01/24 03:45:38 phil Exp $
+# $Id: Makefile,v 1.20 2012/03/28 16:51:08 phil Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,11 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.20  2012/03/28 16:51:08  phil
+# change package name from rrdtool to foundation-rrdtool.
+# Modify /var/www/html/ganglia/conf.php to point to /opt/rocks/bin/rrdtool.
+# This fixes broken graphs.
+#
 # Revision 1.19  2012/01/24 03:45:38  phil
 # Force linking to proper rocks-compiled lib
 #
@@ -148,9 +153,9 @@ PKGROOT	= /opt/rocks
 include Rules.mk
 
 build::
-	gunzip -c $(NAME)-$(VERSION).tar.gz | $(TAR) -xf -
+	gunzip -c $(TNAME)-$(VERSION).tar.gz | $(TAR) -xf -
 	(\
-		cd $(NAME)-$(VERSION);		\
+		cd $(TNAME)-$(VERSION);		\
 		LDFLAGS=-L/opt/rocks/lib ./configure --disable-perl	\
 			--disable-python 	\
 			--prefix=$(PKGROOT);	\
@@ -159,7 +164,7 @@ build::
 
 install::
 	(				\
-		cd $(NAME)-$(VERSION);	\
+		cd $(TNAME)-$(VERSION);	\
 		$(MAKE) prefix=$(ROOT)/$(PKGROOT) \
 			install;	\
 	)
@@ -170,4 +175,4 @@ install::
 	)
 
 clean::
-	rm -rf $(NAME)-$(VERSION)
+	rm -rf $(TNAME)-$(VERSION)
