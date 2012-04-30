@@ -1,5 +1,5 @@
 #
-# $Id: ganglia-binaries.sh,v 1.6 2011/07/23 02:30:59 phil Exp $
+# $Id: ganglia-binaries.sh,v 1.7 2012/04/30 16:53:47 phil Exp $
 #
 # @Copyright@
 # 
@@ -56,6 +56,9 @@
 #
 #
 # $Log: ganglia-binaries.sh,v $
+# Revision 1.7  2012/04/30 16:53:47  phil
+# Only add to path if not already in path
+#
 # Revision 1.6  2011/07/23 02:30:59  phil
 # Viper Copyright
 #
@@ -123,10 +126,18 @@
 #
 #
 
-if [ -d /opt/ganglia/bin ]; then
-	export PATH=${PATH:+$PATH:}/opt/ganglia/bin
+GANGLIA_HOME=/opt/ganglia
+BIN=${GANGLIA_HOME}/bin
+SBIN=${GANGLIA_HOME}/sbin
+
+if [ -d ${BIN} ]; then
+	if ! echo ${PATH} | /bin/grep -q ${BIN} ; then
+        	export PATH=${PATH:+$PATH:}${BIN}
+	fi
 fi
 
-if [ -d /opt/ganglia/sbin ]; then
-	export PATH=${PATH:+$PATH:}/opt/ganglia/sbin
+if [ -d ${SBIN} ]; then
+	if ! echo ${PATH} | /bin/grep -q ${SBIN} ; then
+        	export PATH=${PATH:+$PATH:}${SBIN}
+	fi
 fi

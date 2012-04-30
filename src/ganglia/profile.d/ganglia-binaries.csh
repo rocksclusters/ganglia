@@ -1,5 +1,5 @@
 #
-# $Id: ganglia-binaries.csh,v 1.6 2011/07/23 02:30:59 phil Exp $
+# $Id: ganglia-binaries.csh,v 1.7 2012/04/30 16:53:47 phil Exp $
 #
 # @Copyright@
 # 
@@ -56,6 +56,9 @@
 #
 #
 # $Log: ganglia-binaries.csh,v $
+# Revision 1.7  2012/04/30 16:53:47  phil
+# Only add to path if not already in path
+#
 # Revision 1.6  2011/07/23 02:30:59  phil
 # Viper Copyright
 #
@@ -129,10 +132,21 @@
 #
 
 
-if ( -d /opt/ganglia/bin ) then
-	set path = ( $path /opt/ganglia/bin )
+
+set GANGLIA_HOME=/opt/ganglia
+set BIN=${GANGLIA_HOME}/bin
+set SBIN=${GANGLIA_HOME}/sbin
+
+if ( -d ${BIN}  ) then
+	echo ${PATH} | /bin/grep -q ${BIN} 
+	if ( $? != 0) then
+        	setenv PATH "${PATH}:${BIN}"
+	endif
 endif
 
-if ( -d /opt/ganglia/sbin ) then
-	set path = ( $path /opt/ganglia/sbin )
+if ( -d ${SBIN}  ) then
+	echo ${PATH} | /bin/grep -q ${SBIN} 
+	if ( $? != 0) then
+        	setenv PATH "${PATH}:${SBIN}"
+	endif
 endif
