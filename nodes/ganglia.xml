@@ -9,13 +9,16 @@
 	</description>
 
 	<copyright>
-	Copyright (c) 2000 - 2011 The Regents of the University of California.
-	All rights reserved. Rocks(r) v5.4.3 www.rocksclusters.org
+	Copyright (c) 2000 - 2012 The Regents of the University of California.
+	All rights reserved. Rocks(r) v5.5/v6.0 www.rocksclusters.org
 	
 	</copyright>
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.32  2012/05/06 05:49:03  phil
+	Copyright Storm for Mamba
+	
 	Revision 1.31  2012/03/28 16:51:08  phil
 	change package name from rrdtool to foundation-rrdtool.
 	Modify /var/www/html/ganglia/conf.php to point to /opt/rocks/bin/rrdtool.
