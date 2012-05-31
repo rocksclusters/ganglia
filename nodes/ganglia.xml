@@ -16,6 +16,9 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.34  2012/05/31 16:50:00  clem
+	damn xml escaping!!!
+	
 	Revision 1.33  2012/05/31 00:46:26  clem
 	ganglia 3.3.7 updated betaversion
 	
@@ -145,13 +148,14 @@ ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
 <!-- Modify ganglia conf to use foundation-rrdtool -->
 <file name="/var/www/html/ganglia/conf.php" mode="append" >
 
+<![CDATA[
 <?php
 
 $conf['template_name'] = "Rocks";
 $conf['rrdtool'] = "/opt/rocks/bin/rrdtool";
 
 ?>
-
+]]>
 </file>
 
 /sbin/chkconfig --add gmond
