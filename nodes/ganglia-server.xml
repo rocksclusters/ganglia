@@ -12,6 +12,9 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.33  2012/05/31 00:46:26  clem
+  ganglia 3.3.7 updated betaversion
+
   Revision 1.32  2012/03/28 16:51:08  phil
   change package name from rrdtool to foundation-rrdtool.
   Modify /var/www/html/ganglia/conf.php to point to /opt/rocks/bin/rrdtool.
@@ -333,15 +336,12 @@ tmpfs /var/lib/ganglia/rrds tmpfs size=$RRDSIZE,gid=nobody,uid=nobody,defaults 1
 
 <!-- Setup dwoo compile directory -->
 mkdir -p /var/lib/ganglia/dwoo
+mkdir -p /var/lib/ganglia/dwoo/compiled
+mkdir -p /var/lib/ganglia/dwoo/cache
 chown -R apache:apache /var/lib/ganglia/dwoo
 
-
-<!-- Choose the 'Rocks' style for Ganglia Pages. --> 
-<file name="/var/www/html/ganglia/conf.php" mode="append"><![CDATA[
-<?php
-$template_name = "Rocks";
-?>]]></file>
-
+mkdir -p /var/lib/ganglia/conf
+chown -R apache:apache /var/lib/ganglia/conf
 
 <file name="/etc/rc.d/rocksconfig.d/post-90-restart-gmond" perms="0755">
 #!/bin/sh

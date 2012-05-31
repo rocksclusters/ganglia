@@ -16,6 +16,9 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.33  2012/05/31 00:46:26  clem
+	ganglia 3.3.7 updated betaversion
+	
 	Revision 1.32  2012/05/06 05:49:03  phil
 	Copyright Storm for Mamba
 	
@@ -140,8 +143,15 @@ ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
 
 <post os="linux">
 <!-- Modify ganglia conf to use foundation-rrdtool -->
-<file name="/var/www/html/ganglia/conf.php" mode="append" vars="expanded">
-`/bin/sed -i -e "s%/usr/bin/rrdtool%/opt/rocks/bin/rrdtool%g" /var/www/html/ganglia/conf.php`
+<file name="/var/www/html/ganglia/conf.php" mode="append" >
+
+<?php
+
+$conf['template_name'] = "Rocks";
+$conf['rrdtool'] = "/opt/rocks/bin/rrdtool";
+
+?>
+
 </file>
 
 /sbin/chkconfig --add gmond

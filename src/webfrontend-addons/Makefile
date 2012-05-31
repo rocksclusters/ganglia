@@ -54,6 +54,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.23  2012/05/31 00:46:26  clem
+# ganglia 3.3.7 updated betaversion
+#
 # Revision 1.22  2012/05/06 05:49:08  phil
 # Copyright Storm for Mamba
 #
@@ -187,9 +190,8 @@ PKGROOT = $(WEBSERVER_ROOT)/ganglia
 #TEMPLATES = $(wildcard $(ADDONS)/templates/*tpl)
 
 # Extensions to the standard Ganglia Rocks template.
-EXTRAS = $(wildcard templates/Rocks/*.tpl)
-IMAGES = $(wildcard templates/Rocks/images/*.png)
-IMAGES += $(wildcard templates/Rocks/images/*.jpg)
+EXTRAS = $(wildcard templates/default/*.tpl)
+IMAGES = $(wildcard templates/default/images/*.png)
 
 
 REDHAT.ROOT = $(CURDIR)/../../
@@ -210,10 +212,10 @@ install::
 	#-(cd $(ROOT)/$(PKGROOT)/rocks/; ln -sf queue.php pbs.php)
 
 	# Extend the standard Ganglia 'Rocks' template.
-	mkdir -p $(ROOT)/$(PKGROOT)/templates/Rocks
-	mkdir -p $(ROOT)/$(PKGROOT)/templates/Rocks/images
-	$(INSTALL) -m644 $(EXTRAS) $(ROOT)/$(PKGROOT)/templates/Rocks
-	$(INSTALL) -m644 $(IMAGES) $(ROOT)/$(PKGROOT)/templates/Rocks/images
+	mkdir -p $(ROOT)/$(PKGROOT)/templates/default
+	mkdir -p $(ROOT)/$(PKGROOT)/templates/default/images
+	$(INSTALL) -m644 $(EXTRAS) $(ROOT)/$(PKGROOT)/templates/default
+	$(INSTALL) -m644 $(IMAGES) $(ROOT)/$(PKGROOT)/templates/default/images
 
 build:
 
