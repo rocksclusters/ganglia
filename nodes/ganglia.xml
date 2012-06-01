@@ -16,6 +16,9 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.35  2012/06/01 19:28:56  clem
+	an entire day for an extra newline in a php configuratio file!!
+	
 	Revision 1.34  2012/05/31 16:50:00  clem
 	damn xml escaping!!!
 	
@@ -131,6 +134,8 @@
 	<package os="linux">ganglia-python</package>
 	<package os="linux">rocks-ganglia</package>
 	<package os="linux">phpsysinfo</package>
+	<package os="linux">php-mbstring</package>
+	<package os="linux">php-xml</package>
 	<package os="linux">confuse</package>
 
 	<package os="sunos">ROCKSconfuse</package>
@@ -147,15 +152,11 @@ ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
 <post os="linux">
 <!-- Modify ganglia conf to use foundation-rrdtool -->
 <file name="/var/www/html/ganglia/conf.php" mode="append" >
+<![CDATA[<?php
 
-<![CDATA[
-<?php
-
-$conf['template_name'] = "Rocks";
 $conf['rrdtool'] = "/opt/rocks/bin/rrdtool";
 
-?>
-]]>
+?>]]>
 </file>
 
 /sbin/chkconfig --add gmond
