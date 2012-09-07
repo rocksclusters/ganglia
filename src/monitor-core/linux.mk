@@ -13,7 +13,8 @@ build:
 			--sysconfdir=/etc/ganglia		\
 			CFLAGS="-I/opt/rocks/include/ -DROCKS"	\
 			CPPFLAGS="-I/opt/rocks/include/"	\
-			LDFLAGS="-L/opt/rocks/lib/ -L/opt/confuse/lib";		\
+			LDFLAGS="-L/opt/rocks/lib/ -L/opt/confuse/lib"\
+			LIBS="-lm -lutil"	;		\
 		$(MAKE);					\
 	)
 
