@@ -16,6 +16,12 @@
 
 	<changelog>
 	$Log: ganglia.xml,v $
+	Revision 1.36  2012/09/07 23:39:46  clem
+	minor fixes to the Makefile
+	
+	 - moved some instruction in Makefile instead of nodes files
+	   so that rpms are already fixed
+	
 	Revision 1.35  2012/06/01 19:28:56  clem
 	an entire day for an extra newline in a php configuratio file!!
 	
@@ -150,14 +156,6 @@ ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
 </post>
 
 <post os="linux">
-<!-- Modify ganglia conf to use foundation-rrdtool -->
-<file name="/var/www/html/ganglia/conf.php" mode="append" >
-<![CDATA[<?php
-
-$conf['rrdtool'] = "/opt/rocks/bin/rrdtool";
-
-?>]]>
-</file>
 
 /sbin/chkconfig --add gmond
 
@@ -165,7 +163,6 @@ $conf['rrdtool'] = "/opt/rocks/bin/rrdtool";
 MANPATH /opt/ganglia/man
 </file>
 
-cp /var/www/html/phpsysinfo/config.php.new /var/www/html/phpsysinfo/config.php
 </post>
 
 <post os="sunos">

@@ -1,5 +1,5 @@
 # --------------------------------------------------- -*- Makefile -*- --
-# $Id: Makefile,v 1.26 2012/05/06 05:49:06 phil Exp $
+# $Id: Makefile,v 1.27 2012/09/07 23:39:46 clem Exp $
 #
 # @Copyright@
 # 
@@ -56,6 +56,12 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.27  2012/09/07 23:39:46  clem
+# minor fixes to the Makefile
+#
+#  - moved some instruction in Makefile instead of nodes files
+#    so that rpms are already fixed
+#
 # Revision 1.26  2012/05/06 05:49:06  phil
 # Copyright Storm for Mamba
 #
@@ -182,6 +188,7 @@ install::
 		mkdir -p $(ROOT)/$(WEBSERVER_ROOT)/; 		\
 		cp -rf web/ $(ROOT)/$(WEBSERVER_ROOT)/ganglia/;	\
 	)
+	cp conf.php $(ROOT)/$(WEBSERVER_ROOT)/ganglia/
 	(							\
 		cd $(ARCHIVE)-$(VERSION)/gmond;			\
 		gzip gmond.conf.5;				\

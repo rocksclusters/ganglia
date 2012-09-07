@@ -1,4 +1,4 @@
-# $Id: Makefile,v 1.21 2012/05/06 05:49:07 phil Exp $
+# $Id: Makefile,v 1.22 2012/09/07 23:39:46 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,12 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.22  2012/09/07 23:39:46  clem
+# minor fixes to the Makefile
+#
+#  - moved some instruction in Makefile instead of nodes files
+#    so that rpms are already fixed
+#
 # Revision 1.21  2012/05/06 05:49:07  phil
 # Copyright Storm for Mamba
 #
@@ -154,6 +160,7 @@ build::
 install::
 	mkdir -p $(ROOT)/$(HTML)/$(NAME)
 	cp -r $(NAME)/* $(ROOT)/$(HTML)/$(NAME)
+	cp $(ROOT)/$(HTML)/$(NAME)/config.php.new $(ROOT)/$(HTML)/$(NAME)/config.php
 
 clean::
 	rm -f $(NAME).spec.in
