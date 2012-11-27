@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.16 2012/05/06 05:49:03 phil Exp $
+# $Id: Makefile,v 1.17 2012/11/27 00:48:56 phil Exp $
 #
 # Makefile for the Ganglia Roll.
 #
@@ -7,10 +7,10 @@
 # 
 # 				Rocks(r)
 # 		         www.rocksclusters.org
-# 		         version 5.5 (Mamba)
-# 		         version 6.0 (Mamba)
+# 		         version 5.6 (Emerald Boa)
+# 		         version 6.1 (Emerald Boa)
 # 
-# Copyright (c) 2000 - 2012 The Regents of the University of California.
+# Copyright (c) 2000 - 2013 The Regents of the University of California.
 # All rights reserved.	
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -58,6 +58,9 @@
 # @Copyright@
 #
 # $Log: Makefile,v $
+# Revision 1.17  2012/11/27 00:48:56  phil
+# Copyright Storm for Emerald Boa
+#
 # Revision 1.16  2012/05/06 05:49:03  phil
 # Copyright Storm for Mamba
 #
