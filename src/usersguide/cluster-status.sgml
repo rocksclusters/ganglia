@@ -2,7 +2,9 @@
 	<title> Cluster Status </title>
 
 <para>
-The webpages available from this link provide a graphical interface to live 
+You can check the status of your cluster pointing a browser at 
+http://your_frontend_name/ganglia/ (see image below for an example).
+This link provide a graphical interface to live 
 cluster information provided by <ulink 
 url="http://ganglia.info/">Ganglia monitors</ulink> running on each 
 cluster node. The monitors gather values for various metrics such as CPU load, 
@@ -27,16 +29,6 @@ Skull-and-Crossbones icon, or a red background.
   </imageobject>
 </mediaobject>
 </para>
-
-<tip>
-<para>
-The Rocks Cluster Group maintains a similar web page called 
-<emphasis>Meta</emphasis> that collects Ganglia information from many clusters 
-built with Rocks software. It may give you a glimpse of the power and 
-scalability of the Ganglia monitors. The meta page is available at <ulink 
-url="http://meta.rocksclusters.org/">http://meta.rocksclusters.org/</ulink>.
-</para>
-</tip>
 
 <para>
 <ulink url="http://ganglia.info/">Ganglia</ulink> was designed at 

@@ -1,7 +1,6 @@
 <chapter id="customizing" xreflabel="Customizing the Ganglia Roll">
 	<title>Customizing the Ganglia Roll</title>
 
-&source-custom-monitors;
 &source-grid;
 
 
