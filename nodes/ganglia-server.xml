@@ -12,6 +12,16 @@
 
   <changelog>
   $Log: ganglia-server.xml,v $
+  Revision 1.34  2013/01/11 23:45:28  clem
+  Fix for new default RRA policy in ganglia
+
+  The new default for the RRD database samplying frequency take 20MB per node
+  before this change it was 300KB per node this can make the tmpfs reserved for
+  the RRD full for big cluster.
+
+  I crafted this policy which is between the new default and the old and it takes
+  about 3M per node.
+
   Revision 1.33  2012/05/31 00:46:26  clem
   ganglia 3.3.7 updated betaversion
 
@@ -319,6 +329,16 @@ mkdir -p /etc/ganglia
 # Generated automatically by ganglia-server.xml.
 #
 data_source "&Info_ClusterName;" localhost:8649
+
+# Rocks custom RRA policy 
+# new default policy are 20MB per node 
+# this policy are 3M per node
+# 
+# 10 hours at 15 sec resolution, 24 hours at 60 sec resolution, 7.2 days at 4.25 min resolution, 
+# 28 days at 16 min resolution, 3740 days at 2.4 hours resolution
+RRAs "RRA:AVERAGE:0.5:1:2440" "RRA:AVERAGE:0.5:4:1440" "RRA:AVERAGE:0.5:17:2440" "RRA:AVERAGE:0.5:67:2440" \
+       "RRA:AVERAGE:0.5:576:3740"
+
 </file>
 
 
