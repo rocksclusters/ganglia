@@ -1,4 +1,4 @@
-# $Id: __init__.py,v 1.15 2012/11/27 00:48:59 phil Exp $
+# $Id: __init__.py,v 1.16 2013/01/16 00:07:00 clem Exp $
 #
 # @Copyright@
 # 
@@ -55,6 +55,17 @@
 # @Copyright@
 #
 # $Log: __init__.py,v $
+# Revision 1.16  2013/01/16 00:07:00  clem
+# Fix for mixed-arch gmond.conf generation
+#
+# Tyler Trafford reported this patch.
+#
+# when generating the gmond.conf the command
+# rocks report host ganglia gmond <host>
+# should be check the arch of the host, not the frontend.
+#
+# http://marc.info/?l=npaci-rocks-discussion&m=135828393118619&w=2
+#
 # Revision 1.15  2012/11/27 00:48:59  phil
 # Copyright Storm for Emerald Boa
 #
@@ -297,7 +308,7 @@ class Command(rocks.commands.report.host.ganglia.command):
 		#
 		# load the metrics modules
 		#
-		if self.arch == 'i386':
+		if self.db.getHostAttr(host, 'arch') == 'i386':
 			libdir = 'lib'
 		else:
 			libdir = 'lib64'
