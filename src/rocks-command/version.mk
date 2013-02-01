@@ -1,3 +1,3 @@
 PKGROOT	= /opt/rocks
 NAME	= rocks-command-ganglia
-RELEASE	= 0
+RELEASE	= 2
