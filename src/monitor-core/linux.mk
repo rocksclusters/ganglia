@@ -1,10 +1,7 @@
 build:	
 	gunzip -c $(ARCHIVE)-$(VERSION).tar.gz | $(TAR) -xf -
 	( 							\
-		cd patch-files;					\
-		find gmond include web -type f | grep -v CVS |	\
-			cpio -pduv ../$(ARCHIVE)-$(VERSION);	\
-		cd ../$(ARCHIVE)-$(VERSION);			\
+		cd $(ARCHIVE)-$(VERSION);			\
 		./configure 					\
 			--prefix=$(PKGROOT)			\
 			--with-gmetad 				\

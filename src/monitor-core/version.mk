@@ -1,4 +1,4 @@
 NAME		= ganglia-monitor-core
-VERSION		= 3.3.7
-RELEASE		= 1
+VERSION		= 3.5.0
+RELEASE		= 0
 ARCHIVE		= ganglia

@@ -188,10 +188,7 @@ install::
 	( 							\
 		cd $(ARCHIVE)-$(VERSION);			\
 		$(MAKE) install DESTDIR=$(ROOT);	 	\
-		mkdir -p $(ROOT)/$(WEBSERVER_ROOT)/; 		\
-		cp -rf web/ $(ROOT)/$(WEBSERVER_ROOT)/ganglia/;	\
 	)
-	cp conf.php $(ROOT)/$(WEBSERVER_ROOT)/ganglia/
 	(							\
 		cd $(ARCHIVE)-$(VERSION)/gmond;			\
 		gzip gmond.conf.5;				\
@@ -205,3 +202,4 @@ install::
 		
 clean::
 	rm -rf $(ARCHIVE)-$(VERSION)
+
