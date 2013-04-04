@@ -355,13 +355,13 @@ tmpfs /var/lib/ganglia/rrds tmpfs size=$RRDSIZE,gid=nobody,uid=nobody,defaults 1
 </file>
 
 <!-- Setup dwoo compile directory -->
-mkdir -p /var/lib/ganglia/dwoo
-mkdir -p /var/lib/ganglia/dwoo/compiled
-mkdir -p /var/lib/ganglia/dwoo/cache
-chown -R apache:apache /var/lib/ganglia/dwoo
+mkdir -p /var/lib/ganglia-web/dwoo
+mkdir -p /var/lib/ganglia-web/dwoo/compiled
+mkdir -p /var/lib/ganglia-web/dwoo/cache
+chown -R apache:apache /var/lib/ganglia-web/dwoo
 
-mkdir -p /var/lib/ganglia/conf
-chown -R apache:apache /var/lib/ganglia/conf
+mkdir -p /var/lib/ganglia-web/conf
+chown -R apache:apache /var/lib/ganglia-web/conf
 
 <file name="/etc/rc.d/rocksconfig.d/post-90-restart-gmond" perms="0755">
 #!/bin/sh
