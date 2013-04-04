@@ -300,6 +300,11 @@
   </changelog>
 
   <package>libart_lgpl-devel</package>
+  <package>ganglia-monitor-web</package>
+  <package>phpsysinfo</package>
+  <package>php-mbstring</package>
+  <package>php-xml</package>
+
   <package>foundation-rrdtool</package>
   <package>php-gd</package>
   <package>rocks-command-ganglia</package>

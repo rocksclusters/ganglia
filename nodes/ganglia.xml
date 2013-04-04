@@ -139,9 +139,6 @@
 	<package os="linux">ganglia-monitor-core</package>
 	<package os="linux">ganglia-python</package>
 	<package os="linux">rocks-ganglia</package>
-	<package os="linux">phpsysinfo</package>
-	<package os="linux">php-mbstring</package>
-	<package os="linux">php-xml</package>
 	<package os="linux">confuse</package>
 
 	<package os="sunos">ROCKSconfuse</package>
