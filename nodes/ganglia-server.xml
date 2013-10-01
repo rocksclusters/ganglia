@@ -327,7 +327,8 @@ mkdir -p /etc/ganglia
 </post>
 
 <!--reconfigure run this at reconfigure -->
-<post>
+<configure phase="post,reconfigure">
+
 /opt/rocks/bin/rocks report host ganglia gmond localhost &gt; \
 	/etc/ganglia/gmond.conf
 
@@ -348,8 +349,12 @@ RRAs "RRA:AVERAGE:0.5:1:2440" "RRA:AVERAGE:0.5:4:1440" "RRA:AVERAGE:0.5:17:2440"
        "RRA:AVERAGE:0.5:576:3740"
 
 </file>
-</post>
+</configure>
 
+<configure phase="post,reconfigure">
+/sbin/service gmond restart
+/sbin/service gmetad restart
+</configure>
 
 <post>
 <!-- Setup a RAM-backed filesystem for RRDs-->
