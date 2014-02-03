@@ -1,11 +1,11 @@
-build:	
+build:
 	gunzip -c $(ARCHIVE)-$(VERSION).tar.gz | $(TAR) -xf -
 	( 							\
 		cd patch-files;					\
 		find . -type f | grep -v CVS | cpio -pduv 	\
 			../$(ARCHIVE)-$(VERSION);		\
 	)
-	for i in `find ganglia-3.2.0 -type f -name Makefile.\*`; do \
+	for i in `find ganglia-$(VERSION) -type f -name Makefile.\*`; do \
 			sed -e "/[\t ]*pod2/s/pod2html/-pod2html/g" \
 			-e "/[\t ]*pod2/s/pod2text/-pod2text/g"     \
 			-e "/[\t ]*pod2/s/pod2man/-pod2man/g" $$i > $${i}.tmp; \
