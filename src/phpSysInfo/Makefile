@@ -163,7 +163,7 @@ build::
 install::
 	mkdir -p $(ROOT)/$(HTML)/$(NAME)
 	cp -r $(NAME)-$(VERSION)/* $(ROOT)/$(HTML)/$(NAME)
-	cp -p $(ROOT)/$(HTML)/$(NAME)/config.php.new $(ROOT)/$(HTML)/$(NAME)/config.php
+	cp -p $(ROOT)/$(HTML)/$(NAME)/phpsysinfo.ini.new $(ROOT)/$(HTML)/$(NAME)/phpsysinfo.ini
 
 clean::
 	rm -f $(NAME).spec.in
