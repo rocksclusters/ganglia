@@ -161,12 +161,13 @@ include Rules.mk
 
 build::
 	gunzip -c $(TNAME)-$(VERSION).tar.gz | $(TAR) -xf -
-	(\
-		cd $(TNAME)-$(VERSION);		\
-		LDFLAGS=-L/opt/rocks/lib ./configure --disable-perl	\
-			--disable-python 	\
-			--prefix=$(PKGROOT);	\
-		$(MAKE);			\
+	(							\
+		cd $(TNAME)-$(VERSION);				\
+		./configure --disable-perl			\
+			--disable-python 			\
+			--prefix=$(PKGROOT)			\
+			LDFLAGS=-L/opt/rocks/lib	;	\
+		$(MAKE);					\
 	)
 
 install::
