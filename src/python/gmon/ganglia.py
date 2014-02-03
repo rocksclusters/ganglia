@@ -143,7 +143,9 @@ from xml.sax import handler
 import xml.sax.saxutils
 
 
-GangliaError = "Ganglia Python Error"
+class GangliaError(Exception):
+	"""Ganglia Python Error"""
+	pass
 
 
 class Root:
