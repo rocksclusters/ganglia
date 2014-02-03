@@ -80,9 +80,9 @@ install::
 
 	#mkdir -p $(ROOT)/var/lib/ganglia/rrds/
 	#chown -R nobody:nobody  $(ROOT)/var/lib/ganglia/rrds/
-	( 							\
-		cd $(ARCHIVE)-$(VERSION);			\
-		$(MAKE) install DESTDIR=$(ROOT);	 	\
+	( 								\
+		cd $(ARCHIVE)-$(VERSION);				\
+		$(MAKE) install DESTDIR=$(ROOT) APACHE_USER=apache;	\
 	)
 	chown -R apache $(ROOT)/$(GWEB_STATEDIR)
 	cp conf.php $(ROOT)/$(WEBSERVER_ROOT)/ganglia/
