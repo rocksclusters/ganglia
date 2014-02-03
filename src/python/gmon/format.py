@@ -231,7 +231,7 @@ class Default(Base):
 				hostname = host.getName()
 			except ValueError:
 				pass
-			row      = [ hostname ]
+			row = [ hostname ]
 			for metric in host.getMetric(metrics):
 				if metric:
 					row.append(metric.getValue())
@@ -397,7 +397,7 @@ class MDS(Base):
 		print 'GlueHostNetworkAdapterName:', host.getName()
 		print 'GlueHostNetworkAdapterIPAddress:', host.getIP()
 		print 'GlueHostNetworkAdapterMTU:', \
-			host.getMetricValue('mtu')
+				host.getMetricValue('mtu')
 		print 'GlueHostNetworkAdapterOutboundIP: 1'
 		print 'GlueHostNetworkAdapterInboundIP: 1'
 

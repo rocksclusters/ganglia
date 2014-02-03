@@ -354,11 +354,11 @@ class Command(rocks.commands.report.host.ganglia.command):
 		path = "modsys.so"
 	}
 
-        module {
-                name = "python_module"
-                path = "modpython.so"
-                params = "/opt/ganglia/%s/ganglia/python_modules"
-        }
+	module {
+		name = "python_module"
+		path = "modpython.so"
+		params = "/opt/ganglia/%s/ganglia/python_modules"
+	}
 }\n""" % libdir)
 
 		# Now this is an important part. Metrics in ganglia 3.x follow

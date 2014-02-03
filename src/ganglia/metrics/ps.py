@@ -99,9 +99,9 @@ def ps_handler(name):
 		cmd += '--name="ps-%d" ' % i
 		cmd += '--value="%s" ' % value
 		cmd += '--type="string" '
-                cmd += '--slope=zero '
-                cmd += '--dmax=120 '
-                os.system(cmd)
+		cmd += '--slope=zero '
+		cmd += '--dmax=120 '
+		os.system(cmd)
 
 		i += 1
 

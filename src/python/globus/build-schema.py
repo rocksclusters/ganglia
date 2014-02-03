@@ -161,7 +161,7 @@ class Handler(xml.sax.saxutils.DefaultHandler):
 	# <schema>
 
 	def startElement_schema(self, name, attrs):
-            	self.oid         = attrs.get('oid')
+		self.oid = attrs.get('oid')
 		self.objectIndex = 0
 		print '# MDS Cluster Monitoring Schema'
 		print '#'

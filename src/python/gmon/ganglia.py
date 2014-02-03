@@ -186,8 +186,8 @@ class Cluster:
 	def __init__(self, name, owner, localtime, url, latlong):
 		self.name      = name
 		self.owner     = owner
-		self.url = url
-		self.latlong = latlong
+		self.url       = url
+		self.latlong   = latlong
 		self.localtime = float(localtime)
 		self.hosts     = {}
 
@@ -253,8 +253,8 @@ class Host:
 		self.time    = float(time)
 		self.metrics = {}
 		self.owner   = None
-		self.tn = int(tn)
-		self.tmax = int(tmax)
+		self.tn      = int(tn)
+		self.tmax    = int(tmax)
 
 	def __del__(self):
 		self.metrics = {}
@@ -363,9 +363,9 @@ class Metric:
 		self.type   = type
 		self.units  = units
 		self.source = source
-		self.tn = int(tn)
-		self.tmax = int(tmax)
-		self.dmax = int(dmax)
+		self.tn     = int(tn)
+		self.tmax   = int(tmax)
+		self.dmax   = int(dmax)
 		self.owner  = None
 
 	def __del__(self):
@@ -425,8 +425,8 @@ class Ganglia(handler.ContentHandler,
 		self.svchost    = host
 		self.svcport    = port
 		self.xml        = ''
-		self.parser = xml.sax.make_parser()
 
+		self.parser = xml.sax.make_parser()
 		self.parser.setContentHandler(self)
 
 

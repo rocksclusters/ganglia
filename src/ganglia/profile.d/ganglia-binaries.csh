@@ -144,16 +144,16 @@ set GANGLIA_HOME=/opt/ganglia
 set BIN=${GANGLIA_HOME}/bin
 set SBIN=${GANGLIA_HOME}/sbin
 
-if ( -d ${BIN}  ) then
+if ( -d ${BIN} ) then
 	echo ${PATH} | /bin/grep -q ${BIN}
-	if ( $? != 0) then
+	if ( $? != 0 ) then
         	setenv PATH "${PATH}:${BIN}"
 	endif
 endif
 
-if ( -d ${SBIN}  ) then
+if ( -d ${SBIN} ) then
 	echo ${PATH} | /bin/grep -q ${SBIN}
-	if ( $? != 0) then
+	if ( $? != 0 ) then
         	setenv PATH "${PATH}:${SBIN}"
 	endif
 endif

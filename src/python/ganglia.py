@@ -188,16 +188,16 @@ class App:
 		# Append package library to the default python path
 
 		sys.path.append(os.path.join(os.path.dirname(argv[0]),
-			 '..', 'lib', 'python'))
+			'..', 'lib', 'python'))
 
 		self.formatter     = 'Default'
 		self.formatterArgs = None
 		self.selector      = 'Default'
 		self.selectorArgs  = None
-		self.inputFile = None
+		self.inputFile     = None
 		self.doClustersize = 0
-		self.isAlive = None
-		self.showDead = 0
+		self.isAlive       = None
+		self.showDead      = 0
 
 
 	def help(self, formats, selects):
@@ -214,7 +214,7 @@ class App:
 \t --clustersize \t\t Print the number of live hosts in the cluster.
 \t --alive=[hostname] \t\t Returns 1 if host is alive
 \t --dead \t\t Lists dead nodes
-"""  % (formats, selects)
+""" % (formats, selects)
 
 
 	def main(self):
@@ -230,7 +230,7 @@ class App:
 
 		doHelp = 0
 		try:
-			opts, args =  getopt.getopt(sys.argv[1:], 'h',
+			opts, args = getopt.getopt(sys.argv[1:], 'h',
 					    ["help",
 					     "format=",
 					     "formatargs=",
