@@ -18,7 +18,7 @@
 Click the job button to only see nodes for that job.
 
 <form name="selectjob" action="{self}" method=GET>
-<input type=radio name="onejob" 
+<input type=radio name="onejob"
    value="" OnClick="selectjob.submit()"> All Jobs<br>
 <input type=hidden name=c value="{cluster_url}">
 
@@ -37,7 +37,7 @@ Click the job button to only see nodes for that job.
 Click the user button to only see nodes for that user.
 
 <form name="selectuser" action="{self}" method=GET>
-<input type=radio name="oneuser" value="" 
+<input type=radio name="oneuser" value=""
    OnClick="selectuser.submit()"> All Users<br>
 <input type=hidden name=c value="{cluster_url}">
 
@@ -60,7 +60,7 @@ Legend<br>
 <ul>
  <li>Job line is <i>id: name (user): CPUs/Nodes</i>
 </ul>
- 
+
  </td>
 </tr>
 </table>

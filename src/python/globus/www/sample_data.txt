@@ -4751,4 +4751,3 @@ source: gmond
 metric: sys_clock
 value: 1018467538
 metrictype: uint32
-

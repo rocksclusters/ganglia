@@ -1,45 +1,45 @@
 #!/opt/rocks/bin/python
-# 
+#
 # @Copyright@
-# 
+#
 # 				Rocks(r)
 # 		         www.rocksclusters.org
 # 		         version 5.6 (Emerald Boa)
 # 		         version 6.1 (Emerald Boa)
-# 
+#
 # Copyright (c) 2000 - 2013 The Regents of the University of California.
-# All rights reserved.	
-# 
+# All rights reserved.
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
 # met:
-# 
+#
 # 1. Redistributions of source code must retain the above copyright
 # notice, this list of conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright
 # notice unmodified and in its entirety, this list of conditions and the
-# following disclaimer in the documentation and/or other materials provided 
+# following disclaimer in the documentation and/or other materials provided
 # with the distribution.
-# 
+#
 # 3. All advertising and press materials, printed or electronic, mentioning
-# features or use of this software must display the following acknowledgement: 
-# 
+# features or use of this software must display the following acknowledgement:
+#
 # 	"This product includes software developed by the Rocks(r)
 # 	Cluster Group at the San Diego Supercomputer Center at the
 # 	University of California, San Diego and its contributors."
-# 
+#
 # 4. Except as permitted for the purposes of acknowledgment in paragraph 3,
 # neither the name or logo of this software nor the names of its
 # authors may be used to endorse or promote products derived from this
 # software without specific prior written permission.  The name of the
 # software includes the following terms, and any derivatives thereof:
-# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of 
-# the associated name, interested parties should contact Technology 
-# Transfer & Intellectual Property Services, University of California, 
-# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910, 
+# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of
+# the associated name, interested parties should contact Technology
+# Transfer & Intellectual Property Services, University of California,
+# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910,
 # Ph: (858) 534-5815, FAX: (858) 534-7345, E-MAIL:invent@ucsd.edu
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS''
 # AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
 # THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -51,7 +51,7 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-# 
+#
 # @Copyright@
 #
 # $Log: ganglia.py,v $
@@ -154,7 +154,7 @@ class Root:
 
 	def __del__(self):
 		self.clusters = {}
-		
+
 	def flush(self):
 		"A deep delete to remove references to self."
 		for c in self.getClusters():
@@ -166,7 +166,7 @@ class Root:
 
 	def getCluster(self, name):
 		return self.clusters[name]
-	
+
 	def getClusters(self):
 		return self.clusters.values()
 
@@ -174,7 +174,7 @@ class Root:
 		list = self.clusters.keys()
 		list.sort()
 		return list
-	
+
 	def getVersion(self):
 		return self.version
 
@@ -193,7 +193,7 @@ class Cluster:
 
 	def __del__(self):
 		self.hosts = {}
-		
+
 	def flush(self):
 		"A deep delete to remove reference counts to self"
 		for h in self.getHosts():
@@ -222,10 +222,10 @@ class Cluster:
 
 	def getLocalTime(self):
 		return self.localtime
-		
+
 	def getUrl(self):
 		return self.url
-		
+
 	def getLatlong(self):
 		return self.latlong
 
@@ -235,17 +235,17 @@ class Cluster:
 			list.append(host.getName())
 		list.sort()
 		return list
-		
+
 	def getHost(self, name):
 		"""Returns a single host if present. Fastest to do this
 		lookup here, in our dictionary."""
-		
+
 		if self.hosts.has_key(name):
 			return self.hosts[name]
 		else:
 			return None
 
-	
+
 class Host:
 	def __init__(self, name, ip, tn=None, tmax=None, time=None):
 		self.name    = name
@@ -278,7 +278,7 @@ class Host:
 
 	def getTimestamp(self):
 		return self.time
-		
+
 	def getTn(self):
 		"""Returns the age of this host: seconds since we have heard a
 		heartbeat."""
@@ -296,10 +296,10 @@ class Host:
 		return list
 
 	def getMetric(self, name):
-		"""Lookup a list of metrics. Do not use this for long-lived 
+		"""Lookup a list of metrics. Do not use this for long-lived
 		processes, as it will leave reference counts around. Only
 		return metric names/values, not objects."""
-		
+
 		if type(name) == type([]):
 			list = []
 			for e in name:
@@ -346,14 +346,14 @@ class Host:
 
 	def getOwner(self):
 		return self.owner
-		
+
 	def alive(self):
 		"""Returns 1 if alive, 0 if dead. Life is defined the same way
 		as in gmetad: if we have not heard from this host in 4 heartbeats."""
-		
+
 		return self.tn <= (self.tmax * 4)
 
-	
+
 
 class Metric:
 	def __init__(self, name, val, type=None, units=None, source=None,
@@ -367,7 +367,7 @@ class Metric:
 		self.tmax = int(tmax)
 		self.dmax = int(dmax)
 		self.owner  = None
-	
+
 	def __del__(self):
 		pass
 
@@ -418,7 +418,7 @@ class Ganglia(handler.ContentHandler,
               handler.DTDHandler,
               handler.EntityResolver,
               handler.ErrorHandler):
-    
+
 	def __init__(self, host='localhost', port=8649):
 		handler.ContentHandler.__init__(self)
 		self.root       = None
@@ -426,7 +426,7 @@ class Ganglia(handler.ContentHandler,
 		self.svcport    = port
 		self.xml        = ''
 		self.parser = xml.sax.make_parser()
-		
+
 		self.parser.setContentHandler(self)
 
 
@@ -489,7 +489,7 @@ class Ganglia(handler.ContentHandler,
 			if not data:
 				break
 			self.xml = self.xml + data
-		
+
 		self.parser.reset()
 		self.parser.feed(self.xml)
 		sock.shutdown(2)
@@ -545,7 +545,7 @@ class Ganglia(handler.ContentHandler,
 
 
 	# <METRIC>
-	
+
 	def startElement_METRIC(self, name, attrs):
 		self.host.addMetric(Metric(attrs.get('NAME'),
 					   attrs.get('VAL'),
@@ -584,9 +584,9 @@ class Ganglia(handler.ContentHandler,
 
 
 	def clusterSize(self):
-		"""Returns the number of hosts ganglia thinks are present 
+		"""Returns the number of hosts ganglia thinks are present
 		and alive in this cluster."""
-		
+
 		if not self.isConnected():
 			self.connect()
 
@@ -597,7 +597,7 @@ class Ganglia(handler.ContentHandler,
 
 		return hosts
 
-	
+
 	def getMetricNames(self):
 		list = []
 		for cluster in self.root.getClusters():
@@ -607,4 +607,3 @@ class Ganglia(handler.ContentHandler,
 						list.append(name)
 		list.sort()
 		return list
-			

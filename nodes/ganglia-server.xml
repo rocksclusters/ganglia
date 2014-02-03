@@ -4,7 +4,7 @@
 
   <description>
 
-  UCB's Ganglia Cluster Monitoring tool. This node 
+  UCB's Ganglia Cluster Monitoring tool. This node
   sets up the ganglia webpage, and gmetad meta daemon.
   Should only be included by frontend nodes.
 
@@ -339,11 +339,11 @@ mkdir -p /etc/ganglia
 #
 data_source "&Info_ClusterName;" localhost:8649
 
-# Rocks custom RRA policy 
-# new default policy are 20MB per node 
+# Rocks custom RRA policy
+# new default policy are 20MB per node
 # this policy are 3M per node
-# 
-# 10 hours at 15 sec resolution, 24 hours at 60 sec resolution, 7.2 days at 4.25 min resolution, 
+#
+# 10 hours at 15 sec resolution, 24 hours at 60 sec resolution, 7.2 days at 4.25 min resolution,
 # 28 days at 16 min resolution, 3740 days at 2.4 hours resolution
 RRAs "RRA:AVERAGE:0.5:1:2440" "RRA:AVERAGE:0.5:4:1440" "RRA:AVERAGE:0.5:17:2440" "RRA:AVERAGE:0.5:67:2440" \
        "RRA:AVERAGE:0.5:576:3740"
@@ -366,7 +366,7 @@ RRDSIZE=`gawk '/MemTotal:/ { print int($2/4) }' /proc/meminfo`000
 <file name="/etc/fstab" mode="append" vars="expanded">
 
 # The ram-backed filesystem for ganglia RRD graph databases.
-tmpfs /var/lib/ganglia/rrds tmpfs size=$RRDSIZE,gid=nobody,uid=nobody,defaults 1 0	
+tmpfs /var/lib/ganglia/rrds tmpfs size=$RRDSIZE,gid=nobody,uid=nobody,defaults 1 0
 </file>
 
 <!-- Setup dwoo compile directory -->
@@ -394,4 +394,4 @@ chown -R apache:apache /var/lib/ganglia-web/conf
 </post>
 -->
 
-</kickstart> 
+</kickstart>

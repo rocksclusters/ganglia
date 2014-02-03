@@ -47,7 +47,7 @@ function decode($nodes, $dn="")
 
 #
 # Pull out "queue-job-N" and "queue-state" metrics from a cluster.
-# Leverages the standard Ganglia PHP XML parser. Assumes 
+# Leverages the standard Ganglia PHP XML parser. Assumes
 # the standard Ganglia parser has already been run.
 #
 function getJobs()
@@ -57,7 +57,7 @@ function getJobs()
 	# A 2-key array: job id" / "Attribute name" = Attribute value;
 	$jobs=array();
 	$queue=array();
-	
+
 	$queue['LOCALTIME'] = $cluster['LOCALTIME'];
 
 	foreach ($hosts_up as $hostname=>$v)
@@ -112,7 +112,7 @@ function getPS()
 
 	# A 2-key array: "hostname-PID" / "Attribute name" = Attribute value;
 	$ps=array();
-	
+
 	foreach ($hosts_up as $hostname=>$hostattrs)
 	{
 		#echo "Examining host $hostname<br>";
@@ -182,7 +182,7 @@ function domain()
 	$namelist = explode(".", $firsthost);
 	if (count($namelist) > 1)
 		$domain = array_pop($namelist);
-	
+
 	return $domain;
 }
 

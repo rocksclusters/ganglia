@@ -1,4 +1,4 @@
-build:	
+build:
 	gunzip -c $(ARCHIVE)-$(VERSION).tar.gz | $(TAR) -xf -
 	( 							\
 		cd $(ARCHIVE)-$(VERSION);			\

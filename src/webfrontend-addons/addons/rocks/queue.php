@@ -8,45 +8,45 @@
 # Requires ganglia >= 2.5.1 with garbage collecting.
 #
 # @Copyright@
-# 
+#
 # 				Rocks(r)
 # 		         www.rocksclusters.org
 # 		         version 5.6 (Emerald Boa)
 # 		         version 6.1 (Emerald Boa)
-# 
+#
 # Copyright (c) 2000 - 2013 The Regents of the University of California.
-# All rights reserved.	
-# 
+# All rights reserved.
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
 # met:
-# 
+#
 # 1. Redistributions of source code must retain the above copyright
 # notice, this list of conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright
 # notice unmodified and in its entirety, this list of conditions and the
-# following disclaimer in the documentation and/or other materials provided 
+# following disclaimer in the documentation and/or other materials provided
 # with the distribution.
-# 
+#
 # 3. All advertising and press materials, printed or electronic, mentioning
-# features or use of this software must display the following acknowledgement: 
-# 
+# features or use of this software must display the following acknowledgement:
+#
 # 	"This product includes software developed by the Rocks(r)
 # 	Cluster Group at the San Diego Supercomputer Center at the
 # 	University of California, San Diego and its contributors."
-# 
+#
 # 4. Except as permitted for the purposes of acknowledgment in paragraph 3,
 # neither the name or logo of this software nor the names of its
 # authors may be used to endorse or promote products derived from this
 # software without specific prior written permission.  The name of the
 # software includes the following terms, and any derivatives thereof:
-# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of 
-# the associated name, interested parties should contact Technology 
-# Transfer & Intellectual Property Services, University of California, 
-# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910, 
+# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of
+# the associated name, interested parties should contact Technology
+# Transfer & Intellectual Property Services, University of California,
+# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910,
 # Ph: (858) 534-5815, FAX: (858) 534-7345, E-MAIL:invent@ucsd.edu
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS''
 # AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
 # THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -58,7 +58,7 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-# 
+#
 # @Copyright@
 #
 # $Log: queue.php,v $
@@ -184,7 +184,7 @@ $state="c=" . rawurlencode($_GET[c]);
 
 $tpl->assign("self",$self);
 $tpl->assign("title", "Job Queue");
-$tpl->assign("link", 
+$tpl->assign("link",
    "<a href=./assignments.php?$state>Physical Job Assignments</a>");
 
 if (!$sortby) $sortby="id";
@@ -203,9 +203,9 @@ $tpl->assign("now",date("r"));
 $columns=array("id","user","processors","state","name","runtime","TN");
 foreach ($columns as $c) {
 	$name=ucfirst($c);
-	if ($sortby==$c) 
+	if ($sortby==$c)
 		$tpl->assign("${c}SortLink",$name);
-	else 
+	else
 		$tpl->assign("${c}SortLink",
 		 "<a href=$self?$state&sortby=$c&sortorder=$sortorder>".
                  "$name</a>");
@@ -214,7 +214,7 @@ foreach ($columns as $c) {
 $orders=array("up","down");
 foreach ($orders as $o) {
 	$name=ucfirst($o);
-	if ($sortorder==$o) 
+	if ($sortorder==$o)
 		$tpl->assign("${o}SortOrder",$name);
 	else
 		$tpl->assign("${o}SortOrder",
@@ -226,7 +226,7 @@ function cmp($a,$b)
 {
 	global $sortby, $sortorder;
 	if ($a[$sortby] == $b[$sortby]) return 0;
-	if ($sortorder=="up") 
+	if ($sortorder=="up")
 		return ($a[$sortby] > $b[$sortby]) ? 1 : -1;
 	else
 		return ($a[$sortby] < $b[$sortby]) ? 1 : -1;
@@ -247,7 +247,7 @@ if (is_array($jobs)) {
 	foreach ($jobs as $id=>$job) {
 		$tpl->newBlock("job");
 		$tpl->assign("color",rowStyle());
-		if ($user and $user!=$job[user]) 
+		if ($user and $user!=$job[user])
 			$tpl->assign("color","inactive");
 		$tpl->assign("id",$job[id]);
                 $tpl->assign("joblink","./job.php?$state&id=$id");
@@ -307,4 +307,3 @@ if (!$_GET["c"])
 
 $tpl->printToScreen();
 ?>
- 

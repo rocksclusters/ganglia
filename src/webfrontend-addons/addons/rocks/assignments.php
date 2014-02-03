@@ -5,51 +5,51 @@
 # by ideas from Dave Pierce at Scripps Institute of Oceanography.
 #
 # Uses the pbs.py gschedule module which publishes PBS data
-# using Ganglia's gmetric. 
+# using Ganglia's gmetric.
 # Ganglia parsing code based on work by Matt Massie <massie@cs.berkeley.edu>.
 #
 # Requires ganglia >= 2.5.1 with garbage collecting.
 #
 # @Copyright@
-# 
+#
 # 				Rocks(r)
 # 		         www.rocksclusters.org
 # 		         version 5.6 (Emerald Boa)
 # 		         version 6.1 (Emerald Boa)
-# 
+#
 # Copyright (c) 2000 - 2013 The Regents of the University of California.
-# All rights reserved.	
-# 
+# All rights reserved.
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
 # met:
-# 
+#
 # 1. Redistributions of source code must retain the above copyright
 # notice, this list of conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright
 # notice unmodified and in its entirety, this list of conditions and the
-# following disclaimer in the documentation and/or other materials provided 
+# following disclaimer in the documentation and/or other materials provided
 # with the distribution.
-# 
+#
 # 3. All advertising and press materials, printed or electronic, mentioning
-# features or use of this software must display the following acknowledgement: 
-# 
+# features or use of this software must display the following acknowledgement:
+#
 # 	"This product includes software developed by the Rocks(r)
 # 	Cluster Group at the San Diego Supercomputer Center at the
 # 	University of California, San Diego and its contributors."
-# 
+#
 # 4. Except as permitted for the purposes of acknowledgment in paragraph 3,
 # neither the name or logo of this software nor the names of its
 # authors may be used to endorse or promote products derived from this
 # software without specific prior written permission.  The name of the
 # software includes the following terms, and any derivatives thereof:
-# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of 
-# the associated name, interested parties should contact Technology 
-# Transfer & Intellectual Property Services, University of California, 
-# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910, 
+# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of
+# the associated name, interested parties should contact Technology
+# Transfer & Intellectual Property Services, University of California,
+# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910,
 # Ph: (858) 534-5815, FAX: (858) 534-7345, E-MAIL:invent@ucsd.edu
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS''
 # AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
 # THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -61,7 +61,7 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-# 
+#
 # @Copyright@
 #
 # $Log: assignments.php,v $
@@ -166,7 +166,7 @@ $assignments = array();
 $jobnodes = array();
 $nodeusers = array();
 
-if (is_array($jobs)) 
+if (is_array($jobs))
 {
 	foreach ($jobs as $id=>$job)
 	{
@@ -174,7 +174,7 @@ if (is_array($jobs))
 		if (!$job[nodes]) continue;
 
 		$nodelist = decode($job[nodes]);
-		foreach ($nodelist as $name) 
+		foreach ($nodelist as $name)
 		{
 			# Track usage by node name.
 			$assignments[$name][jobs][$id] += 1;
@@ -191,7 +191,7 @@ if (is_array($jobs))
 # Displays a rack and all its nodes.
 function showrack($ID)
 {
-	global $racks, $clustername, $tpl, $assignments; 
+	global $racks, $clustername, $tpl, $assignments;
 	global $onejob, $oneuser, $jobnodes, $nodeusers;
 	global $state;
 
@@ -205,17 +205,17 @@ function showrack($ID)
 	foreach ($racks[$ID] as $name => $rank) {
 		error_log("name : ($name)");
 
-		if ($onejob and !$jobnodes[$onejob][$name]) 
+		if ($onejob and !$jobnodes[$onejob][$name])
 			continue;
-		if ($oneuser and !$nodeusers[$oneuser][$name]) 
+		if ($oneuser and !$nodeusers[$oneuser][$name])
 			continue;
 
 		$P = $assignments[$name][P];
 		$jobsizes = $assignments[$name][jobs];
 
-		if (!count($jobsizes)) 
+		if (!count($jobsizes))
 			$jobrow = "";
-		else 
+		else
 		{
 			$class = $P ? "job" : "";
 			$jobrow = "<tr><td colspan=2 class=$class>";
@@ -230,7 +230,7 @@ function showrack($ID)
 			}
 			$jobrow .= "</td></tr>";
 		}
-	
+
 		# Use the standard ganglia node box function.
 		$nodes .= nodebox($name, 1, "<i>$name</i>", $jobrow);
 	}
@@ -249,7 +249,7 @@ $racks = physical_racks();
 # Make a $cols-wide table of Racks.
 $cols=5;
 $i=1;
-foreach ($racks as $rack=>$v) 
+foreach ($racks as $rack=>$v)
 {
 	$tpl->newBlock("racks");
 
@@ -265,7 +265,7 @@ foreach ($racks as $rack=>$v)
 # Summarize the jobs on the cluser.
 #
 if (is_array($jobs)) {
-	foreach ($jobs as $id=>$job) 
+	foreach ($jobs as $id=>$job)
 	{
 		if ($job[state] != "Running") continue;
 		$tpl->newBlock("jobs");
@@ -281,7 +281,7 @@ if (is_array($jobs)) {
 			."$job[name] ($job[user]): "
 			."$job[P]/$n ");
 	}
-	foreach ($nodeusers as $user=>$nodes) 
+	foreach ($nodeusers as $user=>$nodes)
 	{
 		$tpl->newBlock("users");
 		$checked = ($oneuser==$user) ? "checked" : "";

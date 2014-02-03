@@ -56,7 +56,7 @@ $tpl->assign("id",$id);
 $tpl->assign("now",date("r"));
 $tpl->assign("P", $job[P]);
 
-# Get the metric attributes from the first host in our cluster. 
+# Get the metric attributes from the first host in our cluster.
 $firsthost=key($metrics);
 foreach($metrics[$firsthost] as $m=>$v) {
 	if ($v[SLOPE]=="both" and $v[SOURCE]=="gmond")
@@ -71,7 +71,7 @@ sort($context_metrics);
 
 foreach ($context_metrics as $m) {
 	$metric_menu .= "<OPTION VALUE=\"". rawurlencode($m) ."\" ";
-	if ($m == $metricname) 
+	if ($m == $metricname)
 		$metric_menu .= "SELECTED";
 	$metric_menu .= ">$m\n";
 }
@@ -81,22 +81,22 @@ $tpl->assign("metric_menu", $metric_menu);
 
 # Get time-in-state.
 $secs_in_state = $queue[LOCALTIME] - $job[started];
-$time_in_state = ($secs_in_state < 86400) ? 
-	detailtime($secs_in_state) : 
+$time_in_state = ($secs_in_state < 86400) ?
+	detailtime($secs_in_state) :
 	uptime($secs_in_state);
 
-if ($job[state] == "Running") 
+if ($job[state] == "Running")
 	{
 		$tpl->assign("status","Runtime: $time_in_state");
 		$running=1;
 		$tpl->newBlock("running");
 	}
-else if ($job[state] == "Queue Wait") 
+else if ($job[state] == "Queue Wait")
 	{
 		$tpl->assign("status", "Queued for: $time_in_state");
 
 	}
-else 
+else
 	$tpl->assign("status", "State: $job[state]");
 
 if (!$running) {
@@ -118,11 +118,11 @@ if (is_array($nodelist))
 		$nodes[$name] += 1;
 	}
 else
-	$tpl->assign("_ROOT.error", 
+	$tpl->assign("_ROOT.error",
 		"<h2>No nodes found. Perhaps your queueing system is not well?</h2>");
 
 
-# Start = the number of seconds ago this job started. 
+# Start = the number of seconds ago this job started.
 # We make these negative for rrdtool.
 $started = $secs_in_state;
 
@@ -170,7 +170,7 @@ foreach ($nodes as $hostname => $P) {
 		$tpl->assign("node_row",$node);
 		$node="";
 	}
-}	
+}
 
 # Kind of awkward to use TemplatePower for tables; here we pickup
 # short rows.
@@ -181,4 +181,3 @@ if ($i % $cols) {
 
 $tpl->printToScreen();
 ?>
- 

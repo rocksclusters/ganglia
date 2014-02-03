@@ -2,23 +2,23 @@
 	<title> Cluster Status </title>
 
 <para>
-You can check the status of your cluster pointing a browser at 
+You can check the status of your cluster pointing a browser at
 http://your_frontend_name/ganglia/ (see image below for an example).
-This link provide a graphical interface to live 
-cluster information provided by <ulink 
-url="http://ganglia.info/">Ganglia monitors</ulink> running on each 
-cluster node. The monitors gather values for various metrics such as CPU load, 
-free memory, disk usage, network I/O, operating system version, etc. These 
-metrics are sent through the private cluster network and are used by the 
+This link provide a graphical interface to live
+cluster information provided by <ulink
+url="http://ganglia.info/">Ganglia monitors</ulink> running on each
+cluster node. The monitors gather values for various metrics such as CPU load,
+free memory, disk usage, network I/O, operating system version, etc. These
+metrics are sent through the private cluster network and are used by the
 frontend node to generate the historical graphs.
 </para>
 
 <para>
-In addition to metric parameters, a heartbeat message from each node is 
+In addition to metric parameters, a heartbeat message from each node is
 collected by the Ganglia monitors.
-When a number of heartbeats from any node are 
-missed, this web page will declare it "dead". These dead nodes often have 
-problems which require additional attention, and are marked with the 
+When a number of heartbeats from any node are
+missed, this web page will declare it "dead". These dead nodes often have
+problems which require additional attention, and are marked with the
 Skull-and-Crossbones icon, or a red background.
 </para>
 
@@ -31,12 +31,11 @@ Skull-and-Crossbones icon, or a red background.
 </para>
 
 <para>
-<ulink url="http://ganglia.info/">Ganglia</ulink> was designed at 
-Berkeley by Matt Massie (massie@cs.berkeley.edu) in 2000, and is currently 
-developed by an open source partnership between Berkeley, SDSC, and others. It 
+<ulink url="http://ganglia.info/">Ganglia</ulink> was designed at
+Berkeley by Matt Massie (massie@cs.berkeley.edu) in 2000, and is currently
+developed by an open source partnership between Berkeley, SDSC, and others. It
 is distributed through Sourceforge.net under the GPL software liscence.
 </para>
 
 
 </section>
-

@@ -1,45 +1,45 @@
 #!/opt/rocks/bin/python
-# 
+#
 # @Copyright@
-# 
+#
 # 				Rocks(r)
 # 		         www.rocksclusters.org
 # 		         version 5.6 (Emerald Boa)
 # 		         version 6.1 (Emerald Boa)
-# 
+#
 # Copyright (c) 2000 - 2013 The Regents of the University of California.
-# All rights reserved.	
-# 
+# All rights reserved.
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
 # met:
-# 
+#
 # 1. Redistributions of source code must retain the above copyright
 # notice, this list of conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright
 # notice unmodified and in its entirety, this list of conditions and the
-# following disclaimer in the documentation and/or other materials provided 
+# following disclaimer in the documentation and/or other materials provided
 # with the distribution.
-# 
+#
 # 3. All advertising and press materials, printed or electronic, mentioning
-# features or use of this software must display the following acknowledgement: 
-# 
+# features or use of this software must display the following acknowledgement:
+#
 # 	"This product includes software developed by the Rocks(r)
 # 	Cluster Group at the San Diego Supercomputer Center at the
 # 	University of California, San Diego and its contributors."
-# 
+#
 # 4. Except as permitted for the purposes of acknowledgment in paragraph 3,
 # neither the name or logo of this software nor the names of its
 # authors may be used to endorse or promote products derived from this
 # software without specific prior written permission.  The name of the
 # software includes the following terms, and any derivatives thereof:
-# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of 
-# the associated name, interested parties should contact Technology 
-# Transfer & Intellectual Property Services, University of California, 
-# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910, 
+# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of
+# the associated name, interested parties should contact Technology
+# Transfer & Intellectual Property Services, University of California,
+# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910,
 # Ph: (858) 534-5815, FAX: (858) 534-7345, E-MAIL:invent@ucsd.edu
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS''
 # AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
 # THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -51,7 +51,7 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-# 
+#
 # @Copyright@
 #
 # $Log: format.py,v $
@@ -204,7 +204,7 @@ class Base:
 
 	def help(self):
 		pass
-		
+
 	def flavors(self):
 		formats = []
 		for Class in globals().values():
@@ -224,7 +224,7 @@ class Default(Base):
 			# If the result is numeric ganglia screwed up
 			# and is just reporting ip address.  In this
 			# case use the full IP address.
-			
+
 			hostname = string.split(host.getName(), '.')[0]
 			try:
 				int(hostname)
@@ -245,7 +245,7 @@ class Default(Base):
 
 		# Create the maxCols list which represents the max
 		# length of each row element.
-		
+
 		maxCols = []
 		for i in range(0, len(cols[0])):
 			maxCols.append(0)
@@ -258,7 +258,7 @@ class Default(Base):
 		# columns in the rows to line up.  The first column
 		# (hostname) is left justified, and the subsequent
 		# columns are right justified.
-		
+
 		for row in cols:
 			for i in range(0, len(row)):
 				if i == 0:
@@ -278,7 +278,7 @@ class MDS(Base):
 		self.vo   = None
 		self.schemaVersion = (1, 1)
 		Base.__init__(self, ganglia, commands, args)
-		
+
 	def format(self, hosts, metrics):
 		if self.args:
 			index = self.args
@@ -332,12 +332,12 @@ class MDS(Base):
 
 		# Get a representative host from sub-cluster.
 		host = hosts[0]
-		
+
 		os = host.getMetricValue('os_name')
 		os_release = host.getMetricValue('os_release')
 		# Assuming a redhat RPM style 'os_release' metric: version-release.
 		version, release = string.split(os_release,"-")
-			
+
 		print 'dn:', dn
 		print 'objectclass: GlueClusterTop'
 		print 'objectclass: GlueSubCluster'
@@ -372,7 +372,7 @@ class MDS(Base):
 		try:
 			arch = "%s-%s" % \
 				(host.getMetricValue("machine_type"),
-				host.getMetricValue("os_name")) 
+				host.getMetricValue("os_name"))
 			print 'GlueHostArchitecturePlatformType:', arch
 		except:
 			pass
@@ -440,7 +440,7 @@ class MDS(Base):
 
 
 	def partitionCluster(self, hosts, metricNames):
-		"""Returns a list of lists: each list is a 'homogenous' 
+		"""Returns a list of lists: each list is a 'homogenous'
 		set of hosts in the cluster. Hosts grouped by their
 		values for all metrics given in metricNames."""
 
@@ -469,5 +469,3 @@ class MDS(Base):
 			subclusters[values].append(host)
 
 		return subclusters
-
-

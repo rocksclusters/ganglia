@@ -57,14 +57,14 @@ Legend<br>
 <ul>
  <li><i>TN:</i> Seconds since fresh data arrived.
  <li><i>SIZE:</i> Program text size (KB).
- <li><i>DATA:</i> Resident - Shared (KB). Roughly the size of 
+ <li><i>DATA:</i> Resident - Shared (KB). Roughly the size of
  the Heap + Stack. <br>
  Includes text segment if there are no children.
  <li><i>SHARED:</i> Shared memory (KB). Dynamically loaded libraries live here.
  <li><i>VM:</i> Total virtual memory size used by the process (KB).
 </ul>
-Each host reports its top <i>P</i> processes by %CPU usage approximately 
-every 60s, where P is <br> the number of CPUs on the host. 
+Each host reports its top <i>P</i> processes by %CPU usage approximately
+every 60s, where P is <br> the number of CPUs on the host.
 </font>
 
 </body>

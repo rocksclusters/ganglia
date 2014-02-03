@@ -9,7 +9,7 @@
     <copyright>
     Copyright (c) 2000 - 2012 The Regents of the University of California.
     All rights reserved. Rocks(r) v5.5/v6.0 www.rocksclusters.org
-    
+
     </copyright>
 
     <changelog>
@@ -103,5 +103,3 @@
 	<edge from="base" to="ganglia"/>
 
 </graph>
-
-

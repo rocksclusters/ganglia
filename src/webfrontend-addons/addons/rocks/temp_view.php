@@ -42,7 +42,7 @@ function CtoF($t)
 	return intval(($t*(9/5.0)) + 32);
 }
 
-$aveTempC = sprintf("%.1f", cluster_sum("temp", $metrics) / 
+$aveTempC = sprintf("%.1f", cluster_sum("temp", $metrics) /
 	floatval(count($hosts_up) + count($hosts_down)));
 $tpl->assign("aveTempC",$aveTempC);
 $tpl->assign("aveTempF",CtoF($aveTempC));
@@ -71,7 +71,7 @@ function tempbox($hostname, $temp, $title="", $extrarow="")
    $rowclass = $up ? rowStyle() : "down";
    $host_url=rawurlencode($hostname);
    $cluster_url=rawurlencode($clustername);
-   
+
    $row1 = "<tr><td class=$rowclass>\n".
       "<table width=100% cellpadding=1 cellspacing=0 border=0><tr>".
       "<td><a href=\"$GHOME/?c=$cluster_url&h=$host_url\">".

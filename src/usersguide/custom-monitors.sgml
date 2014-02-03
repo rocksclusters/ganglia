@@ -33,7 +33,7 @@ Rocks release 3.1.0.
 	called <literal>replace-ganglia-client.xml</literal> (see section
 	"3.2. Customizing Configuration of Compute Nodes" in the Base Roll
 	Documentation for details on how to create a replacement XML node
-	file). 
+	file).
 	</para>
 
 	<para>
@@ -47,7 +47,7 @@ Rocks release 3.1.0.
 
   &lt;description&gt;
   UCB's Ganglia Monitor system for client nodes in the
-  cluster. 
+  cluster.
   &lt;/description&gt;
 
 &lt;post&gt;

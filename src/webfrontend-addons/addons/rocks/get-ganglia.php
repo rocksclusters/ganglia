@@ -1,7 +1,7 @@
 <?php
 #
 # Parses the ganglia XML tree and pulls out the pbs metrics.
-# Assumes we have a $GHOME variable that points to ganglia, 
+# Assumes we have a $GHOME variable that points to ganglia,
 # usually "../..".
 #
 include_once "$GHOME/conf.php";
@@ -32,7 +32,7 @@ if (!$rc)
 	exit;
 }
 
-# We should have a cluster name specified. 
+# We should have a cluster name specified.
 if (!$clustername)
 	$clustername = $cluster[NAME];
 

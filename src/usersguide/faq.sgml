@@ -37,7 +37,7 @@ When looking at the Ganglia page, I dont see graphs, just the error:
 
 <para>
 <computeroutput>
-There was an error collecting ganglia data (127.0.0.1:8652): XML 
+There was an error collecting ganglia data (127.0.0.1:8652): XML
 error: not well-formed (invalid token) at xxx
 </computeroutput>
 </para>

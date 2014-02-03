@@ -64,7 +64,7 @@ if (isset($_REQUEST["TEMPLATE"])) {
 
 $LongDateFormat = "F jS, Y";    // ie, "Jan 21st, 2004"
 
-$ShortDateFormat = "d M Y";     
+$ShortDateFormat = "d M Y";
 //$ShortDateFormat = "d/m/Y";     // ie, "21/1/2004"
 
 $LongTimeFormat = "H:i:s T O";  // ie, "13:24:30 EDT -0400"
@@ -214,7 +214,7 @@ class RSSParser {
       if (trim($this->pubdate) != "") {
         $this->ItemPubDate[] = trim($this->pubdate);
         $this->ItemPubDate_t[] = strtotime($this->pubdate);
-      } 
+      }
       else if (trim($this->pubdateDC) != "") {
         $this->ItemPubDate[] = trim($this->pubdateDC);
         $this->ItemPubDate_t[] = getRFDdate($this->pubdateDC);
@@ -250,7 +250,7 @@ class RSSParser {
       // Get the pubDate from pubDate first and then dc:date
       if (trim($this->pubdate) != "") {
         $this->FeedPubDate_t = strtotime($this->FeedPubDate);
-      } 
+      }
       else if (trim($this->pubdateDC) != "") {
         $this->FeedPubDate_t = getRFDdate($this->FeedPubDateDC);
       } else {

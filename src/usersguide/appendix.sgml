@@ -46,12 +46,12 @@ components of this Roll.  A "best effort" attempt has been made to
 insure the complete and current licenses are listed.  In the case of
 errors or ommisions please contact the maintainer of this Roll.  For
 more information on the licenses of any components please consult with
-the original author(s) or see the Rocks CVS 
+the original author(s) or see the Rocks CVS
 <ulink url="http://cvs.rocksclusters.org">repository</ulink>.
 </para>
 
 <section><title>Ganglia</title><para><screen>
-Copyright (c) 2001, 2002, 2003, 2004, 2005 by 
+Copyright (c) 2001, 2002, 2003, 2004, 2005 by
 The Regents of the University of California.  All rights reserved.
 
 Permission to use, copy, modify, and distribute this software and its
@@ -68,7 +68,7 @@ THE UNIVERSITY OF CALIFORNIA SPECIFICALLY DISCLAIMS ANY WARRANTIES,
 INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
 AND FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
 ON AN "AS IS" BASIS, AND THE UNIVERSITY OF CALIFORNIA HAS NO OBLIGATION TO
-PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS. 
+PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
 </screen></para></section>
 
 <section><title>phpsysinfo</title><para><screen>
@@ -207,7 +207,7 @@ such a program is covered only if its contents constitute a work based
 on the Library (independent of the use of the Library in a tool for
 writing it).  Whether that is true depends on what the Library does
 and what the program that uses the Library does.
-  
+
   1. You may copy and distribute verbatim copies of the Library's
 complete source code as you receive it, in any medium, provided that
 you conspicuously and appropriately publish on each copy an
@@ -537,8 +537,8 @@ convey the exclusion of warranty; and each file should have at least the
     Library General Public License for more details.
 
     You should have received a copy of the GNU Library General Public
-    License along with this library; if not, write to the 
-    Free Software Foundation, Inc., 59 Temple Place - Suite 330, 
+    License along with this library; if not, write to the
+    Free Software Foundation, Inc., 59 Temple Place - Suite 330,
     Boston, MA  02111-1307  USA.
 
 Also add information on how to contact you by electronic and paper mail.
@@ -563,7 +563,7 @@ That's all there is to it!
 
  Copyright (c) 1998-2006 Tobias Oetiker
  All rights reserved.
- 
+
  GNU GPL License
  ===============
 
@@ -581,7 +581,7 @@ That's all there is to it!
  with this program; if not, write to the Free Software Foundation, Inc.,
  59 Temple Place - Suite 330, Boston, MA  02111-1307, USA
 
- FLOSS License Exception 
+ FLOSS License Exception
  =======================
  (Adapted from http://www.mysql.com/company/legal/licensing/foss-exception.html)
 
@@ -589,7 +589,7 @@ That's all there is to it!
  applications to be able to use specified GPL-licensed RRDtool
  libraries (the "Program") despite the fact that not all FLOSS licenses are
  compatible with version 2 of the GNU General Public License (the "GPL").
- 
+
  As a special exception to the terms and conditions of version 2.0 of the GPL:
 
  You are free to distribute a Derivative Work that is formed entirely from

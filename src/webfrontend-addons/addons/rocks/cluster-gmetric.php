@@ -31,9 +31,9 @@ $tpl->assign("sortvars","sortby=$sortby&sortorder=$sortorder");
 
 
 if($hosts_up)
-      $tpl->assign("node_msg", "This host is up and running."); 
+      $tpl->assign("node_msg", "This host is up and running.");
 else
-      $tpl->assign("node_msg", "This host is down."); 
+      $tpl->assign("node_msg", "This host is down.");
 
 $cluster_url=rawurlencode($clustername);
 $tpl->assign("cluster_url", $cluster_url);

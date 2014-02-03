@@ -17,8 +17,8 @@
     <ol class="rss_items">
      ~~~BeginItemsRecord~~~
 
-     <li class="rss_item"><a class="rss_item" href="~~~ItemLink~~~" 
-     	target="_self">~~~ItemTitle~~~</a><br>
+     <li class="rss_item"><a class="rss_item" href="~~~ItemLink~~~"
+        target="_self">~~~ItemTitle~~~</a><br>
      <p class="rss_date">~~~ItemPubShortDate~~~, ~~~ItemPubShortTime~~~</p>
      ~~~ItemDescription~~~
      </li>
@@ -28,8 +28,8 @@
     </div>
 
     <p>
-    <a href="./news.cgi"><img src="/images/valid-rss.png" 
-    	title="Valid RSS 0.91" border="0"></a><br><small><i>v0.91</i></small>
+    <a href="./news.cgi"><img src="/images/valid-rss.png"
+        title="Valid RSS 0.91" border="0"></a><br><small><i>v0.91</i></small>
 
  </body>
 </html>

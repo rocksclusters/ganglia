@@ -3,7 +3,7 @@
 
 <service_bundle type='manifest' name='ROCKSganglia-monitorcore:gmond'>
 
-<service 
+<service
 	name='network/gmond'
 	type='service'
 	version='1'>
@@ -65,7 +65,7 @@
 		name='refresh'
 		exec='/lib/svc/method/gmond restart'
 		timeout_seconds='60' />
-	
+
 	<property_group name='startd'
 		type='framework'>
 		<propval name='ignore_error'

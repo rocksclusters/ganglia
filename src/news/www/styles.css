@@ -10,12 +10,13 @@
 	padding: 0px;
 	height: 100%;
 }
+
 .rss_items {
 	padding:5px;
 	color:#000000;
 	margin: 0px;
-
 }
+
 .rss_titlebox {
 	margin: 0px;
 	margin-bottom: 3mm;
@@ -29,9 +30,8 @@
 	border-right: 1px solid #FFCC33;
 	border-bottom: 1px solid #FFCC33;
 	border-left: 1px solid #FFCC33;
-	
-	
 }
+
 .rss_title, rss_title a {
 	text-decoration: none;
 	font-family: verdana, sans-serif;
@@ -72,11 +72,12 @@
 	vertical-align: bottom;
 	word-spacing: normal;
 	border-bottom: thin solid rgb(200,200,200);
-	}
-	
+}
+
 .rss_item a:visited {
 	color:#003366;
 }
+
 .rss_item a:hover {
 	color:#000099;
 	text-decoration: underline;
@@ -87,5 +88,4 @@
 	font-weight : normal;
 	color: #0033CC;
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	}
-
+}

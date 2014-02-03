@@ -3,45 +3,45 @@
 # $Id: ganglia.py,v 1.16 2012/11/27 00:48:57 phil Exp $
 #
 # @Copyright@
-# 
+#
 # 				Rocks(r)
 # 		         www.rocksclusters.org
 # 		         version 5.6 (Emerald Boa)
 # 		         version 6.1 (Emerald Boa)
-# 
+#
 # Copyright (c) 2000 - 2013 The Regents of the University of California.
-# All rights reserved.	
-# 
+# All rights reserved.
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
 # met:
-# 
+#
 # 1. Redistributions of source code must retain the above copyright
 # notice, this list of conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright
 # notice unmodified and in its entirety, this list of conditions and the
-# following disclaimer in the documentation and/or other materials provided 
+# following disclaimer in the documentation and/or other materials provided
 # with the distribution.
-# 
+#
 # 3. All advertising and press materials, printed or electronic, mentioning
-# features or use of this software must display the following acknowledgement: 
-# 
+# features or use of this software must display the following acknowledgement:
+#
 # 	"This product includes software developed by the Rocks(r)
 # 	Cluster Group at the San Diego Supercomputer Center at the
 # 	University of California, San Diego and its contributors."
-# 
+#
 # 4. Except as permitted for the purposes of acknowledgment in paragraph 3,
 # neither the name or logo of this software nor the names of its
 # authors may be used to endorse or promote products derived from this
 # software without specific prior written permission.  The name of the
 # software includes the following terms, and any derivatives thereof:
-# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of 
-# the associated name, interested parties should contact Technology 
-# Transfer & Intellectual Property Services, University of California, 
-# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910, 
+# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of
+# the associated name, interested parties should contact Technology
+# Transfer & Intellectual Property Services, University of California,
+# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910,
 # Ph: (858) 534-5815, FAX: (858) 534-7345, E-MAIL:invent@ucsd.edu
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS''
 # AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
 # THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -53,7 +53,7 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-# 
+#
 # @Copyright@
 #
 # $Log: ganglia.py,v $
@@ -186,7 +186,7 @@ class App:
 	def __init__(self, argv):
 
 		# Append package library to the default python path
-		
+
 		sys.path.append(os.path.join(os.path.dirname(argv[0]),
 			 '..', 'lib', 'python'))
 
@@ -286,21 +286,21 @@ class App:
 		if self.doClustersize:
 			print self.ganglia.clusterSize()
 			return
-			
+
 		if self.isAlive:
 			h = self.ganglia.getCluster().getHost(self.isAlive)
 			if h:
 				isalive = h.alive()
 				print isalive
-				# Return 0 if alive, 1 otherwise 
+				# Return 0 if alive, 1 otherwise
 				# as per UNIX convention.
 				sys.exit(not isalive)
 			else:
 				raise GangliaError, 'cannot find host %s. Did you give the full domain name too?' % self.isAlive
 
-		# Does not make sense to format a list of dead nodes, 
+		# Does not make sense to format a list of dead nodes,
 		# since there will be no valid metrics. Be simple.
-		
+
 		if self.showDead:
 			for h in self.ganglia.getCluster().getHosts():
 				if not h:
@@ -318,19 +318,19 @@ class App:
 			factory = eval('gmon.select.' + self.selector)
 		except AttributeError:
 			raise GangliaError, 'cannot load %s' % self.selector
-		
+
 		selector = factory(self.ganglia, args, self.selectorArgs)
 
 		# Instantiate the formatter object.  This objects will
 		# produce a report in the desired format.  For example
 		# this could be the old ganglia 1.0 format, or LDIF
 		# format for publishing metrics into MDS.
-		
+
 		try:
 			factory = eval('gmon.format.' + self.formatter)
 		except AttributeError:
 			raise GangliaError, 'cannot load %s' % self.formatter
-		
+
 		formatter = factory(self.ganglia, args, self.formatterArgs)
 
 		if doHelp:
@@ -350,6 +350,3 @@ try:
 except GangliaError, msg:
 	print 'ERROR:', msg
 	sys.exit(-1)
-
-
-

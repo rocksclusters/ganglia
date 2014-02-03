@@ -5,32 +5,32 @@ my $q = new CGI;
 
 #############################################################
 #Filename: parse.cgi
-#Description: 
+#Description:
 #	Parses MDS cluster data and produces web pages.
 #	It breaks the mds data into multidimentional hashes and then
-#	populates web pages with the data in the hashes. There are 2 
+#	populates web pages with the data in the hashes. There are 2
 #	views for the data:
-#	1) Cluster View - This consists of 2 tables. The first 
+#	1) Cluster View - This consists of 2 tables. The first
 #	table is the information about the cluster. This includes
-# 	the cluster name, local time, service (this is the service 
+# 	the cluster name, local time, service (this is the service
 #	that is publishing the data), and service version. It also
 #	includes a drop down list that has a listing of other clusters
 #	that can be viewed. The second table is a listing of the hosts
 #  that the cluster has. These are links that can be clicked on
 #	to go to the view of that host.
-#	2) Host View - This also consists of 2 tables. The first 
-#	table is the host information which has the cluster the host 
+#	2) Host View - This also consists of 2 tables. The first
+#	table is the host information which has the cluster the host
 #	belongs to, host address, hostname, reported
-#	time of the metrics on the host, the local time on the host, 
+#	time of the metrics on the host, the local time on the host,
 #	the service publishing the data, and the version of the service
 #	it also contains a drop down menu that has a list of the other host
-#	names on the cluster and another drop down that has a list 
+#	names on the cluster and another drop down that has a list
 #	of the clusters. The second table is the table of host metrics.
 #	It contains metric name, metric value, units, metric type and source.
 #	The metric table can be sorted by metric name, value, units, type
-#	and source. 
-#	
-#Parameters: 
+#	and source.
+#
+#Parameters:
 #	cluster - the name of the cluster
 #	host - the name of the host (if viewing a host)
 #	sort_by - if sorting the metric fields (default metric name)
@@ -40,7 +40,7 @@ my $q = new CGI;
 #Returns:
 #	HTML
 #
-#Author: 
+#Author:
 #	Maytal Dahan
 #	mdahan@sdsc.edu
 #	SDSC Grid Portal Architecture Program Area
@@ -77,17 +77,17 @@ exit;
 
 ##########################################
 #Subroutine: read_data
-#Description: 
+#Description:
 #	This reads the ldif data.
 #	Currently it reads from a file that
 #	has the mds data. It can also do
-# 	a MDS query (code commented out). 
-#	it calles ldif_to_hashes to parse the 
+# 	a MDS query (code commented out).
+#	it calles ldif_to_hashes to parse the
 #	data.
-#Parameters: 
+#Parameters:
 #	None
-#Returns: 
-#	A hash that has all the data. This 
+#Returns:
+#	A hash that has all the data. This
 #	is the same hash that ldif_to_hashes
 #	returns.
 ##########################################
@@ -105,13 +105,13 @@ sub read_data{
 	#$GLOBUS_LOCATION = $ENV{GLOBUS_LOCATION};
 	#if($GLOBUS_LOCATION eq ""){
 		#$GLOBUS_LOCATION = "/usr/local/apps/globus-2.0-beta";
-		#$ENV{GLOBUS_LOCATION} = $GLOBUS_LOCATION;	
+		#$ENV{GLOBUS_LOCATION} = $GLOBUS_LOCATION;
 	#$mds_path = "$GLOBUS_LOCATION/bin/grid-info-search";
 	#$mds_args = " -x -LLL -b 'Mds-Host-hn=slic00.sdsc.edu,Mds-Vo-name=local, o=grid'";
 	#@data = `$mds_path $mds_args 2>&1`;
    #$ref = \@data;
    #return &ldif_to_hashes($ref);
-	
+
 }
 
 ##########################################
@@ -122,7 +122,7 @@ sub read_data{
 #	$DATA{$index}{$key} = $val;
 #	Index is incremented for each object.
 #	There are also 2 additional global hashes:
-#	1) %HOST_HASH - this is a hash that has 
+#	1) %HOST_HASH - this is a hash that has
 #	host information for each host. It looks
 #	like this:
 #	$HOST_HASH{$cluster_name}{$host_name}{$key} = $val
@@ -130,8 +130,8 @@ sub read_data{
 #	cluster named after the cluster name. It contains
 #	the cluster specific information like localtime,
 #	service and service version.
-#Parameters: 
-#	A reference to an array that 
+#Parameters:
+#	A reference to an array that
 #	has all the ldif data.
 #Returns: One hash that has all the data.
 ##########################################
@@ -154,8 +154,8 @@ sub ldif_to_hashes{
       chomp;
       if($ldif_data[$i] eq ""){ next;}
 
-      ##THIS IS THE FIRST ELEMENT SO PARSE UNTIL 
-		##YOU GET TO A NEW ELEMENT 
+      ##THIS IS THE FIRST ELEMENT SO PARSE UNTIL
+		##YOU GET TO A NEW ELEMENT
       if($ldif_data[$i] =~ /MDS-service=/ &&  $ldif_data[$i]=~ /hn=/){
          ($service, $hn, $junk) = split(/\,/,$ldif_data[$i],3);
          ($label, $CLUSTER) = split(/=/,$hn);
@@ -194,11 +194,11 @@ sub ldif_to_hashes{
 				my $hostname = $PARSE{$index}{'hostname'};
 				#make a hash that is the cluster name
 				$HOST_HASH{$cluster_name}{$hostname}{address} = $PARSE{$index}{'address'};
-				$HOST_HASH{$cluster_name}{$hostname}{reportedtime} = $PARSE{$index}{'reportedtime'}; 
+				$HOST_HASH{$cluster_name}{$hostname}{reportedtime} = $PARSE{$index}{'reportedtime'};
 			}
 			$index++;
 			$i--;
-			
+
 		}else{
 			print "ERROR SHOULD BE FIRST ITEM, INSTEAD $ldif_data[$i]";
       }
@@ -208,7 +208,7 @@ sub ldif_to_hashes{
 	#Now make the hashes into a 3D hash#
 	my $index = 0;
 	foreach $num (keys %PARSE){
-		
+
 		$CLUSTER = $PARSE{$num}{cluster};
 		$HOST = $PARSE{$num}{hostname};
 
@@ -230,11 +230,11 @@ sub ldif_to_hashes{
 #Subroutine: view_host
 #Description: Produces html that is the view
 #	of a host.
-#Parameters: 
-#	cluster - the name of the cluster the 
+#Parameters:
+#	cluster - the name of the cluster the
 #	host belongs to..
 #	host - the name of the host to view.
-#Returns: 
+#Returns:
 #	Prints HTML
 ##########################################
 
@@ -245,21 +245,21 @@ sub view_host{
 
 	my %INFO = {};
 	%INFO = &read_data;
-	
+
 	my @CLUSTER_LIST = ();
 	#Get a listing of all the clusters and hostnames
-	foreach my $other_clus (sort keys %INFO){	
+	foreach my $other_clus (sort keys %INFO){
 		if($other_clus ne $cluster){
 			push(@CLUSTER_LIST, $other_clus);
-		}	
+		}
 	}
 
 	@HOST_LIST = ();
 	#Get a listing of all the clusters and hostnames
-	foreach my $host (sort keys %{ $INFO{$cluster} }){	
+	foreach my $host (sort keys %{ $INFO{$cluster} }){
 		if($host ne $hostname && $host ne ""){
 			push(@HOST_LIST, $host);
-		}	
+		}
 	}
 
 	foreach $k (keys %CLUSTER_HASH){
@@ -268,11 +268,11 @@ sub view_host{
 			print "KEY: $m VAL: $CLUSTER_HASH{$k}{$m}<br>";
 		}
 	}
-	
+
 	print header;
 	print qq(<HTML><HEAD><TITLE>Host Information For $hostname</TITLE>
 	<STYLE type="text/css">
-	<!-- 
+	<!--
 	.DataCell {background-color: #FFFFFF}
 	-->
 	</STYLE></HEAD>
@@ -341,7 +341,7 @@ sub view_host{
 	<B><a href=parse.cgi?cluster=$cluster&host=$hostname&sort_by=source&action=view_host>Source</a>
 	</B></TD></TR>";
 
-	foreach $i (keys %{ $INFO{$cluster}{$hostname} }){	
+	foreach $i (keys %{ $INFO{$cluster}{$hostname} }){
 		$m = $INFO{$cluster}{$hostname}{$i}{metric};
 		$v = $INFO{$cluster}{$hostname}{$i}{value};
 		$u = $INFO{$cluster}{$hostname}{$i}{units};
@@ -354,7 +354,7 @@ sub view_host{
 		$METRICS{$m}{type} = $t;
 	}
 	if($sort_by =~ /metric/){
-		foreach $metric (sort keys %METRICS){ 
+		foreach $metric (sort keys %METRICS){
 			print "<TR><TD $c><B>$metric</B></TD>";
 			print "<TD $c>$METRICS{$metric}{value}</TD>";
 			print "<TD $c>$METRICS{$metric}{units}</TD>";
@@ -381,7 +381,7 @@ sub view_host{
 			print "</TR>";
 		}
 	}
-			
+
 	print "</TABLE></TD></TR></TABLE>";
 	&end_shadow_table;
 	print "</BODY></HTML>";
@@ -389,11 +389,11 @@ sub view_host{
 
 ##########################################
 #Subroutine: view_cluster
-#Description: 
+#Description:
 #	Produces html that is the view of a cluster.
-#Parameters: 
+#Parameters:
 #	cluster - the name of the cluster to view.
-#Returns: 
+#Returns:
 #	Prints HTML
 ##########################################
 
@@ -406,13 +406,13 @@ sub view_cluster{
 
 	my @metricCLUSTER_LIST = ();
 	#Get a listing of all the clusters and hostnames
-	foreach my $other_clus (sort keys %INFO){	
+	foreach my $other_clus (sort keys %INFO){
 		if($other_clus ne $cluster){
 			push(@CLUSTER_LIST, $other_clus);
-		}	
+		}
 	}
 	print header;
-	
+
 	#a:link {color: blue; text-decoration: none;}
 	#a:active {color: red; background-color: #ffffcc;}
 	#a:visited {color: purple; text-decoration: none;}
@@ -428,10 +428,10 @@ sub view_cluster{
 	<BODY>
 	);
 
-	###START HEADER TABLE##	
+	###START HEADER TABLE##
 	&begin_shadow_table("380","#CCCCCC");
 
-	print qq(	
+	print qq(
 	<TABLE BGCOLOR=#660000 BORDER=0 CELLSPACING=0 CELLPADDING=4>
 	<TR><TD><FONT color=#FFFFFF><B>Cluster: $cluster</B></FONT></TD></TR>
 	<TR><TD>
@@ -467,7 +467,7 @@ sub view_cluster{
    <TABLE width=150 bgcolor=#CCCCCC BORDER=0 CELLPADDING=2 CELLSPACING=1>
    ";
 
-	foreach my $h (sort keys %{ $INFO{$cluster} }){	
+	foreach my $h (sort keys %{ $INFO{$cluster} }){
    	print "<TR><TD align=center class=DataCell>
 		<a href=parse.cgi?cluster=$cluster&host=$h&action=view_host>$h</a></TD></TR>";
 	}
@@ -487,7 +487,7 @@ sub begin_shadow_table {
 	);
 }
 sub end_shadow_table {
-	print qq(   
+	print qq(
 		</td><td valign=top width=8 background="images/shad_r.gif">
 		<img src="images/shad_tr.gif" width=8 height=8></td>
    	</tr><tr><td colspan=2 height=8 background="images/shad_bot.gif" align=left><img src="images/shad_bl_corn.gif" width=8 height=8></td>

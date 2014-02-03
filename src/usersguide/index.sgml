@@ -43,12 +43,12 @@ builds
 	</subtitle>
 -->
 
-	
+
         <edition>&document-version;</edition>
         <pubdate>&document-pubdate;</pubdate>
         <copyright id="copyright" xreflabel="copyright">
                 <year>&document-year;</year>
-                <holder>&document-copyright;</holder>   
+                <holder>&document-copyright;</holder>
         </copyright>
 
         <releaseinfo>
@@ -57,7 +57,7 @@ builds
 
         <legalnotice>
                 <para>
-                This document is subject to the &rocks; License 
+                This document is subject to the &rocks; License
                 (see <xref linkend="rocks-copyright">).
                 </para>
         </legalnotice>

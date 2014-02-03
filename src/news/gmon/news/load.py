@@ -1,45 +1,45 @@
 #!/opt/rocks/bin/python
 #
 # @Copyright@
-# 
+#
 # 				Rocks(r)
 # 		         www.rocksclusters.org
 # 		         version 5.6 (Emerald Boa)
 # 		         version 6.1 (Emerald Boa)
-# 
+#
 # Copyright (c) 2000 - 2013 The Regents of the University of California.
-# All rights reserved.	
-# 
+# All rights reserved.
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are
 # met:
-# 
+#
 # 1. Redistributions of source code must retain the above copyright
 # notice, this list of conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright
 # notice unmodified and in its entirety, this list of conditions and the
-# following disclaimer in the documentation and/or other materials provided 
+# following disclaimer in the documentation and/or other materials provided
 # with the distribution.
-# 
+#
 # 3. All advertising and press materials, printed or electronic, mentioning
-# features or use of this software must display the following acknowledgement: 
-# 
+# features or use of this software must display the following acknowledgement:
+#
 # 	"This product includes software developed by the Rocks(r)
 # 	Cluster Group at the San Diego Supercomputer Center at the
 # 	University of California, San Diego and its contributors."
-# 
+#
 # 4. Except as permitted for the purposes of acknowledgment in paragraph 3,
 # neither the name or logo of this software nor the names of its
 # authors may be used to endorse or promote products derived from this
 # software without specific prior written permission.  The name of the
 # software includes the following terms, and any derivatives thereof:
-# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of 
-# the associated name, interested parties should contact Technology 
-# Transfer & Intellectual Property Services, University of California, 
-# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910, 
+# "Rocks", "Rocks Clusters", and "Avalanche Installer".  For licensing of
+# the associated name, interested parties should contact Technology
+# Transfer & Intellectual Property Services, University of California,
+# San Diego, 9500 Gilman Drive, Mail Code 0910, La Jolla, CA 92093-0910,
 # Ph: (858) 534-5815, FAX: (858) 534-7345, E-MAIL:invent@ucsd.edu
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS''
 # AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
 # THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
@@ -51,7 +51,7 @@
 # WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 # OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-# 
+#
 # @Copyright@
 #
 # $Log: load.py,v $
@@ -122,7 +122,7 @@ class Load(gmon.journalist.Journalist):
 
 	# When 5min load exceeds this*CPUs, we call it news.
 	loadthresh = 50.0
-	
+
 	def name(self):
 		return "load"
 
@@ -137,7 +137,7 @@ class Load(gmon.journalist.Journalist):
 
 			if load5 > self.loadthresh * cpus:
 				self.item(c, h, load5, cpus)
-				
+
 
 	def item(self, cluster, host, load5, cpus):
 
@@ -147,18 +147,17 @@ class Load(gmon.journalist.Journalist):
 
 		title = 'Node %s is overloaded' % host.getName()
 
-		descr = ('Node %s has a 5min load of %s, with %s cpu%s. ' 
+		descr = ('Node %s has a 5min load of %s, with %s cpu%s. '
 				% (host.getName(), load5, cpus, plural)
-			+'(Threshold is %s (%s*%s))' 
-				% (self.loadthresh * cpus, 
+			+'(Threshold is %s (%s*%s))'
+				% (self.loadthresh * cpus,
 				self.loadthresh, cpus))
 
 		link = self.getHostPage(cluster, host)
 
 		self.newItem(host.getIP(), title, descr, link)
 
-		
-		
+
+
 def initEvents():
 	return Load
-
