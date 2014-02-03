@@ -6,11 +6,11 @@ build:
 			--prefix=$(PKGROOT)			\
 			--with-gmetad 				\
 			--with-libconfuse=/opt/confuse		\
-			--with-librrd=/opt/rocks/lib/		\
+			--with-librrd=/opt/rocks/lib		\
 			--sysconfdir=/etc/ganglia		\
-			CFLAGS="-I/opt/rocks/include/ -DROCKS"	\
-			CPPFLAGS="-I/opt/rocks/include/"	\
-			LDFLAGS="-L/opt/rocks/lib/ -L/opt/confuse/lib"\
+			CFLAGS="-I/opt/rocks/include -DROCKS"	\
+			CPPFLAGS="-I/opt/rocks/include"		\
+			LDFLAGS="-L/opt/rocks/lib -L/opt/confuse/lib"\
 			LIBS="-lm -lutil"	;		\
 		$(MAKE);					\
 	)

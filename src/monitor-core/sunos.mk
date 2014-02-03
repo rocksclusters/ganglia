@@ -19,10 +19,10 @@ build:
 			--without-gmetad 			\
 			--without-librrd			\
 			--with-python=/opt/rocks		\
-			--with-libconfuse=/opt/confuse/		\
+			--with-libconfuse=/opt/confuse		\
 			--with-libexpat=/usr/sfw		\
-			CFLAGS="-I/opt/rocks/include/ -I/usr/sfw"\
-			CPPFLAGS="-I/opt/rocks/include/ -I/usr/sfw"\
-			LDFLAGS="-L/opt/rocks/lib/";		\
+			CFLAGS="-I/opt/rocks/include -I/usr/sfw"\
+			CPPFLAGS="-I/opt/rocks/include -I/usr/sfw"\
+			LDFLAGS="-L/opt/rocks/lib";		\
 		$(MAKE);					\
 	)
