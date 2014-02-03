@@ -2,6 +2,9 @@ build:
 	gunzip -c $(ARCHIVE)-$(VERSION).tar.gz | $(TAR) -xf -
 	( 							\
 		cd $(ARCHIVE)-$(VERSION);			\
+		if [ -f ../$(ARCHIVE)-$(VERSION).patch ]; then	\
+			patch -p1 < ../$(ARCHIVE)-$(VERSION).patch;\
+		fi;						\
 		./configure 					\
 			--prefix=$(PKGROOT)			\
 			--with-gmetad 				\

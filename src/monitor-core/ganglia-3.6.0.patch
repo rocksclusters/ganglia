@@ -1,0 +1,24 @@
+diff -ruNa ganglia-3.6.0.orig/configure ganglia-3.6.0/configure
+--- ganglia-3.6.0.orig/configure	2013-05-08 00:39:40.000000000 +1000
++++ ganglia-3.6.0/configure	2014-01-22 16:35:08.375428427 +1100
+@@ -12154,7 +12154,7 @@
+ $as_echo "yes" >&6; }
+ 
+ fi
+-  LDFLAGS="$LIBS $APR_LIBS"
++  LDFLAGS="$LDFLAGS $LIBS $APR_LIBS"
+   APR_INCLUDES="$APR_CFLAGS"
+ fi
+ 
+diff -ruNa ganglia-3.6.0.orig/configure.ac ganglia-3.6.0/configure.ac
+--- ganglia-3.6.0.orig/configure.ac	2013-05-08 00:39:40.000000000 +1000
++++ ganglia-3.6.0/configure.ac	2014-01-22 16:34:04.425877476 +1100
+@@ -499,7 +499,7 @@
+   fi
+ else
+   PKG_CHECK_MODULES([APR],[apr-1])
+-  LDFLAGS="$LIBS $APR_LIBS"
++  LDFLAGS="$LDFLAGS $LIBS $APR_LIBS"
+   APR_INCLUDES="$APR_CFLAGS"
+ fi
+ 
