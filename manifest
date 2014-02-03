@@ -1,6 +1,7 @@
 confuse
 foundation-rrdtool
 ganglia-monitor-core
+ganglia-monitor-web
 ganglia-news
 ganglia-python
 ganglia-webfrontend-addons
