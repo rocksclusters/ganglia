@@ -162,9 +162,9 @@ build::
 
 install::
 	mkdir -p $(ROOT)/$(HTML)/$(NAME)
-	cp -r $(NAME)/* $(ROOT)/$(HTML)/$(NAME)
-	cp $(ROOT)/$(HTML)/$(NAME)/config.php.new $(ROOT)/$(HTML)/$(NAME)/config.php
+	cp -r $(NAME)-$(VERSION)/* $(ROOT)/$(HTML)/$(NAME)
+	cp -p $(ROOT)/$(HTML)/$(NAME)/config.php.new $(ROOT)/$(HTML)/$(NAME)/config.php
 
 clean::
 	rm -f $(NAME).spec.in
-	rm -rf $(NAME)
+	rm -rf $(NAME)-$(VERSION)
