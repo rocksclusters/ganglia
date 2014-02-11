@@ -7,13 +7,17 @@
 
 <question id="ganglia-restart">
 <para>
-I see IP addresses not names in my Ganglia graphs. Why is this?
+I see IP addresses but not names in my Ganglia graphs.  Why is this?
 </para>
 </question>
 
 <answer>
 <para>
-The DNS system in the cluster sometimes causes Ganglia to record bogus node names (usually their IP addresses). To clear this situation, restart the "gmond" and "gmetad" services on the frontend. This action may be useful later, as it will flush any dead nodes from the Ganglia output.
+The DNS system in the cluster sometimes causes Ganglia to record bogus
+node names (usually their IP addresses).  To clear this situation,
+restart the "gmond" and "gmetad" services on the frontend.  This action
+may be useful later, as it will flush any dead nodes from the Ganglia
+output.
 </para>
 
 <para>
@@ -24,7 +28,8 @@ The DNS system in the cluster sometimes causes Ganglia to record bogus node name
 </para>
 
 <para>
-This method is also useful when replacing or renaming nodes in your cluster.
+This method is also useful when replacing or renaming nodes in your
+cluster.
 </para>
 </answer>
 </qandaentry>
@@ -32,13 +37,13 @@ This method is also useful when replacing or renaming nodes in your cluster.
 <qandaentry>
 <question id="ganglia-parse-error">
 <para>
-When looking at the Ganglia page, I dont see graphs, just the error:
+When looking at the Ganglia page, I don't see graphs, just the error:
 </para>
 
 <para>
 <computeroutput>
-There was an error collecting ganglia data (127.0.0.1:8652): XML
-error: not well-formed (invalid token) at xxx
+There was an error collecting ganglia data (127.0.0.1:8652): XML error:
+not well-formed (invalid token) at xxx
 </computeroutput>
 </para>
 
@@ -46,19 +51,17 @@ error: not well-formed (invalid token) at xxx
 
 <answer>
 <para>
-This indicates a parse error in the Ganglia gmond XML output. It is generally
-caused by non-XML characters (&amp; especially) in the cluster name or cluster
-owner fields, although any ganglia field (including node names) with these
-characters will cause this problem.
-
+This indicates a parse error in the Ganglia gmond XML output.  It is
+generally caused by non-XML characters (&amp; especially) in the cluster
+name or cluster owner fields, although any Ganglia field (including node
+names) with these characters will cause this problem.
 </para>
 
 <para>
 We hope future versions of Ganglia will correctly escape all names to
-make them XML safe. If you have a bad name, to edit
-<literal>/etc/ganglia/gmond.conf</literal> on the frontend node, remove the
-offending characters, then restart gmond.
-
+make them XML safe.  If you have a bad name,
+edit <literal>/etc/ganglia/gmond.conf</literal> on the frontend node,
+remove the offending characters, then restart gmond.
 </para>
 
 </answer>

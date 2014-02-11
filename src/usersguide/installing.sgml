@@ -1,6 +1,5 @@
 <chapter id="installing" xreflabel="Installing">
 
-
 <title>Installing</title>
 
 &source-roll-installing-standard;
@@ -14,13 +13,13 @@ The Ganglia Roll can be installed on running frontend.
 </para>
 
 <para>
-The following procedure will install the roll on the frontend.
-After the frontend reboots, the roll will be fully configured.
+The following procedure will install the roll on the frontend.  After the
+frontend reboots, the roll will be fully configured.
 </para>
 
 <para>
-First download the Ganglia Roll ISO from the Rocks web site.
-Then, as root, execute:
+First download the Ganglia Roll ISO from the Rocks web site.  Then, as
+root, execute:
 </para>
 
 <para>
@@ -44,8 +43,8 @@ Then reboot:
 </para>
 
 <para>
-To apply ganglia to the compute nodes, you will need to reinstall the compute
-nodes, e.g.,:
+To apply ganglia to the compute nodes, you will need to reinstall the
+compute nodes, e.g.:
 </para>
 
 <para>

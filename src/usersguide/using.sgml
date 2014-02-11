@@ -1,14 +1,12 @@
 <chapter id="using" xreflabel="Using the ganglia Roll">
 
+<title>Using the Ganglia Roll</title>
 
-<title>Using the ganglia Roll</title>
-
-<section id="using-ganglia" xreflabel="Using the ganglia roll">
-	<title>Using the Ganglia Roll</title>
+<section id="using-ganglia" xreflabel="Using the Ganglia roll">
+<title>Using the Ganglia Roll</title>
 
 &source-cluster-status;
 
 </section>
-
 
 </chapter>

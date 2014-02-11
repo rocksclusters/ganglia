@@ -1,39 +1,43 @@
 <section id="customization-ganglia" xreflabel="Customizing Ganglia Monitors">
-	<title> Customizing Ganglia Monitors </title>
+
+<title>Customizing Ganglia Monitors</title>
 
 
 <section id="customization-ganglia-full">
-	<title> Enabling fully aware Ganglia daemons </title>
+
+<title>Enabling fully-aware Ganglia daemons</title>
 
 <para>
-For maximum performance and scalability, the Ganglia <emphasis>gmond</emphasis>
-daemons on compute nodes in the cluster are run in "deaf" mode. While compute nodes
-report their own Ganglia data to the frontend, they do not listen for information from
-their peers. This reduces the resource footprint of compute nodes.
+For maximum performance and scalability, the
+Ganglia <emphasis>gmond</emphasis> daemons on compute nodes in the
+cluster are run in "deaf" mode.  While compute nodes report their own
+Ganglia data to the frontend, they do not listen for information from
+their peers.  This reduces the resource footprint of compute nodes.
 </para>
+
 <para>
-Running the compute node monitors in deaf mode means they cannot be queried for
-cluster state. This may be a problem if your parallel jobs use Ganglia data for
-performance analysis or fault tolerance purposes. If you would like to re-enable
-Ganglia's full functionality on your compute nodes, follow the instructions below.
+Running the compute node monitors in deaf mode means they cannot be
+queried for cluster state.  This may be a problem if your parallel jobs
+use Ganglia data for performance analysis or fault tolerance purposes.
+If you would like to re-enable Ganglia's full functionality on your
+compute nodes, follow the instructions below.
 </para>
 
 <tip>
 <para>
-Ganglia daemons were switched to the deaf mode by default starting in the Matterhorn
-Rocks release 3.1.0.
+Ganglia daemons were switched to the deaf mode by default starting in the
+Matterhorn Rocks release 3.1.0.
 </para>
 </tip>
 
 <itemizedlist>
-
 <listitem>
 	<para>
 	Add a new XML node file
 	called <literal>replace-ganglia-client.xml</literal> (see section
-	"3.2. Customizing Configuration of Compute Nodes" in the Base Roll
-	Documentation for details on how to create a replacement XML node
-	file).
+	"3.2. Customizing Configuration of Compute Nodes" in the Base
+	Roll Documentation for details on how to create a replacement XML
+	node file).
 	</para>
 
 	<para>
@@ -46,8 +50,7 @@ Rocks release 3.1.0.
 &lt;kickstart&gt;
 
   &lt;description&gt;
-  UCB's Ganglia Monitor system for client nodes in the
-  cluster.
+  UCB's Ganglia Monitor system for client nodes in the cluster.
   &lt;/description&gt;
 
 &lt;post&gt;
@@ -62,9 +65,16 @@ Rocks release 3.1.0.
 
 <listitem>
 	<para>
-	Reinstall your compute nodes. They will now have access to the full
-	monitoring tree. This procedure places the compute nodes on the same level
-	monitoring level as the frontend.
+	Rebuild the Rocks distribution, as described in the Base Roll
+	Documentation.
+	</para>
+</listitem>
+
+<listitem>
+	<para>
+	Reinstall your compute nodes.  They will now have access to the
+	full monitoring tree.  This procedure places the compute nodes on
+	the same level monitoring level as the frontend.
 	</para>
 </listitem>
 </itemizedlist>

@@ -1,17 +1,23 @@
 <section>
-<title> Monitoring Multiple Clusters with Ganglia</title>
+<title>Monitoring Multiple Clusters with Ganglia</title>
 
 <para>
-Ganglia has the ability to track and present monitoring data from multiple clusters. A collection of monitored clusters is called a <emphasis>Grid</emphasis> in Ganglia's nomenclature. This section describes the steps required to setup a multi-cluster monitoring grid.
+Ganglia has the ability to track and present monitoring data from
+multiple clusters.  A collection of monitored clusters is called
+a <emphasis>Grid</emphasis> in Ganglia's nomenclature.  This section
+describes the steps required to setup a multi-cluster monitoring grid.
 </para>
 
 <para>
-The essential idea is to instruct the gmetad daemon on one of your frontend nodes to track the second cluster in addition to its own. This procedure can be repeated to monitor a large set clusters from one location.
+The essential idea is to instruct the gmetad daemon on one of your
+frontend nodes to track the second cluster in addition to its own.  This
+procedure can be repeated to monitor a large set clusters from one
+location.
 </para>
 
 <para>
-For this discussion, your two clusters are named "A" and "B". We will choose
-the frontend on cluster "A" to be the top-level monitor.
+For this discussion, your two clusters are named "A" and "B".  We will
+choose the frontend on cluster "A" to be the top-level monitor.
 </para>
 
 <orderedlist>
@@ -95,13 +101,15 @@ Then restart gmond server on "B" frontend.
 
 <listitem>
 <para>
-Take a look at the Ganglia page on "A". It should include statistics for B, and a summary or "roll-up" view of both clusters.
+Take a look at the Ganglia page on "A".  It should include statistics for
+B, and a summary or "roll-up" view of both clusters.
 </para>
 </listitem>
 </orderedlist>
 
 <para>
-This screenshot is from the iVDGL Physics Grid3 project. It is a very large grid monitored by Ganglia in a similar manner as specified here.
+This screenshot is from the iVDGL Physics Grid3 project.  It is a very
+large grid monitored by Ganglia in a similar manner as specified here.
 </para>
 
 <para>

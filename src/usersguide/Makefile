@@ -167,7 +167,7 @@ build: html pdf
 install:: build
 	mkdir -p $(ROOT)/$(PKGROOT)/images
 	mkdir -p $(ROOT)/$(PKGROOT)/stylesheet-images
-	$(INSTALL) -m 0444 index.pdf		$(ROOT)/$(PKGROOT)/$(NAME).pdf
+	$(INSTALL) -m 0444 index.pdf	$(ROOT)/$(PKGROOT)/$(NAME).pdf
 	$(INSTALL) -m 0444 *.html    	$(ROOT)/$(PKGROOT)/
 	$(INSTALL) -m 0444 images/*.png	$(ROOT)/$(PKGROOT)/images/
 	$(INSTALL) -m 0444 stylesheet-images/{*.gif,*.png} \
