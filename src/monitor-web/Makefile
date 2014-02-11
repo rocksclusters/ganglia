@@ -88,6 +88,7 @@ install::
 			APACHE_USER=$(APACHE_USER)			\
 			;						\
 	)
+	chown -R $(APACHE_USER):$(APACHE_USER) $(ROOT)/$(GWEB_STATEDIR)
 	cp conf.php $(ROOT)/$(GDESTDIR)
 
 clean::
