@@ -59,14 +59,15 @@
 
 PKGROOT		= /opt/ganglia
 
-# this are the defualt used in the ganglia-web package
+# To be used as defaults in creating the ganglia-monitor-web package
 WEBSERVER_ROOT	= /var/www/html
+GDESTDIR	= $(WEBSERVER_ROOT)/ganglia
 GWEB_STATEDIR	= /var/lib/ganglia-web
+APACHE_USER	= apache
 
 REDHAT.ROOT     = $(CURDIR)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
 include Rules.mk
-
 
 
 build:
@@ -75,17 +76,19 @@ build:
 
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)
-	mkdir -p $(ROOT)/$(WEBSERVER_ROOT)/ganglia/
+	mkdir -p $(ROOT)/$(GDESTDIR)
 	mkdir -p $(ROOT)/$(GWEB_STATEDIR)
 
-	#mkdir -p $(ROOT)/var/lib/ganglia/rrds/
-	#chown -R nobody:nobody  $(ROOT)/var/lib/ganglia/rrds/
 	( 								\
 		cd $(ARCHIVE)-$(VERSION);				\
-		$(MAKE) install DESTDIR=$(ROOT) APACHE_USER=apache;	\
+		$(MAKE) install						\
+			DESTDIR=$(ROOT)					\
+			GDESTDIR=$(GDESTDIR)				\
+			GWEB_STATEDIR=$(GWEB_STATEDIR)			\
+			APACHE_USER=$(APACHE_USER)			\
+			;						\
 	)
-	chown -R apache $(ROOT)/$(GWEB_STATEDIR)
-	cp conf.php $(ROOT)/$(WEBSERVER_ROOT)/ganglia/
+	cp conf.php $(ROOT)/$(GDESTDIR)
 
 clean::
 	rm -rf $(ARCHIVE)-$(VERSION)
