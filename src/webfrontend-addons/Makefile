@@ -202,8 +202,8 @@ REDHAT.ROOT = $(CURDIR)/../../
 include Rules.mk
 
 install::
-	mkdir -p $(ROOT)/$(PKGROOT)/$(ADDONS)/templates/
-	mkdir -p $(ROOT)/$(PKGROOT)/$(ADDONS)/images/
+	mkdir -p $(ROOT)/$(PKGROOT)/$(ADDONS)/templates
+	mkdir -p $(ROOT)/$(PKGROOT)/$(ADDONS)/images
 
 	#$(INSTALL) -m644 $(PHP) $(ROOT)/$(PKGROOT)/$(ADDONS)
 	#$(INSTALL) -m644 $(ADDONS)/styles.css $(ROOT)/$(PKGROOT)/$(ADDONS)
