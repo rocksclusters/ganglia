@@ -1,0 +1,86 @@
+<section>
+<title>Customizing the Ganglia Web interface</title>
+
+<para>
+The Ganglia Web interface
+(at <literal>http://</literal><varname>YOUR_FRONTEND_NAME</varname><literal>/ganglia/</literal>)
+allows extensive customization.  This is done by modifying the
+file <filename>/var/www/html/ganglia/conf.php</filename> on your
+frontend.  The default configuration file contains:
+</para>
+
+<para>
+<screen>
+&lt;?php
+
+$conf['rrdtool'] = "/opt/rocks/bin/rrdtool";
+
+?&gt;
+</screen>
+</para>
+
+<para>
+If you would like to change the font used in the various graphs, for
+example, use something like the following instead of
+the <literal>$conf['rrdtool']</literal> line above; "Sans" is the font to
+use:
+</para>
+
+<para>
+<screen>
+$conf['rrdtool'] = "env RRD_DEFAULT_FONT='Sans' /opt/rocks/bin/rrdtool";
+</screen>
+</para>
+
+<para>
+You can also set the default metric and prevent certain graphs from
+appearing; simply add something like the following to somewhere between
+the <literal>&lt;?php</literal> and <literal>?&gt;</literal> lines:
+</para>
+
+<para>
+<screen>
+$conf['show_stacked_graphs'] = 0;
+$conf['default_metric'] = 'cpu_report';
+</screen>
+</para>
+
+<para>
+You can also override the installation defaults supplied in the
+file <filename>/var/www/html/ganglia/conf_default.php</filename>.  For
+example, if you would like to modify the list of time ranges available,
+you could add something like the following
+to <filename>conf.php</filename>:
+</para>
+
+<para>
+<screen>
+$conf['time_ranges'] = array(
+   '15min' =&gt; 900,
+   'hour'  =&gt; 3600,
+   '2hr'   =&gt; 7200,
+   '4hr'   =&gt; 14400,
+   'day'   =&gt; 86400,
+   '3day'  =&gt; 259200,
+   'week'  =&gt; 604800,
+   'month' =&gt; 2419200,
+   'year'  =&gt; 31449600
+);
+</screen>
+</para>
+
+<para>
+Note that you should <emphasis>not</emphasis>
+modify <filename>conf_default.php</filename> directly!
+</para>
+
+<para>
+For further ideas on customizing <filename>conf.php</filename>, please
+read the default configuration
+file <filename>/var/www/html/ganglia/conf_default.php</filename>.  You
+should also see
+the <ulink url="http://sourceforge.net/apps/trac/ganglia/wiki/ganglia-web-2">Ganglia
+Web 2 homepage</ulink>.
+</para>
+
+</section>

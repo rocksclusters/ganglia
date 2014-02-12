@@ -2,6 +2,7 @@
 
 <title>Customizing the Ganglia Roll</title>
 
+&source-webconf;
 &source-grid;
 
 </chapter>
