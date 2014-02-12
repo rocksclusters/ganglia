@@ -3,15 +3,15 @@
 <title>Cluster Status</title>
 
 <para>
-You can check the status of your cluster by pointing a browser to
-http://YOUR_FRONTEND_NAME/ganglia/ (see the image below for an example).
-This link provides a graphical interface to live cluster information
-provided by <ulink url="http://ganglia.info/">Ganglia monitors</ulink>
-running on each cluster node.  The monitors gather values for various
-metrics such as CPU load, free memory, disk usage, network I/O, operating
-system version, etc.  These metrics are sent through the private cluster
-network and are used by the frontend node to generate the historical
-graphs.
+You can check the status of your cluster by pointing a browser
+to <literal>http://</literal><varname>YOUR_FRONTEND_NAME</varname><literal>/ganglia/</literal>
+(see the image below for an example).  This link provides a graphical
+interface to live cluster information provided
+by <ulink url="http://ganglia.info/">Ganglia monitors</ulink> running on
+each cluster node.  The monitors gather values for various metrics such
+as CPU load, free memory, disk usage, network I/O, operating system
+version, etc.  These metrics are sent through the private cluster network
+and are used by the frontend node to generate the historical graphs.
 </para>
 
 <para>
@@ -37,6 +37,5 @@ currently developed by an open source partnership between Berkeley, SDSC,
 and others.  It is distributed through Sourceforge.net and GitHub.com
 under the GPL software license.
 </para>
-
 
 </section>

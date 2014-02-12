@@ -28,9 +28,12 @@ you a good idea of how the CPUs are being utilized.
 </para>
 
 <para>
-The process data is gathered by raw processing of the /proc filesystem on
-each node.  Memory statistics differ slightly from standard "ps" output,
-and are calculated from the /proc/[pid]/statm virtual file.
+The process data is gathered by raw processing of
+the <filename>/proc</filename> filesystem on each node.  Memory
+statistics differ slightly from standard "ps" output, and are calculated
+from
+the <filename>/proc/</filename><varname>PID</varname><filename>/statm</filename>
+virtual file.
 </para>
 
 <variablelist>

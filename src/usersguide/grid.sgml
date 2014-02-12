@@ -23,7 +23,7 @@ choose the frontend on cluster "A" to be the top-level monitor.
 <orderedlist>
 <listitem>
 <para>
-On "A" frontend, add the line to /etc/gmetad.conf:
+On "A" frontend, add the line to <filename>/etc/gmetad.conf</filename>:
 </para>
 
 <para>
@@ -39,8 +39,9 @@ Then restart the gmetad server on "A" frontend.
 
 <listitem>
 <para>
-On "B" frontend, get the IP address of "A.frontend.domain.name" and edit
-/etc/ganglia/gmond.conf and change the section from:
+On "B" frontend, get the IP address of "A.frontend.domain.name" and
+edit <filename>/etc/ganglia/gmond.conf</filename> and change the section
+from:
 </para>
 
 <para>
