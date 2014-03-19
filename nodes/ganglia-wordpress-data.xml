@@ -45,7 +45,7 @@ insert into wp_links (link_name, link_description, link_url, link_category)
 	2);
 </file>
 
-/opt/rocks/mysql/bin/mysql --defaults-extra-file=/root/.rocks.my.cnf \
+/opt/rocks/bin/mysql --defaults-extra-file=/root/.rocks.my.cnf \
 	--user=root wordpress &lt; /tmp/ganglia-wp.sql
 rm -f /tmp/ganglia-wp.sql
 </post>
