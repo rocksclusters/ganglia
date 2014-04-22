@@ -77,7 +77,7 @@
 
 import os
 import sys
-sys.path.append('/opt/rocks/lib/python2.4/site-packages')
+sys.path.append('/opt/rocks/lib/python2.6/site-packages')
 import gmon.Process
 
 def ps_handler(name):
