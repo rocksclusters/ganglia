@@ -188,8 +188,6 @@
 
 PKGROOT = /opt/ganglia
 PLUGINDIR = /opt/rocks/var/plugins/insertethers
-METRICS = $(wildcard metrics/*.py)
-CONF = $(wildcard metrics/conf.d/*.pyconf)
 PLUGINS = $(wildcard plugins/*.py)
 REDHAT.ROOT = $(CURDIR)/../../
 
@@ -203,10 +201,7 @@ build:
 
 install::
 	mkdir -p $(ROOT)/$(PKGROOT)/$(LIBARCH)/ganglia/python_modules
-	$(INSTALL) -m 0444 $(METRICS) \
-		$(ROOT)/$(PKGROOT)/$(LIBARCH)/ganglia/python_modules
 	mkdir -p $(ROOT)/$(PKGROOT)/etc/conf.d
-	$(INSTALL) -m 0444 $(CONF) $(ROOT)/$(PKGROOT)/etc/conf.d
 	# Install insert-ethers plugins
 	mkdir -p $(ROOT)/$(PLUGINDIR)
 	$(INSTALL) -m 0444 $(PLUGINS) $(ROOT)/$(PLUGINDIR)

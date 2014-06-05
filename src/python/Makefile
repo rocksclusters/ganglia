@@ -221,8 +221,6 @@ PKGROOT = /opt/ganglia
 MANROOT = /usr/share/man
 PYLIB   = $(wildcard gmon/*.py)
 
-GLOBUS_LOCATION = /usr/local/apps/globus-2.0
-
 
 REDHAT.ROOT = $(CURDIR)/../../
 -include $(ROCKSROOT)/etc/Rules.mk
@@ -247,11 +245,6 @@ install:: $(SCRIPTS)
 	mkdir -p $(ROOT)/$(PY.ROCKS)/gmon
 	$(INSTALL) -m 0444 $(PYLIB)	   $(ROOT)/$(PY.ROCKS)/gmon
 
-
-install-globus:
-	$(INSTALL) -m 0444 globus/monitoring.schema $(ROOT)/$(GLOBUS_LOCATION)/etc/
-	$(INSTALL) -m 0444 globus/$(INSTALL)-ganglia-mds.py \
-		 $(ROOT)/$(GLOBUS_LOCATION)/sbin/
 
 build:
 
