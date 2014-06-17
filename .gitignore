@@ -1,0 +1,39 @@
+
+# build directory
+BUILD/
+RPMS/
+SOURCES/
+SPECS/
+
+
+*.pyc
+
+_os
+_arch
+_distribution
+
+# ignore version.mk
+rocks-version.mk
+rocks-version-common.mk
+
+# ignore python.mk
+python.mk
+
+# ignore Rules files
+Rules-install.mk
+Rules-linux-centos.mk
+Rules-linux.mk
+Rules-rcfiles.mk
+Rules-scripts.mk
+Rules.mk
+Rolls.mk
+
+# --- BEGIN --- binaries files
+src/apr/apr-1.4.5.tar.gz
+src/apr-util/apr-util-1.3.12.tar.gz
+src/confuse/confuse-2.7.tar.gz
+src/monitor-core/ganglia-3.6.0.tar.gz
+src/monitor-web/ganglia-web-3.5.12.tar.gz
+src/phpSysInfo/phpsysinfo-3.1.8.tar.gz
+src/rrdtool/rrdtool-1.4.8.tar.gz
+# --- END ---
