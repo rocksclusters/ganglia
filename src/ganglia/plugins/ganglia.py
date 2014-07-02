@@ -113,10 +113,10 @@ import rocks.sql
 
 class Plugin(rocks.sql.InsertEthersPlugin):
 
-	def added(self, nodename, id):
+	def added(self, nodename):
 		pass
 
-	def removed(self, nodename, id):
+	def removed(self, nodename):
 		pass
 
 	def update(self):
