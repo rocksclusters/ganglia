@@ -135,7 +135,7 @@ tar cPf $archive/ganglia-rrds.$date.tar /var/lib/ganglia/rrds
 
 # Keep only the three most recent archives
 # Assumes that only archives are in this directory.
-removeme=`ls -t /var/lib/ganglia/archives | tail -n +4`
+removeme=`ls -t $archive | tail -n +4`
 for a in $removeme
 do
 	rm -f $archive/$a
