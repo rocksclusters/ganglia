@@ -102,8 +102,11 @@
 
   </changelog>
 
-<post os="linux">
+<post os="linux" cond="rocks_version_major == 6">
 /sbin/chkconfig --del gmetad
+</post>
+<post os="linux" cond="rocks_version_major == 7">
+/usr/bin/systemctl disable gmetad
 </post>
 
 <post>

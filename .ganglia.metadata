@@ -5,3 +5,7 @@ b06529ac49deb1f1c65c6215b8d2d13c3f3fa23f  src/monitor-core/ganglia-3.6.0.tar.gz 
 a514edc99f0c9ae851fe7766ad215a4faab2dd1b  src/monitor-web/ganglia-web-3.5.12.tar.gz 0B0LD0shfkvCRMndwQlRnN0hJa1k
 bb245ac68cda59ed469bd6eadf84a3553a13e833  src/phpSysInfo/phpsysinfo-3.1.8.tar.gz 0B0LD0shfkvCRNmstZnNrTTRkemc
 56d68857f39e70bfa32360947614d8220702ed02  src/rrdtool/rrdtool-1.4.8.tar.gz 0B0LD0shfkvCRNzIzYzdEekRhY0U
+15a2009e2ee67eb41a2598d1a0f1f7cf1a651c78  src/rrdtool/rrdtool-1.7.0.tar.gz 0B0LD0shfkvCRY3A5NzBZRGJHeWc
+5ea23da8e5b85da53216dd7c742c8154e7aa576e  src/monitor-core/ganglia-3.7.2.tar.gz  0B0LD0shfkvCRdlVGeVlJcHBBQkE
+c19f0446f1bfea71a8482d640ea0bfd5bdda788d  src/monitor-web/ganglia-web-3.7.2.tar.gz 0B0LD0shfkvCRenJiRTBoYl9RbDA
+ca57ca89357ddd4fb3e608f0b457c88546b03cf1  src/phpSysInfo/phpsysinfo-3.2.7.tar.gz 0B0LD0shfkvCRQV9zTkdFT0lmemM

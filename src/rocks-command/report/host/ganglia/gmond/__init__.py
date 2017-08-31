@@ -195,6 +195,12 @@ class Command(rocks.commands.report.host.ganglia.command):
 		except:
 			latlong = "unspecified"
 
+		## Capitalization of Var is modified for 7
+		try:
+			latlong = self.cleanstr(self.db.getHostAttr(host,
+				'Info_ClusterLatLong'))
+		except:
+			pass	
 		#
 		# Get the location of the machine in the cluster.
 		# The cluster is assumed to be 2 dimensional.
@@ -203,7 +209,7 @@ class Command(rocks.commands.report.host.ganglia.command):
 			rack = self.db.getHostAttr(host, 'rack')
 			rank = self.db.getHostAttr(host, 'rank')
 			plane = 0
-			location = "%u,%u,%u" % (rack, rank, plane)
+			location = "%s,%s,%s" % (str(rack), str(rank), str(plane))
 		except:
 			location = "unspecified"
 

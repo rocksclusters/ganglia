@@ -150,16 +150,23 @@
 
 <post>
 ln -s /opt/ganglia/sbin/gmond /usr/sbin/gmond
+if [ ! -d /opt/ganglia/var/run ]; then
+	mkdir -p /opt/ganglia/var/run
+fi
+</post>
+
+<post cond="rocks_version_major == 6">
+/sbin/chkconfig --add gmond
+</post>
+
+<post cond="rocks_version_major == 7">
+/usr/bin/systemctl enable gmond
 </post>
 
 <post os="linux">
-
-/sbin/chkconfig --add gmond
-
 <file name="/etc/man.config" mode="append">
 MANPATH /opt/ganglia/man
 </file>
-
 </post>
 
 <post os="sunos">

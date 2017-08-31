@@ -318,12 +318,23 @@
 
 /opt/rocks/bin/rocks add attr ganglia_address 224.0.0.3
 
-/sbin/chkconfig --add ganglia-restore-rrds
-/sbin/chkconfig --add gmetad
 
 ln -s /opt/ganglia/sbin/gmetad /usr/sbin/gmetad
 
 mkdir -p /etc/ganglia
+
+/usr/bin/chown nobody.nobody /var/lib/ganglia/rrds
+
+</post>
+
+<post cond="rocks_version_major == 6">
+/sbin/chkconfig --add ganglia-restore-rrds
+/sbin/chkconfig --add gmetad
+</post>
+
+<post cond="rocks_version_major == 7">
+/sbin/chkconfig --add ganglia-restore-rrds
+/usr/bin/systemctl enable gmetad
 </post>
 
 <!--reconfigure run this at reconfigure -->
