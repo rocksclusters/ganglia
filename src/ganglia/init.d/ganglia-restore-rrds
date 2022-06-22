@@ -137,6 +137,16 @@
 #
 #
 
+# set ganglia-restore-rrd stop before $local_fs stop
+### BEGIN INIT INFO
+# Provides: ganglia-restore-rrd
+# Required-Start: $local_fs
+# Required-Stop: $local_fs
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Ganglia RRDs restore
+### END INIT INFO
+
 archives=/var/lib/ganglia/archives
 
 case "$1" in
